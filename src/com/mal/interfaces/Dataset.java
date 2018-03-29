@@ -1,6 +1,6 @@
-package com.bb.interfaces;
+package com.mal.interfaces;
 
-import com.bb.Node;
+import com.mal.Node;
 
 /**
  * Interface for the user to specify the problem specific dataset

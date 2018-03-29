@@ -1,4 +1,4 @@
-package com.bb.utils.compiler;
+package com.mal.utils.compiler;
 
 import java.io.File;
 import java.net.MalformedURLException;

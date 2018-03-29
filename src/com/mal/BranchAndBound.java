@@ -1,10 +1,10 @@
-package com.bb;
+package com.mal;
 
-import com.bb.enums.NodeStrategy;
-import com.bb.enums.ProblemType;
-import com.bb.interfaces.Constraint;
-import com.bb.interfaces.Dataset;
-import com.bb.utils.compiler.BranchValue;
+import com.mal.enums.NodeStrategy;
+import com.mal.enums.ProblemType;
+import com.mal.interfaces.Constraint;
+import com.mal.interfaces.Dataset;
+import com.mal.utils.compiler.BranchValue;
 
 import java.util.Comparator;
 import java.util.Objects;

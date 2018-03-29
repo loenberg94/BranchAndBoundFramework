@@ -1,4 +1,4 @@
-package com.bb;
+package com.mal;
 
 import java.util.ArrayList;
 

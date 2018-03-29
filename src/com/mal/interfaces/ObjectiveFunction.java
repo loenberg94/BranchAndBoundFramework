@@ -1,6 +1,6 @@
-package com.bb.interfaces;
+package com.mal.interfaces;
 
-import com.bb.Node;
+import com.mal.Node;
 
 /**
  * Interface for user to specify the objective function for the problem

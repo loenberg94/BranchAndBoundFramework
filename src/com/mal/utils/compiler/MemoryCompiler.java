@@ -1,4 +1,4 @@
-package com.bb.utils.compiler;
+package com.mal.utils.compiler;
 
 import javax.tools.*;
 import java.io.PrintWriter;

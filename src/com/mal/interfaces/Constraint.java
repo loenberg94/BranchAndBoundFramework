@@ -1,6 +1,6 @@
-package com.bb.interfaces;
+package com.mal.interfaces;
 
-import com.bb.Node;
+import com.mal.Node;
 
 public interface Constraint {
     boolean CheckConstraint(Node node, Dataset set);

@@ -1,6 +1,6 @@
-package com.bb;
+package com.mal;
 
-import com.bb.utils.compiler.MemoryCompiler;
+import com.mal.utils.compiler.MemoryCompiler;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;

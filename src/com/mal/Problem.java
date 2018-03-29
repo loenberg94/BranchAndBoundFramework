@@ -1,11 +1,11 @@
-package com.bb;
+package com.mal;
 
-import com.bb.enums.NodeStrategy;
-import com.bb.enums.ProblemType;
-import com.bb.interfaces.Bound;
-import com.bb.interfaces.Constraint;
-import com.bb.interfaces.Dataset;
-import com.bb.interfaces.ObjectiveFunction;
+import com.mal.enums.NodeStrategy;
+import com.mal.enums.ProblemType;
+import com.mal.interfaces.Bound;
+import com.mal.interfaces.Constraint;
+import com.mal.interfaces.Dataset;
+import com.mal.interfaces.ObjectiveFunction;
 
 public class Problem {
     private ObjectiveFunction objectiveFunction;
