@@ -1,4 +1,4 @@
-package com.mal.utils.compiler;
+package com.mal.utils;
 
 public class BranchValue<T> {
     final T _value;

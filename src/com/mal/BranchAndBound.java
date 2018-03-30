@@ -4,10 +4,9 @@ import com.mal.enums.NodeStrategy;
 import com.mal.enums.ProblemType;
 import com.mal.interfaces.Constraint;
 import com.mal.interfaces.Dataset;
-import com.mal.utils.compiler.BranchValue;
+import com.mal.utils.BranchValue;
 
 import java.util.Comparator;
-import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class BranchAndBound {

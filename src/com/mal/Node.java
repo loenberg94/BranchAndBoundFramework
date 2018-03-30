@@ -1,6 +1,6 @@
 package com.mal;
 
-import com.mal.utils.compiler.BranchValue;
+import com.mal.utils.BranchValue;
 
 public class Node {
     public double lowerbound;
