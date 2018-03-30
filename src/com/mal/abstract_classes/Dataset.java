@@ -1,4 +1,4 @@
-package com.mal.interfaces;
+package com.mal.abstract_classes;
 
 import com.mal.Node;
 import com.mal.utils.Subset;

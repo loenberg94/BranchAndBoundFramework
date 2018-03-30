@@ -3,7 +3,7 @@ package com.mal;
 import com.mal.enums.NodeStrategy;
 import com.mal.enums.ProblemType;
 import com.mal.interfaces.Constraint;
-import com.mal.interfaces.Dataset;
+import com.mal.abstract_classes.Dataset;
 import com.mal.utils.BranchValue;
 
 import java.util.Comparator;

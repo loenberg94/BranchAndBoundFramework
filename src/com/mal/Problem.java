@@ -4,7 +4,7 @@ import com.mal.enums.NodeStrategy;
 import com.mal.enums.ProblemType;
 import com.mal.interfaces.Bound;
 import com.mal.interfaces.Constraint;
-import com.mal.interfaces.Dataset;
+import com.mal.abstract_classes.Dataset;
 import com.mal.interfaces.ObjectiveFunction;
 
 public class Problem {

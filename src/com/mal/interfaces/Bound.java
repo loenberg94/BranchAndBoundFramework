@@ -1,8 +1,7 @@
 package com.mal.interfaces;
 
 import com.mal.Node;
-
-import javax.xml.crypto.Data;
+import com.mal.abstract_classes.Dataset;
 
 /**
  *  Interface for user to specify lower- and upperbound funcions
