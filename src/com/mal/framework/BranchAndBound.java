@@ -1,10 +1,13 @@
-package com.mal;
+package com.mal.framework;
 
-import com.mal.enums.NodeStrategy;
-import com.mal.enums.ProblemType;
-import com.mal.interfaces.Constraint;
-import com.mal.abstract_classes.Dataset;
-import com.mal.utils.BranchValue;
+import com.mal.framework.enums.NodeStrategy;
+import com.mal.framework.enums.ProblemType;
+import com.mal.framework.interfaces.Constraint;
+import com.mal.framework.abstract_classes.Dataset;
+import com.mal.framework.utils.BranchValue;
+import com.mal.framework.utils.Node;
+import com.mal.framework.utils.Problem;
+import com.mal.framework.utils.Result;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

@@ -1,6 +1,6 @@
 package com.mal;
 
-import com.mal.utils.compiler.MemoryCompiler;
+import com.mal.utils.compiler.memory.MemoryCompiler;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -22,7 +22,6 @@ public class Main {
 
         try {
             Method method = compiler.compileStatic("main", "HelloWorld", writer.toString());
-            //Class cls = compiler.compile("HelloWorld",writer.toString());
             method.invoke(null, "");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

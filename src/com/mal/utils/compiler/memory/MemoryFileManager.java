@@ -1,4 +1,4 @@
-package com.mal.utils.compiler;
+package com.mal.utils.compiler.memory;
 
 import javax.tools.*;
 import java.io.*;

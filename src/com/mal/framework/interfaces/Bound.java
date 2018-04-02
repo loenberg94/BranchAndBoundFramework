@@ -1,7 +1,7 @@
-package com.mal.interfaces;
+package com.mal.framework.interfaces;
 
-import com.mal.Node;
-import com.mal.abstract_classes.Dataset;
+import com.mal.framework.utils.Node;
+import com.mal.framework.abstract_classes.Dataset;
 
 /**
  *  Interface for user to specify lower- and upperbound funcions

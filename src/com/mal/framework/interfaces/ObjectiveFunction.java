@@ -1,6 +1,6 @@
-package com.mal.interfaces;
+package com.mal.framework.interfaces;
 
-import com.mal.Node;
+import com.mal.framework.utils.Node;
 
 /**
  * Interface for user to specify the objective function for the problem
@@ -11,5 +11,5 @@ public interface ObjectiveFunction {
      * @param node represents solution
      * @return returns value of the given solution
      */
-    public double calculate(Node node);
+    double calculate(Node node);
 }

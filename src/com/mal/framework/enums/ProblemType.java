@@ -1,4 +1,4 @@
-package com.mal.enums;
+package com.mal.framework.enums;
 
 public enum ProblemType {
     MAXIMIZATION,
