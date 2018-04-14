@@ -12,6 +12,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class RegClassloader {
     private ObjectiveFunction oF;
     private ArrayList<Constraint> cs;

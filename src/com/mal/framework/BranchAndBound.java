@@ -14,7 +14,7 @@ import java.util.PriorityQueue;
 
 public class BranchAndBound {
     private Problem[] problems;
-    private Dataset dataset;
+    private double[] dataset;
     private Result[] results;
     int total_nodes = 0;
 
@@ -23,7 +23,7 @@ public class BranchAndBound {
     double incumbent;
     Node best;
 
-    public BranchAndBound(Problem[] instances, Dataset set){
+    public BranchAndBound(Problem[] instances, double[] set){
         this.problems = instances;
         this.dataset = set;
         this.results = new Result[instances.length];
@@ -33,7 +33,8 @@ public class BranchAndBound {
         for(int i = 0; i < problems.length; i++){
             final long start_time = System.currentTimeMillis();
 
-            Node root = new Node(null, null,false);
+            int extreme = (problems[i].type==ProblemType.MAXIMIZATION)?Integer.MIN_VALUE:Integer.MAX_VALUE;
+            Node root = new Node(null, extreme,false, dataset.length);
             root.lowerbound = Double.POSITIVE_INFINITY;
             root.upperbound = Double.NEGATIVE_INFINITY;
             nodepool = new PriorityQueue<>(getComparator(problems[i], problems[i].strategy));
@@ -97,19 +98,19 @@ public class BranchAndBound {
     }
 
     private void Branch(Node node, Constraint[] constraints){
-        BranchValue value = new BranchValue(dataset.nextValue(node));
+        double nextVal = dataset[node.depth + 1];
         boolean new_node_allowed = true;
 
         for(Constraint c: constraints) {
-            if (!c.CheckConstraint(new Node(node, value, true), dataset)) { new_node_allowed = false; }
+            if (!c.CheckConstraint(new Node(node, nextVal, true, dataset.length), dataset)) { new_node_allowed = false; }
         }
 
         if (new_node_allowed) {
-            Node is_included = new Node(node,value, true);
+            Node is_included = new Node(node,nextVal, true, dataset.length);
             nodepool.add(is_included);
             total_nodes++;
         }
-        nodepool.add(new Node(node, value, false));
+        nodepool.add(new Node(node, nextVal, false, dataset.length));
         total_nodes++;
     }
 

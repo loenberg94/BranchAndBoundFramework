@@ -1,6 +1,10 @@
 package com.mal;
 
+import com.mal.UI.mainform;
 import com.mal.utils.compiler.memory.MemoryCompiler;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -9,7 +13,18 @@ import java.lang.reflect.Method;
 public class Main {
 
     public static void main(String[] args) {
-        MemoryCompiler compiler = new MemoryCompiler();
+        JFrame frame = new JFrame("mainform");
+        frame.setSize(new Dimension(600,400));
+        frame.setContentPane(new mainform().mainpanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+
+
+    /*
+    * MemoryCompiler compiler = new MemoryCompiler();
 
         StringWriter writer = new StringWriter();
         PrintWriter out = new PrintWriter(writer);
@@ -30,5 +45,5 @@ public class Main {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-    }
+    * */
 }

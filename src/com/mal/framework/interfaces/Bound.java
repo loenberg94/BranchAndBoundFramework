@@ -9,16 +9,16 @@ import com.mal.framework.abstract_classes.Dataset;
 public interface Bound {
 
     /**
-     * @param node used to get current state.
+     * @param currentSolution used to get current state.
      * @param set can be used if necessary by user
-     * @return lowerbound value for current node state
+     * @return lowerbound Double value for current node state
      * */
-    double Lowerbound(Node node, Dataset set);
+    double Lowerbound(int[] currentSolution, double[] set);
 
     /**
-     * @param node used to get current state.
+     * @param currentSolution used to get current state.
      * @param set can be used if necessary by user
-     * @return upperbound value for current node state
+     * @return upperbound Double value for current node state
      * */
-    double Upperbound(Node node, Dataset set);
+    double Upperbound(int[] currentSolution, double[] set);
 }
