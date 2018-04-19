@@ -25,6 +25,12 @@ public class Constraint {
         }
     }
 
+    public Constraint(double[] leftHandSide, double rightHandSide, ConstraintType type){
+        lhs = leftHandSide;
+        rhs = rightHandSide;
+        cT = type;
+    }
+
     public double getRhs() {
         return rhs;
     }
