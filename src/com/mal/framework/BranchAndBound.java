@@ -6,7 +6,6 @@ import com.mal.framework.utils.Constraint;
 import com.mal.framework.utils.Node;
 import com.mal.framework.utils.Problem;
 import com.mal.framework.utils.Result;
-
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -58,6 +57,7 @@ public class BranchAndBound {
                                 best = node;
                             }
                         }
+                        break;
                     case MAXIMIZATION:
                         if(node.depth == dataset.length - 1){
                             pruned = true;
@@ -78,6 +78,7 @@ public class BranchAndBound {
                                 best = node;
                             }
                         }
+                        break;
                 }
 
                 if (!pruned){
@@ -104,14 +105,19 @@ public class BranchAndBound {
                         Branch(node, problems[i], -1);
                     }
                 }
+                node = null;
             }
             final long end_time = System.currentTimeMillis();
 
             Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.length, problems[i].strategy);
             tmp.setObjectiveValue(best.getObjectiveValue(dataset));
+            for(int j:best.getCurrentSolution().keySet()){
+                tmp.setSolution(j,best.getCurrentSolution().get(j));
+            }
             results[i] = tmp;
             total_nodes = 0;
             resetIncumbent(problems[i].type);
+            best = null;
             System.gc();
         }
     }
@@ -139,9 +145,9 @@ public class BranchAndBound {
                     }
                 };
             case DEPTH_FIRST:
-                return Comparator.comparingInt(o -> o.depth);
+                return (o1,o2) -> -Integer.compare(o1.depth,o2.depth);
             case BREADTH_FIRST:
-                return (o1,o2) -> o2.depth-o1.depth;
+                return Comparator.comparingInt(o -> o.depth);
         }
         return null;
     }
@@ -175,18 +181,21 @@ public class BranchAndBound {
         }
 
         if (new_node_allowed) {
-            Node is_included = (problem.isLP_Relaxation())?new Node(node,(float)nextVal, true, nextValIndex):new Node(node, (float)nextVal, true);
+            Node is_included = (problem.isLP_Relaxation())?new Node(node,nextVal, true, nextValIndex):new Node(node,nextVal, true);
             problem.Lowerbound(is_included,dataset);
             problem.Upperbound(is_included,dataset);
             nodepool.add(is_included);
             total_nodes++;
+            is_included = null;
         }
 
-        Node not_included = (problem.isLP_Relaxation())?new Node(node, (float)nextVal, false, nextValIndex):new Node(node, (float)nextVal, false);
+        Node not_included = (problem.isLP_Relaxation())?new Node(node,nextVal, false, nextValIndex):new Node(node,nextVal, false);
         problem.Lowerbound(not_included,dataset);
         problem.Upperbound(not_included,dataset);
         nodepool.add(not_included);
         total_nodes++;
+        not_included = null;
+        node.free();
     }
 
     public Result[] getResults() {

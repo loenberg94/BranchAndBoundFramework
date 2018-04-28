@@ -76,7 +76,9 @@
           </grid>
           <hspacer id="c06b5">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="14" height="216"/>
+              </grid>
             </constraints>
           </hspacer>
           <vspacer id="ae320">
@@ -104,24 +106,6 @@
               <background color="-5195591"/>
             </properties>
           </component>
-          <component id="e4c6d" class="javax.swing.JTextField" binding="of_file_tf">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-5195591"/>
-            </properties>
-          </component>
-          <component id="8f3bf" class="javax.swing.JButton" binding="of_browse_btn">
-            <constraints>
-              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Browse"/>
-            </properties>
-          </component>
           <component id="6aea" class="javax.swing.JButton" binding="ds_browse_btn">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -136,15 +120,6 @@
             </constraints>
             <properties>
               <text value="Browse"/>
-            </properties>
-          </component>
-          <component id="6f239" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <foreground color="-12566464"/>
-              <text value="Objective function"/>
             </properties>
           </component>
           <component id="427a6" class="javax.swing.JLabel">

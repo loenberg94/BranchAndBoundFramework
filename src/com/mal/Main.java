@@ -1,10 +1,18 @@
 package com.mal;
 
+import com.mal.UI.mainform;
 import com.mal.framework.BranchAndBound;
 import com.mal.framework.enums.NodeStrategy;
 import com.mal.framework.utils.Problem;
 import com.mal.framework.utils.Result;
 import com.mal.tests.Knapsack;
+import com.mal.tests.Knapsack_24coef;
+import com.mal.tests.Knapsack_7coef;
+import com.mal.utils.cplex.Cplex;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 
 public class Main {
 
@@ -16,38 +24,26 @@ public class Main {
         frame.pack();
         frame.setVisible(true);*/
 
-        /*Cplex cplex = new Cplex();
-
-        Knapsack knapsack = Knapsack.CreateNew();
-        HashMap<Integer,Double> cs = new HashMap<>();
-        cs.put(0,1.0);
-        cs.put(1,1.0);
-        cs.put(2,1.0);
-        cs.put(3,1.0);
-
-        try {
-            double[] result = cplex.lp_relaxation(knapsack.getDataset(),cs, knapsack.getConstraints(), knapsack.type);
-            for(double val:result){
-                System.out.printf("%f\n",val);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
-        Knapsack knapsack_bst  = Knapsack.CreateNew();
-        Knapsack knapsack_dpth = Knapsack.CreateNew();
-        knapsack_dpth.strategy = NodeStrategy.DEPTH_FIRST;
-        Knapsack knapsack_brth = Knapsack.CreateNew();
-        knapsack_brth.strategy = NodeStrategy.BREADTH_FIRST;
+        //Knapsack knapsack_bst  = Knapsack.CreateNew();
+        //Knapsack knapsack_dpth = Knapsack.CreateNew();
+        //knapsack_dpth.strategy = NodeStrategy.DEPTH_FIRST;
+        //Knapsack knapsack_brth = Knapsack.CreateNew();
+        //knapsack_brth.strategy = NodeStrategy.BREADTH_FIRST;
+        /*Knapsack_24coef knapsack_24coef_bst = Knapsack_24coef.CreateNew();
+        Knapsack_24coef knapsack_24coef_dpth = Knapsack_24coef.CreateNew();
+        knapsack_24coef_dpth.strategy = NodeStrategy.DEPTH_FIRST;
+        Knapsack_24coef knapsack_24coef_brth = Knapsack_24coef.CreateNew();
+        knapsack_24coef_brth.strategy = NodeStrategy.BREADTH_FIRST;*/
         /*try {
-            double[] resArr = Cplex.ip_solve(knapsack.getDataset(),knapsack.getConstraints(),knapsack.type);
+            Cplex cplex = new Cplex();
+            double[] resArr = cplex.ip_solve(knapsack_bst.getDataset(),knapsack_bst.getConstraints(),knapsack_bst.type);
             for(double res:resArr){
                 System.out.printf("%f\n",res);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-        BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_bst, knapsack_dpth, knapsack_brth},knapsack_bst.getDataset());
+        /*BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_24coef_bst,knapsack_24coef_dpth,knapsack_24coef_brth},knapsack_24coef_bst.getDataset());
         bnb.Solve();
         Result[] res = bnb.getResults();
         for(Result r:res){
@@ -55,32 +51,15 @@ public class Main {
             System.out.printf("\nObjective value: %f\n",r.getObjectiveValue());
             System.out.printf("time: %f seconds\n",r.getRuntime());
             System.out.printf("nodes: %d\n",r.getNr_of_nodes());
-        }
+            System.out.printf("solution: ");
+            for(int s:r.getSolution()){
+                System.out.printf("%d ",s);
+            }
+        }*/
+        /*try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
     }
-
-
-
-    /*
-    * MemoryCompiler compiler = new MemoryCompiler();
-
-        StringWriter writer = new StringWriter();
-        PrintWriter out = new PrintWriter(writer);
-        out.println("public class HelloWorld {");
-        out.println("  public static void main(String test) {");
-        out.println("    System.out.println(\"This is in another java file\");");
-        out.println("  }");
-        out.println("}");
-        out.close();
-
-        try {
-            Method method = compiler.compileStatic("main", "HelloWorld", writer.toString());
-            method.invoke(null, "");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    * */
 }

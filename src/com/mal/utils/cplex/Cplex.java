@@ -2,19 +2,25 @@ package com.mal.utils.cplex;
 
 import com.mal.framework.enums.ProblemType;
 import com.mal.framework.utils.Constraint;
-import ilog.concert.IloLinearNumExpr;
-import ilog.concert.IloNumVar;
-import ilog.cplex.IloCplex;
+import ilog.concert.*;
+import ilog.cplex.*;
 
 import java.util.HashMap;
 
 public class Cplex {
-    public static double[] lp_relaxation(double[] coefficients, HashMap<Integer,Float> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
-        IloCplex cplex = new IloCplex();
-        IloNumVar[] x = cplex.numVarArray(coefficients.length,0.0, 1.0);
+    IloCplex cplex;
+    IloNumVar[] x;
+    IloLinearNumExpr obj;
 
+    public Cplex() throws IloException {
+        cplex = new IloCplex();
+    }
+
+    public double[] lp_relaxation(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
+        x = cplex.numVarArray(coefficients.length,0.0, 1.0);
+        cplex.setOut(null);
         // Objective function
-        IloLinearNumExpr obj = cplex.linearNumExpr();
+        obj = cplex.linearNumExpr();
         for(int i = 0; i < coefficients.length; i++){
             if (currentSolution.containsKey(i)){
                 x[i].setLB(currentSolution.get(i));
@@ -42,20 +48,41 @@ public class Cplex {
             switch (cons.getcT()){
                 case LEQ:
                     cplex.addLe(exprs,cons.getRhs());
+                    break;
                 case EQUALS:
                     cplex.addGe(exprs,cons.getRhs());
+                    break;
                 case GEQ:
                     cplex.addEq(exprs,cons.getRhs());
+                    break;
             }
         }
 
         cplex.solve();
 
         IloCplex.Status status = cplex.getStatus();
-        return cplex.getValues(x);
+        double[] retArr = null;
+        if(status == IloCplex.Status.Optimal || status == IloCplex.Status.Feasible){
+            retArr = cplex.getValues(x);
+        }
+        return retArr;
     }
 
-    public static double[] ip_solve(double[] coefficients, Constraint[] constraints, ProblemType type) throws Exception {
+    public void release(){
+        try {
+            cplex.clearModel();
+            for(int i = 0; i < x.length; i++){
+                x[i] = null;
+            }
+            x = null;
+            obj.clear();
+            obj = null;
+        } catch (IloException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public double[] ip_solve(double[] coefficients, Constraint[] constraints, ProblemType type) throws Exception {
         IloCplex cplex = new IloCplex();
         IloNumVar[] x = cplex.boolVarArray(coefficients.length);
 
@@ -81,8 +108,10 @@ public class Cplex {
             switch (cons.getcT()){
                 case LEQ:
                     cplex.addLe(exprs,cons.getRhs());
+                    break;
                 case EQUALS:
                     cplex.addGe(exprs,cons.getRhs());
+                    break;
                 case GEQ:
                     cplex.addEq(exprs,cons.getRhs());
             }
@@ -93,7 +122,11 @@ public class Cplex {
         IloCplex.Status status = cplex.getStatus();
         if (status.equals(IloCplex.Status.Optimal)){
             System.out.printf("\n\n%f\n",cplex.getObjValue());
-            return cplex.getValues(x);
+            double[] retarr = cplex.getValues(x);
+            /*x = null;
+            cplex = null;
+            obj = null;*/
+            return retarr;
         }
         else {
             throw new Exception("No optimal solution found");

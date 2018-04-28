@@ -16,12 +16,12 @@ public interface Bound {
      * @param set can be used if necessary by user
      * @return lowerbound Double value for current node state
      * */
-    float Lowerbound(HashMap<Integer,Float> currentSolution, double[] set, Constraint[] constraints);
+    double Lowerbound(HashMap<Integer,Double> currentSolution, double[] set, Constraint[] constraints);
 
     /**
      * @param currentSolution used to get current state.
      * @param set can be used if necessary by user
      * @return upperbound Double value for current node state
      * */
-    float Upperbound(HashMap<Integer,Float> currentSolution, double[] set, Constraint[] constraints);
+    double Upperbound(HashMap<Integer,Double> currentSolution, double[] set, Constraint[] constraints);
 }

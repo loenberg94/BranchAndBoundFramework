@@ -1,0 +1,1 @@
+java -verbosegc -XX:+UseG1GC -Xms1500m -Xmx2000m -XX:NewRatio=2 -cp .;"C:/Program Files/IBM/ILOG/CPLEX_Studio1271/cplex/lib/cplex.jar" com.mal.Main

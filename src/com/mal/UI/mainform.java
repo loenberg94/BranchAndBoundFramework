@@ -8,8 +8,6 @@ public class mainform {
     public JPanel mainpanel;
     private JTextField ds_file_tf;
     private JTextField cs_file_tf;
-    private JTextField of_file_tf;
-    private JButton of_browse_btn;
     private JButton ds_browse_btn;
     private JButton cs_browse_btn;
     private JPanel general_data;
@@ -19,7 +17,6 @@ public class mainform {
     private JList list1;
 
     public mainform() {
-        of_browse_btn.addActionListener(e -> of_file_tf.setText(FileLocater.locateFile(mainpanel)));
         ds_browse_btn.addActionListener(e -> ds_file_tf.setText(FileLocater.locateFile(mainpanel)));
         cs_browse_btn.addActionListener(e -> {
             String[] files = FileLocater.locateFiles(mainpanel);
