@@ -3,6 +3,7 @@ package com.mal.framework.utils;
 import com.mal.framework.enums.NodeStrategy;
 
 public class Result {
+    final String p_name;
     final int nr_of_nodes;
     final double runtime;
 
@@ -11,11 +12,12 @@ public class Result {
 
     NodeStrategy strategy;
 
-    public Result(int nodes, double time, int size, NodeStrategy strategy){
+    public Result(int nodes, double time, int size, NodeStrategy strategy, String name){
         this.nr_of_nodes = nodes;
         this.runtime = time;
         this.solution = new int[size];
         this.strategy = strategy;
+        this.p_name = name;
     }
 
     public void setSolution(int i, Double included) {
@@ -34,6 +36,7 @@ public class Result {
     public int getNr_of_nodes() {
         return nr_of_nodes;
     }
+    public String getP_name() { return p_name; }
 
     public NodeStrategy getStrategy() {
         return strategy;

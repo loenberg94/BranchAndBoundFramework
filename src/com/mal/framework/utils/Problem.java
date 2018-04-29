@@ -6,6 +6,7 @@ import com.mal.framework.interfaces.Bound;
 import com.mal.utils.cplex.Cplex;
 
 public class Problem {
+    private String p_name;
     private Constraint[] constraints;
     private Bound bounds;
 
@@ -106,21 +107,27 @@ public class Problem {
         return LP_Relaxation;
     }
 
-    public Problem(Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type){
+    public String getP_name() {
+        return p_name;
+    }
+
+    public Problem(String name, Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type){
         this.constraints = constraints;
         this.bounds = bound;
         this.strategy = strategy;
         this.type = type;
         this.LP_Relaxation = false;
         this.lp_branch_condition_val = -1;
+        this.p_name = name;
     }
 
-    public Problem(Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type, boolean lp, double lp_bcv){
+    public Problem(String name,Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type, boolean lp, double lp_bcv){
         this.constraints = constraints;
         this.bounds = bound;
         this.strategy = strategy;
         this.type = type;
         this.LP_Relaxation = lp;
         this.lp_branch_condition_val = lp_bcv;
+        this.p_name = name;
     }
 }

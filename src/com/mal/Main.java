@@ -3,6 +3,7 @@ package com.mal;
 import com.mal.UI.mainform;
 import com.mal.framework.BranchAndBound;
 import com.mal.framework.enums.NodeStrategy;
+import com.mal.framework.utils.Node;
 import com.mal.framework.utils.Problem;
 import com.mal.framework.utils.Result;
 import com.mal.tests.Knapsack;
@@ -13,6 +14,8 @@ import com.mal.utils.cplex.Cplex;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class Main {
 
@@ -24,11 +27,11 @@ public class Main {
         frame.pack();
         frame.setVisible(true);*/
 
-        //Knapsack knapsack_bst  = Knapsack.CreateNew();
-        //Knapsack knapsack_dpth = Knapsack.CreateNew();
-        //knapsack_dpth.strategy = NodeStrategy.DEPTH_FIRST;
-        //Knapsack knapsack_brth = Knapsack.CreateNew();
-        //knapsack_brth.strategy = NodeStrategy.BREADTH_FIRST;
+        Knapsack knapsack_bst  = Knapsack.CreateNew();
+        Knapsack knapsack_dpth = Knapsack.CreateNew();
+        knapsack_dpth.strategy = NodeStrategy.DEPTH_FIRST;
+        Knapsack knapsack_brth = Knapsack.CreateNew();
+        knapsack_brth.strategy = NodeStrategy.BREADTH_FIRST;
         /*Knapsack_24coef knapsack_24coef_bst = Knapsack_24coef.CreateNew();
         Knapsack_24coef knapsack_24coef_dpth = Knapsack_24coef.CreateNew();
         knapsack_24coef_dpth.strategy = NodeStrategy.DEPTH_FIRST;
@@ -43,7 +46,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-        /*BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_24coef_bst,knapsack_24coef_dpth,knapsack_24coef_brth},knapsack_24coef_bst.getDataset());
+        /*BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_bst,knapsack_dpth,knapsack_brth},knapsack_bst.getDataset());
         bnb.Solve();
         Result[] res = bnb.getResults();
         for(Result r:res){
@@ -61,5 +64,25 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+
+        Node tmp1 = new Node(null,0,true);
+        Node tmp2 = new Node(tmp1,0,true);
+        Node tmp3 = new Node(tmp2,0,true);
+        Node tmp4 = new Node(tmp3,0,true);
+        Node tmp5 = new Node(tmp1,0,true);
+        Node tmp6 = new Node(tmp2,0,true);
+        Node tmp7 = new Node(tmp3,0,true);
+
+        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.depth));
+        queue.add(tmp1);
+        queue.add(tmp2);
+        queue.add(tmp3);
+        queue.add(tmp4);
+        queue.add(tmp5);
+        queue.add(tmp6);
+        queue.add(tmp7);
+        while (queue.size() > 0){
+            System.out.printf("depth: %d\n",queue.poll().depth);
+        }
     }
 }

@@ -6,6 +6,9 @@ import com.mal.framework.utils.Constraint;
 import com.mal.framework.utils.Node;
 import com.mal.framework.utils.Problem;
 import com.mal.framework.utils.Result;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -14,6 +17,8 @@ public class BranchAndBound {
     private double[] dataset;
     private Result[] results;
     int total_nodes = 0;
+
+    IntegerProperty resultsSolved;
 
     private PriorityQueue<Node> nodepool;
 
@@ -24,9 +29,11 @@ public class BranchAndBound {
         this.problems = instances;
         this.dataset = set;
         this.results = new Result[instances.length];
+        this.resultsSolved = new SimpleIntegerProperty();
     }
 
     public void Solve(){
+        resultsSolved.setValue(0);
         for(int i = 0; i < problems.length; i++){
             final long start_time = System.currentTimeMillis();
 
@@ -109,7 +116,7 @@ public class BranchAndBound {
             }
             final long end_time = System.currentTimeMillis();
 
-            Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.length, problems[i].strategy);
+            Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.length, problems[i].strategy,problems[i].getP_name());
             tmp.setObjectiveValue(best.getObjectiveValue(dataset));
             for(int j:best.getCurrentSolution().keySet()){
                 tmp.setSolution(j,best.getCurrentSolution().get(j));
@@ -118,8 +125,13 @@ public class BranchAndBound {
             total_nodes = 0;
             resetIncumbent(problems[i].type);
             best = null;
+            resultsSolved.setValue(i + 1);
             System.gc();
         }
+    }
+
+    public IntegerProperty getResultsSolvedProperty(){
+        return resultsSolved;
     }
 
     private void resetIncumbent(ProblemType type){
@@ -133,7 +145,7 @@ public class BranchAndBound {
         }
     }
 
-    public Comparator<Node> getComparator(Problem problem,NodeStrategy strategy){
+    public static Comparator<Node> getComparator(Problem problem,NodeStrategy strategy){
         switch (strategy){
             case BEST_FIRST:
                 return (o1, o2) -> {

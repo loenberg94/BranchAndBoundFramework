@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="BB_Framework:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/mal/MainFx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/listview_item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/BB_Framework_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/mainform.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/mainform.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/mainform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/mainform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/MainFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/framework/interfaces/Bound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/framework/interfaces/Bound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/framework/utils/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/framework/utils/Result.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_8coef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,12 +33,12 @@
     <SUITE FILE_PATH="coverage/BB_Framework$Main.ic" NAME="Main Coverage Results" MODIFIED="1524644881720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Cplex.java" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Cplex.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+            <state relative-caret-position="85">
+              <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/main.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="150" column="50" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="50" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="181">
+              <caret line="75" column="93" selection-start-line="75" selection-start-column="93" selection-end-line="75" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,21 +71,11 @@
       <file leaf-file-name="MainFx.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/MainFx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="238">
+              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/main.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="1972">
-              <caret line="116" column="76" selection-start-line="116" selection-start-column="76" selection-end-line="116" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -80,8 +83,26 @@
       <file leaf-file-name="mainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+            <state relative-caret-position="-7680">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8895#8896#0" expanded="true" />
+                <element signature="e#8921#8922#0" expanded="true" />
+                <element signature="e#9468#9469#0" expanded="true" />
+                <element signature="e#9495#9496#0" expanded="true" />
+                <element signature="e#10861#10862#0" expanded="true" />
+                <element signature="e#10909#10910#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Problem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,17 +110,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listview_item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/listview_item.java">
+      <file leaf-file-name="Knapsack.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="26" />
+            <state relative-caret-position="113">
+              <caret line="16" column="114" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="114" />
               <folding>
-                <element signature="e#1342#1343#0" expanded="true" />
-                <element signature="e#1375#1376#0" expanded="true" />
-                <element signature="e#1412#1413#0" expanded="true" />
-                <element signature="e#1445#1446#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Result.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Result.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -107,8 +134,22 @@
       <file leaf-file-name="BranchAndBound.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3230">
-              <caret line="190" selection-start-line="190" selection-end-line="190" />
+            <state relative-caret-position="352">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5229#5230#0" expanded="true" />
+                <element signature="e#5264#5265#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,6 +174,8 @@
       <find>switch</find>
       <find>float</find>
       <find>com.mal.UI.test</find>
+      <find>comb</find>
+      <find>browse</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -172,23 +215,23 @@
         <option value="$PROJECT_DIR$/src/com/mal/tests/knapsack.java" />
         <option value="$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex_org.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_6coef.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Result.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_8coef.java" />
         <option value="$PROJECT_DIR$/src/com/mal/framework/interfaces/Bound.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" />
         <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Node.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/mainform.form" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/mainform.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/MainFx.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/listview_item.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/main.fxml" />
+        <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Result.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/MainFx.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/mainController.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java" />
       </list>
     </option>
   </component>
@@ -204,8 +247,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,26 +272,20 @@
               <item name="mal" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mal" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="197" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/IBM/ILOG/CPLEX_Studio1271/cplex/lib/cplex.jar!/" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -384,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524154912945</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated UI">
+      <created>1524905959911</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1524905959911</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -400,11 +442,11 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32846716" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32846716" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1554476" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1554476" />
       <window_info id="Learn" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -424,14 +466,12 @@
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32846716" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32846716" />
       <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32846716" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32846716" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296322" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -454,6 +494,8 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296322" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32846716" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39902675" />
     </layout-to-restore>
   </component>
@@ -466,7 +508,8 @@
     <MESSAGE value="Rearranging the code into more suitable structure.&#10;All code related to the framework specificly is moved to the package: framwork&#10;new package UI created to facilitate the user interface code" />
     <MESSAGE value="updated for cplex integration" />
     <MESSAGE value="updated for and working condition with cplex" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated for and working condition with cplex" />
+    <MESSAGE value="Updated UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -482,7 +525,7 @@
         <line-breakpoint type="java-method">
           <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java</url>
-          <line>28</line>
+          <line>34</line>
           <properties class="com.mal.framework.BranchAndBound" method="Solve">
             <option name="EMULATED" value="true" />
           </properties>
@@ -491,43 +534,57 @@
         <line-breakpoint type="java-line">
           <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/Main.java</url>
-          <line>52</line>
+          <line>55</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java</url>
-          <line>62</line>
+          <line>69</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java</url>
-          <line>70</line>
+          <line>77</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java</url>
-          <line>72</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java</url>
-          <line>92</line>
+          <line>99</line>
           <properties />
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="true" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/com/mal/Main.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="true" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="49" />
+      <option name="time" value="55" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -580,20 +637,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/interfaces/ObjectiveFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="875">
@@ -633,6 +676,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -755,38 +801,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Constraint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/framework/interfaces/Bound.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="79" column="37" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -801,30 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12">
           <caret line="100" column="7" lean-forward="true" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -843,19 +837,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3230">
-          <caret line="190" selection-start-line="190" selection-end-line="190" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/listview_item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
+        <state relative-caret-position="680">
           <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="26" />
           <folding>
             <element signature="e#1342#1343#0" expanded="true" />
@@ -866,20 +850,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.graphics/com/sun/glass/ui/CommonDialogs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="114" column="48" selection-start-line="114" selection-start-column="48" selection-end-line="114" selection-end-column="48" />
+        <state relative-caret-position="124">
+          <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.graphics/javafx/stage/FileChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="412" column="19" lean-forward="true" selection-start-line="412" selection-start-column="19" selection-end-line="412" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Constraint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/main.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="150" column="50" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="50" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="75" column="93" selection-start-line="75" selection-start-column="93" selection-end-line="75" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5229#5230#0" expanded="true" />
+            <element signature="e#5264#5265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="16" column="114" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7680">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8895#8896#0" expanded="true" />
+            <element signature="e#8921#8922#0" expanded="true" />
+            <element signature="e#9468#9469#0" expanded="true" />
+            <element signature="e#9495#9496#0" expanded="true" />
+            <element signature="e#10861#10862#0" expanded="true" />
+            <element signature="e#10909#10910#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/MainFx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="238">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -888,26 +980,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/main.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="116" column="76" selection-start-line="116" selection-start-column="76" selection-end-line="116" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="85">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -920,10 +994,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>BB_Framework:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

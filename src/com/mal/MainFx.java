@@ -12,7 +12,7 @@ public class MainFx extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("UI/main.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1080, 800));
+        primaryStage.setScene(new Scene(root, 1280, 850));
         //primaryStage.setResizable(false);
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(1000);

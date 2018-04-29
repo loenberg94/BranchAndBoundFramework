@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BB_Framework:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BB_Framework_jar</output-path>
+    <root id="archive" name="BB_Framework.jar">
+      <element id="module-output" name="BB_Framework" />
+      <element id="extracted-dir" path="C:/Program Files/IBM/ILOG/CPLEX_Studio1271/cplex/lib/cplex.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

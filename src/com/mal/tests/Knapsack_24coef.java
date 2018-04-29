@@ -39,7 +39,7 @@ public class Knapsack_24coef extends Problem {
             369261};
 
     private Knapsack_24coef(Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type, boolean lp) {
-        super(constraints, bound, strategy, type, lp, 0.5);
+        super("",constraints, bound, strategy, type, lp, 0.5);
     }
 
     private static class knapsackBounds implements Bound {

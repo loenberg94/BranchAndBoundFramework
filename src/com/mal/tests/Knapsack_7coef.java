@@ -14,7 +14,7 @@ public class Knapsack_7coef extends Problem {
     final static double[] dataset      = new double[] {442,525,511,593,546,564,617};
 
     private Knapsack_7coef(Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type, boolean lp) {
-        super(constraints, bound, strategy, type, lp, 0.5);
+        super("",constraints, bound, strategy, type, lp, 0.5);
     }
 
     private static class knapsackBounds implements Bound {
