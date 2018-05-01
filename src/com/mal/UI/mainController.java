@@ -11,6 +11,8 @@ import com.mal.framework.utils.Constraint;
 import com.mal.framework.utils.Problem;
 import com.mal.framework.utils.Result;
 import com.mal.tests.Knapsack;
+import com.mal.utils.compiler.Compiler;
+import com.mal.utils.compiler.CustomClassloader;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,9 +26,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
+import javafx.util.Pair;
 
+import javax.tools.DiagnosticCollector;
+import javax.tools.JavaFileObject;
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.HashMap;
 
 public class mainController {
@@ -274,8 +284,8 @@ public class mainController {
         fileChooser.setInitialDirectory(new File(resources.filechooserpath));
         fileChooser.setTitle("Locate bound file");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Java files",".java"),
-                new FileChooser.ExtensionFilter("Class files", ".class"));
+                new FileChooser.ExtensionFilter("Java files","*.java"),
+                new FileChooser.ExtensionFilter("Class files", "*.class"));
         File s = fileChooser.showOpenDialog(change_anchorpane.getScene().getWindow());
         bndfiletv.setText((s!=null)?s.getAbsolutePath():"");
         listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
@@ -334,8 +344,56 @@ public class mainController {
         return null;
     }
 
+    private File formatFileStructure(File org){
+        try {
+            StringBuilder org_f = new StringBuilder();
+            BufferedReader bfr = new BufferedReader(new FileReader(org));
+            String st;
+            while ((st = bfr.readLine())!= null) {
+                if(st.contains("package")){
+                    //org_f.append("package bound;");
+                }
+                else{
+                    org_f.append(st + "\n");
+                }
+            }
+
+            File out = new File("bound/" + org.getName());
+            if(out.getParentFile().exists() || out.getParentFile().mkdir()){
+                Writer writer = null;
+                try {
+                    writer = new FileWriter(out);
+                    writer.write(org_f.toString());
+                    writer.flush();
+                } finally {
+                    writer.close();
+                }
+            }
+            return out;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private Bound getBound(String filename){
-        return new Knapsack.knapsackBounds();
+        File file = formatFileStructure(new File(filename));
+        Pair<Boolean, DiagnosticCollector<JavaFileObject>> res = Compiler.compileClass(file);
+        if(res.getKey()){
+            Bound bnd = null;
+            try {
+                URLClassLoader classLoader = new URLClassLoader(new URL[]{new File("./").toURI().toURL()});
+                String cName = (file.getName().replace(".java",""));
+                Class<?> cls = classLoader.loadClass(cName);
+                bnd = (Bound) cls.getDeclaredConstructor().newInstance();
+            } catch (MalformedURLException | ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+            return bnd;
+        }
+        return null;
     }
 
     private NodeStrategy getStrategy(listview_item item){

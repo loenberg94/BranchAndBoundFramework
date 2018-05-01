@@ -3,17 +3,26 @@ package com.mal;
 import com.mal.UI.mainform;
 import com.mal.framework.BranchAndBound;
 import com.mal.framework.enums.NodeStrategy;
+import com.mal.framework.interfaces.Bound;
 import com.mal.framework.utils.Node;
 import com.mal.framework.utils.Problem;
 import com.mal.framework.utils.Result;
 import com.mal.tests.Knapsack;
 import com.mal.tests.Knapsack_24coef;
 import com.mal.tests.Knapsack_7coef;
+import com.mal.utils.compiler.Compiler;
+import com.mal.utils.compiler.CustomClassloader;
 import com.mal.utils.cplex.Cplex;
+import javafx.util.Pair;
 
 import javax.swing.*;
+import javax.tools.DiagnosticCollector;
+import javax.tools.JavaFileObject;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -65,24 +74,17 @@ public class Main {
             e.printStackTrace();
         }*/
 
-        Node tmp1 = new Node(null,0,true);
-        Node tmp2 = new Node(tmp1,0,true);
-        Node tmp3 = new Node(tmp2,0,true);
-        Node tmp4 = new Node(tmp3,0,true);
-        Node tmp5 = new Node(tmp1,0,true);
-        Node tmp6 = new Node(tmp2,0,true);
-        Node tmp7 = new Node(tmp3,0,true);
-
-        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o.depth));
-        queue.add(tmp1);
-        queue.add(tmp2);
-        queue.add(tmp3);
-        queue.add(tmp4);
-        queue.add(tmp5);
-        queue.add(tmp6);
-        queue.add(tmp7);
-        while (queue.size() > 0){
-            System.out.printf("depth: %d\n",queue.poll().depth);
+        //String path = "C:\\Users\\loenb\\Documents\\Projects\\BB_Framework\\out\\production\\BB_Framework\\com\\mal\\tests\\loadtest.class";
+        String path = "C:\\Users\\loenb\\Documents\\Projects\\BB_Framework\\testfiles\\Loadtest.java";
+        File file = new File(path);
+        /*Pair<Boolean, DiagnosticCollector<JavaFileObject>> t = Compiler.compileClass(new File(path));
+        if(t.getKey()){
+            System.out.printf("SUCCES");
         }
+        else{
+            System.out.printf("%b, %s", t.getKey(),t.getValue().getDiagnostics().get(0).getSource());
+        }*/
+
+        CustomClassloader.loadObject(file);
     }
 }

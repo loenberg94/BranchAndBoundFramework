@@ -10,7 +10,7 @@ public class Problem {
     private Constraint[] constraints;
     private Bound bounds;
 
-    private final boolean LP_Relaxation;
+    private final boolean lpRelaxation;
     private final double lp_branch_condition_val;
 
     public NodeStrategy strategy;
@@ -22,7 +22,7 @@ public class Problem {
             return null;
         }
 
-        if (!LP_Relaxation || type.equals(ProblemType.MAXIMIZATION)){
+        if (!lpRelaxation || type.equals(ProblemType.MAXIMIZATION)){
             node.lowerbound = bounds.Lowerbound(node.getCurrentSolution(),set,constraints);
         }
         else {
@@ -49,7 +49,7 @@ public class Problem {
             return null;
         }
 
-        if (!LP_Relaxation || type.equals(ProblemType.MINIMIZATION)){
+        if (!lpRelaxation || type.equals(ProblemType.MINIMIZATION)){
             node.upperbound = bounds.Upperbound(node.getCurrentSolution(),set,constraints);
         }
         else {
@@ -103,8 +103,8 @@ public class Problem {
         return constraints;
     }
 
-    public boolean isLP_Relaxation() {
-        return LP_Relaxation;
+    public boolean isLpRelaxation() {
+        return lpRelaxation;
     }
 
     public String getP_name() {
@@ -116,7 +116,7 @@ public class Problem {
         this.bounds = bound;
         this.strategy = strategy;
         this.type = type;
-        this.LP_Relaxation = false;
+        this.lpRelaxation = false;
         this.lp_branch_condition_val = -1;
         this.p_name = name;
     }
@@ -126,7 +126,7 @@ public class Problem {
         this.bounds = bound;
         this.strategy = strategy;
         this.type = type;
-        this.LP_Relaxation = lp;
+        this.lpRelaxation = lp;
         this.lp_branch_condition_val = lp_bcv;
         this.p_name = name;
     }

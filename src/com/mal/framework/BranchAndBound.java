@@ -89,12 +89,12 @@ public class BranchAndBound {
                 }
 
                 if (!pruned){
-                    if(problems[i].isLP_Relaxation()){
+                    if(problems[i].isLpRelaxation()){
                         int branch_index;
                         if(problems[i].type.equals(ProblemType.MAXIMIZATION)){
                             branch_index = problems[i].getBranchIndex(node.getCurrentBoundSolution());
                             if(branch_index >= 0){
-                                Branch(node, problems[i], branch_index);
+                                branch(node, problems[i], branch_index);
                             }
                             else{
                                 node.transferBoundSolutionToSolution();
@@ -109,7 +109,7 @@ public class BranchAndBound {
                         }
                     }
                     else{
-                        Branch(node, problems[i], -1);
+                        branch(node, problems[i], -1);
                     }
                 }
                 node = null;
@@ -164,7 +164,7 @@ public class BranchAndBound {
         return null;
     }
 
-    private void Branch(Node node, Problem problem, int nextValIndex){
+    private void branch(Node node, Problem problem, int nextValIndex){
         double nextVal = (nextValIndex >= 0)?nextValIndex:dataset[node.depth + 1];
         boolean new_node_allowed = true;
 
@@ -193,7 +193,7 @@ public class BranchAndBound {
         }
 
         if (new_node_allowed) {
-            Node is_included = (problem.isLP_Relaxation())?new Node(node,nextVal, true, nextValIndex):new Node(node,nextVal, true);
+            Node is_included = (problem.isLpRelaxation())?new Node(node,nextVal, true, nextValIndex):new Node(node,nextVal, true);
             problem.Lowerbound(is_included,dataset);
             problem.Upperbound(is_included,dataset);
             nodepool.add(is_included);
@@ -201,7 +201,7 @@ public class BranchAndBound {
             is_included = null;
         }
 
-        Node not_included = (problem.isLP_Relaxation())?new Node(node,nextVal, false, nextValIndex):new Node(node,nextVal, false);
+        Node not_included = (problem.isLpRelaxation())?new Node(node,nextVal, false, nextValIndex):new Node(node,nextVal, false);
         problem.Lowerbound(not_included,dataset);
         problem.Upperbound(not_included,dataset);
         nodepool.add(not_included);

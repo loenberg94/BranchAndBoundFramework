@@ -2,24 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="BB_Framework" />
       <artifact name="BB_Framework:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/BB_Framework_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Updates:&#10;UI can read dataset and constraint files&#10;UI can execute problems and show data aqcuired from the results&#10;&#10;Issues:&#10;Result detail view still needs tweeking to work completely correct.">
+      <change afterPath="$PROJECT_DIR$/Framework/Framework.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mal/utils/compiler/Compiler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mal/utils/compiler/CustomClassloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/MainFx.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/framework/utils/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/framework/utils/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Cplex.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cplex.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state relative-caret-position="1258">
+              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,21 +45,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/main.fxml">
+      <file leaf-file-name="mainController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="150" column="50" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="50" />
+            <state relative-caret-position="7582">
+              <caret line="478" column="27" selection-start-line="478" selection-start-column="20" selection-end-line="478" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#14964#14965#0" expanded="true" />
+                <element signature="e#15013#15014#0" expanded="true" />
+              </folding>
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="75" column="93" selection-start-line="75" selection-start-column="93" selection-end-line="75" selection-end-column="93" />
+            <state relative-caret-position="1003">
+              <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="102" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,8 +74,8 @@
       <file leaf-file-name="MainFx.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/MainFx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+            <state relative-caret-position="153">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,53 +83,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
+      <file leaf-file-name="Compiler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/Compiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7680">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#8895#8896#0" expanded="true" />
-                <element signature="e#8921#8922#0" expanded="true" />
-                <element signature="e#9468#9469#0" expanded="true" />
-                <element signature="e#9495#9496#0" expanded="true" />
-                <element signature="e#10861#10862#0" expanded="true" />
-                <element signature="e#10909#10910#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-68">
+              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Problem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java">
+      <file leaf-file-name="CustomClassloader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/CustomClassloader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="22" />
+            <state relative-caret-position="326">
+              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#328#329#0" expanded="true" />
+                <element signature="e#367#368#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Knapsack.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="16" column="114" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="114" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Result.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Result.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -134,22 +109,8 @@
       <file leaf-file-name="BranchAndBound.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5229#5230#0" expanded="true" />
-                <element signature="e#5264#5265#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Node.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+            <state relative-caret-position="-425">
+              <caret line="136" column="43" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,16 +137,20 @@
       <find>com.mal.UI.test</find>
       <find>comb</find>
       <find>browse</find>
+      <find>list</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="WeakReferencing" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/MemoryClassLoader.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/MemoryCompiler.java" />
         <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/MemoryFileManager.java" />
         <option value="$PROJECT_DIR$/src/com/mal/enums/NodeStrategy.java" />
         <option value="$PROJECT_DIR$/src/com/mal/enums/ProblemType.java" />
@@ -223,15 +188,20 @@
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/listview_item.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/main.fxml" />
         <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Result.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/Main.java" />
         <option value="$PROJECT_DIR$/src/com/mal/MainFx.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/UI/mainController.java" />
         <option value="$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/tests/loadtest.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/Main.java" />
+        <option value="$PROJECT_DIR$/out/production/BB_Framework/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/CustomClassloader.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/mainController.java" />
+        <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/Compiler.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java" />
       </list>
     </option>
   </component>
@@ -247,6 +217,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,21 +243,40 @@
               <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mal" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mal" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mal" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="cplex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="197" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/IBM/ILOG/CPLEX_Studio1271/cplex/lib/cplex.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bound" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -317,7 +309,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainFx">
+  <component name="RunManager" selected="JAR Application.BB_Frame">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.mal.Main" />
       <module name="BB_Framework" />
@@ -336,15 +328,18 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.mal.UI.test" />
+    <configuration name="BB_Frame" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/BB_Framework_jar/BB_Framework.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\loenb\Documents\Projects\BB_Framework\out\artifacts\BB_Framework_jar" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="9.0" />
       <module name="BB_Framework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mal.UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/BB_Framework_jar/BB_Framework.jar" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="9.0" />
+      <module name="BB_Framework" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -363,13 +358,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.test" />
+      <item itemvalue="JAR Application.BB_Frame" />
       <item itemvalue="Application.MainFx" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainFx" />
+        <item itemvalue="Application.MainFx" />
         <item itemvalue="Application.test" />
+        <item itemvalue="Application.MainFx" />
       </list>
     </recent_temporary>
   </component>
@@ -426,12 +423,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524905959911</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Updates:&#10;UI can read dataset and constraint files&#10;UI can execute problems and show data aqcuired from the results&#10;&#10;Issues:&#10;Result detail view still needs tweeking to work completely correct.">
+      <created>1524990458440</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1524990458441</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -442,11 +445,12 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32846716" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32846716" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1554476" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1554476" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32846716" />
       <window_info id="Learn" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -457,7 +461,6 @@
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32846716" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Module Dependencies" order="7" weight="0.3296322" />
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296322" />
@@ -509,7 +512,8 @@
     <MESSAGE value="updated for cplex integration" />
     <MESSAGE value="updated for and working condition with cplex" />
     <MESSAGE value="Updated UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated UI" />
+    <MESSAGE value="Updates:&#10;UI can read dataset and constraint files&#10;UI can execute problems and show data aqcuired from the results&#10;&#10;Issues:&#10;Result detail view still needs tweeking to work completely correct." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates:&#10;UI can read dataset and constraint files&#10;UI can execute problems and show data aqcuired from the results&#10;&#10;Issues:&#10;Result detail view still needs tweeking to work completely correct." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -531,10 +535,18 @@
           </properties>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/mal/UI/mainController.java</url>
+          <line>380</line>
+          <properties class="com.mal.UI.mainController" method="getBound">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/Main.java</url>
-          <line>55</line>
+          <line>64</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
@@ -568,23 +580,20 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="true" language="JAVA" />
-          <url>file://$PROJECT_DIR$/src/com/mal/Main.java</url>
-          <line>67</line>
-          <properties />
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <condition expression="true" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java</url>
           <line>50</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="55" />
+        </breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="55" />
+      <option name="time" value="58" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -595,22 +604,22 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>branch_index == -1</expression-string>
+        <expression-string />
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>index == -1</expression-string>
+        <expression-string />
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>node.getCurrentSolution().size &gt; 13</expression-string>
+        <expression-string />
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>node.getCurrentSolution().size &gt; 10</expression-string>
+        <expression-string />
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -620,107 +629,23 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>nodepool.size &gt; 80</expression-string>
+        <expression-string />
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>nodepool.size &gt; 6</expression-string>
+        <expression-string />
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>nodepool.size &gt; 20</expression-string>
+        <expression-string />
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/interfaces/Bound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/interfaces/Constraint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/abstract_classes/Dataset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="174" column="9" lean-forward="true" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.compiler/javax/tools/Tool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="452" column="18" selection-start-line="452" selection-start-column="18" selection-end-line="452" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/regular/RegClassloader.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Subset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/enums/ProblemType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/memory/MemoryCompiler.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/memory/MemoryFileManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/memory/MemoryClassLoader.java" />
     <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/regular/RegCompiler.java" />
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/scrollpanel_item.form" />
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/resources.java">
@@ -801,20 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/interfaces/Bound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="1462" column="22" selection-start-line="1462" selection-start-column="22" selection-end-line="1462" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/PriorityQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12">
@@ -841,12 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="26" />
-          <folding>
-            <element signature="e#1342#1343#0" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1412#1413#0" expanded="true" />
-            <element signature="e#1445#1446#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -864,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Constraint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -885,34 +783,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="150" column="50" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="50" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
+        <state relative-caret-position="459">
           <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="75" column="93" selection-start-line="75" selection-start-column="93" selection-end-line="75" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
+        <state relative-caret-position="680">
           <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -920,22 +800,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/loadtest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5229#5230#0" expanded="true" />
-            <element signature="e#5264#5265#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="22" />
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -944,46 +812,199 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="16" column="114" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="114" />
+        <state relative-caret-position="578">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/net/URL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7680">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="-5717">
+          <caret line="626" selection-start-line="626" selection-end-line="626" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/MethodHandleNatives.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.graphics/com/sun/glass/utils/NativeLibLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="159" selection-start-line="159" selection-end-line="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="613" selection-start-line="613" selection-end-line="613" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/MemberName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="1042" column="36" lean-forward="true" selection-start-line="1042" selection-start-column="36" selection-end-line="1042" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/MethodHandles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="2047" selection-start-line="2047" selection-end-line="2047" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.graphics/javafx/scene/PropertyHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/security/AccessController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="298" column="31" selection-start-line="298" selection-start-column="31" selection-end-line="298" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/BB_Framework/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="1785" selection-start-line="1785" selection-end-line="1785" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.base/com/sun/javafx/runtime/SystemProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="102" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8895#8896#0" expanded="true" />
-            <element signature="e#8921#8922#0" expanded="true" />
-            <element signature="e#9468#9469#0" expanded="true" />
-            <element signature="e#9495#9496#0" expanded="true" />
-            <element signature="e#10861#10862#0" expanded="true" />
-            <element signature="e#10909#10910#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/MainFx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/interfaces/Bound.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="357">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runcommand.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Subset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/BranchAndBound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="136" column="43" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/framework/utils/Constraint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/cplex/Cplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/Compiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/utils/compiler/CustomClassloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7582">
+          <caret line="478" column="27" selection-start-line="478" selection-start-column="20" selection-end-line="478" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#14964#14965#0" expanded="true" />
+            <element signature="e#15013#15014#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1047,7 +1068,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

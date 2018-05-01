@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BB_Framework.iml" filepath="$PROJECT_DIR$/BB_Framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Framework/Framework.iml" filepath="$PROJECT_DIR$/Framework/Framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiddleLayer/MiddleLayer.iml" filepath="$PROJECT_DIR$/MiddleLayer/MiddleLayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserInterface/UserInterface.iml" filepath="$PROJECT_DIR$/UserInterface/UserInterface.iml" />
     </modules>
   </component>
 </project>
