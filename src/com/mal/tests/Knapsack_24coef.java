@@ -1,11 +1,11 @@
 package com.mal.tests;
 
-import com.mal.framework.enums.ConstraintType;
-import com.mal.framework.enums.NodeStrategy;
-import com.mal.framework.enums.ProblemType;
-import com.mal.framework.interfaces.Bound;
-import com.mal.framework.utils.Constraint;
-import com.mal.framework.utils.Problem;
+import bb_framework.enums.ConstraintType;
+import bb_framework.enums.NodeStrategy;
+import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Bound;
+import bb_framework.utils.Constraint;
+import bb_framework.utils.Problem;
 
 import java.util.HashMap;
 

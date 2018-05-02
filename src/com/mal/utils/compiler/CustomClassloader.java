@@ -1,7 +1,5 @@
 package com.mal.utils.compiler;
 
-import com.mal.framework.interfaces.Bound;
-
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;

@@ -4,6 +4,9 @@
     <root id="archive" name="BB_Framework.jar">
       <element id="module-output" name="BB_Framework" />
       <element id="extracted-dir" path="C:/Program Files/IBM/ILOG/CPLEX_Studio1271/cplex/lib/cplex.jar" path-in-jar="/" />
+      <element id="module-output" name="Framework" />
+      <element id="library" level="project" name="cplex" />
+      <element id="module-output" name="MiddleLayer" />
     </root>
   </artifact>
 </component>

@@ -1,9 +1,9 @@
-package com.mal.framework.utils;
+package bb_framework.utils;
 
-import com.mal.framework.enums.NodeStrategy;
-import com.mal.framework.enums.ProblemType;
-import com.mal.framework.interfaces.Bound;
-import com.mal.utils.cplex.Cplex;
+import bb_framework.interfaces.Bound;
+import bb_framework.enums.NodeStrategy;
+import bb_framework.enums.ProblemType;
+import bb_framework.utils.cplex.Cplex;
 
 public class Problem {
     private String p_name;

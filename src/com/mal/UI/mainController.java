@@ -1,18 +1,16 @@
 package com.mal.UI;
 
+import bb_framework.BranchAndBound;
+import bb_framework.enums.ConstraintType;
+import bb_framework.enums.NodeStrategy;
+import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Bound;
+import bb_framework.utils.Constraint;
+import bb_framework.utils.Problem;
+import bb_framework.utils.Result;
 import com.mal.UI.utils.listview_item;
 import com.mal.UI.utils.resources;
-import com.mal.framework.BranchAndBound;
-import com.mal.framework.enums.ConstraintType;
-import com.mal.framework.enums.NodeStrategy;
-import com.mal.framework.enums.ProblemType;
-import com.mal.framework.interfaces.Bound;
-import com.mal.framework.utils.Constraint;
-import com.mal.framework.utils.Problem;
-import com.mal.framework.utils.Result;
-import com.mal.tests.Knapsack;
 import com.mal.utils.compiler.Compiler;
-import com.mal.utils.compiler.CustomClassloader;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +34,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 
 public class mainController {
@@ -44,9 +41,6 @@ public class mainController {
 
     int i = 0;
     Result[] res;
-
-    int solved = 0;
-    Object lock = new Object();
 
     @FXML
     private ComboBox pTypeCombobox;
@@ -101,11 +95,7 @@ public class mainController {
     private TextField coefNrTF;
 
     @FXML
-    private Button consBrowseBtn;
-    @FXML
     private TextField consTF;
-    @FXML
-    private Button coefBrowseBtn;
     @FXML
     private TextField coefTF;
 
@@ -543,5 +533,4 @@ public class mainController {
             thread.start();
         }
     }
-
 }

@@ -1,41 +1,14 @@
 package com.mal;
 
-import com.mal.UI.mainform;
-import com.mal.framework.BranchAndBound;
-import com.mal.framework.enums.NodeStrategy;
-import com.mal.framework.interfaces.Bound;
-import com.mal.framework.utils.Node;
-import com.mal.framework.utils.Problem;
-import com.mal.framework.utils.Result;
+import bb_framework.enums.NodeStrategy;
 import com.mal.tests.Knapsack;
-import com.mal.tests.Knapsack_24coef;
-import com.mal.tests.Knapsack_7coef;
-import com.mal.utils.compiler.Compiler;
 import com.mal.utils.compiler.CustomClassloader;
-import com.mal.utils.cplex.Cplex;
-import javafx.util.Pair;
 
-import javax.swing.*;
-import javax.tools.DiagnosticCollector;
-import javax.tools.JavaFileObject;
-import java.awt.*;
 import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
-import java.util.Comparator;
-import java.util.PriorityQueue;
 
 public class Main {
 
     public static void main(String[] args) {
-        /*JFrame frame = new JFrame("mainform");
-        frame.setSize(new Dimension(600,400));
-        frame.setContentPane(new mainform().mainpanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);*/
-
         Knapsack knapsack_bst  = Knapsack.CreateNew();
         Knapsack knapsack_dpth = Knapsack.CreateNew();
         knapsack_dpth.strategy = NodeStrategy.DEPTH_FIRST;

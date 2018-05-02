@@ -1,6 +1,6 @@
-package com.mal.framework.interfaces;
+package bb_framework.interfaces;
 
-import com.mal.framework.utils.Node;
+import bb_framework.utils.Node;
 
 /**
  * Interface for user to specify the objective function for the problem

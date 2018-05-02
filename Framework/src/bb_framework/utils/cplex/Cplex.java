@@ -1,7 +1,7 @@
-package com.mal.utils.cplex;
+package bb_framework.utils.cplex;
 
-import com.mal.framework.enums.ProblemType;
-import com.mal.framework.utils.Constraint;
+import bb_framework.enums.ProblemType;
+import bb_framework.utils.Constraint;
 import ilog.concert.*;
 import ilog.cplex.*;
 

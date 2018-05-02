@@ -1,4 +1,4 @@
-package com.mal.framework.utils;
+package bb_framework.utils;
 
 public class Subset<T> {
     T val;

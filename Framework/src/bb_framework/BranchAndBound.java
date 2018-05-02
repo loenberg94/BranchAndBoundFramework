@@ -1,16 +1,18 @@
-package com.mal.framework;
+package bb_framework;
 
-import com.mal.framework.enums.NodeStrategy;
-import com.mal.framework.enums.ProblemType;
-import com.mal.framework.utils.Constraint;
-import com.mal.framework.utils.Node;
-import com.mal.framework.utils.Problem;
-import com.mal.framework.utils.Result;
+import bb_framework.enums.NodeStrategy;
+import bb_framework.enums.ProblemType;
+import bb_framework.utils.Constraint;
+import bb_framework.utils.Node;
+import bb_framework.utils.Problem;
+import bb_framework.utils.Result;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
+
+import static bb_framework.enums.ProblemType.MAXIMIZATION;
 
 public class BranchAndBound {
     private Problem[] problems;
@@ -37,7 +39,7 @@ public class BranchAndBound {
         for(int i = 0; i < problems.length; i++){
             final long start_time = System.currentTimeMillis();
 
-            int extreme = (problems[i].type==ProblemType.MAXIMIZATION)?Integer.MIN_VALUE:Integer.MAX_VALUE;
+            int extreme = (problems[i].type==MAXIMIZATION)?Integer.MIN_VALUE:Integer.MAX_VALUE;
             Node root = new Node(null, extreme,false);
             problems[i].Upperbound(root,dataset);
             problems[i].Lowerbound(root,dataset);
@@ -91,7 +93,7 @@ public class BranchAndBound {
                 if (!pruned){
                     if(problems[i].isLpRelaxation()){
                         int branch_index;
-                        if(problems[i].type.equals(ProblemType.MAXIMIZATION)){
+                        if(problems[i].type.equals(MAXIMIZATION)){
                             branch_index = problems[i].getBranchIndex(node.getCurrentBoundSolution());
                             if(branch_index >= 0){
                                 branch(node, problems[i], branch_index);
@@ -149,7 +151,7 @@ public class BranchAndBound {
         switch (strategy){
             case BEST_FIRST:
                 return (o1, o2) -> {
-                    if(problem.type.equals(ProblemType.MAXIMIZATION)){
+                    if(problem.type.equals(MAXIMIZATION)){
                         return -Double.compare(o1.upperbound,o2.upperbound);
                     }
                     else{

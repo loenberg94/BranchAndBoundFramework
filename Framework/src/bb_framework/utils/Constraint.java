@@ -1,6 +1,6 @@
-package com.mal.framework.utils;
+package bb_framework.utils;
 
-import com.mal.framework.enums.ConstraintType;
+import bb_framework.enums.ConstraintType;
 
 public class Constraint {
     double[] lhs;

@@ -1,8 +1,6 @@
-package com.mal.framework.interfaces;
+package bb_framework.interfaces;
 
-import com.mal.framework.utils.Constraint;
-import com.mal.framework.utils.Node;
-import com.mal.framework.abstract_classes.Dataset;
+import bb_framework.utils.Constraint;
 
 import java.util.HashMap;
 

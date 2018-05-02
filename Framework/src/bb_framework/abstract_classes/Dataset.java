@@ -1,7 +1,7 @@
-package com.mal.framework.abstract_classes;
+package bb_framework.abstract_classes;
 
-import com.mal.framework.utils.Node;
-import com.mal.framework.utils.Subset;
+import bb_framework.utils.Node;
+import bb_framework.utils.Subset;
 
 import java.util.HashMap;
 import java.util.Map;
