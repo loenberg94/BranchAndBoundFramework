@@ -8,9 +8,10 @@ import bb_framework.interfaces.Bound;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Problem;
 import bb_framework.utils.Result;
+import utils.Compiler;
+import utils.CustomClassloader;
 import com.mal.UI.utils.listview_item;
 import com.mal.UI.utils.resources;
-import com.mal.utils.compiler.Compiler;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -330,7 +331,6 @@ public class mainController {
                 }
             }
         }
-        //return new Constraint[] {new Constraint(Knapsack.leftHandSide,750,ConstraintType.LEQ)};
         return null;
     }
 
@@ -341,7 +341,6 @@ public class mainController {
             String st;
             while ((st = bfr.readLine())!= null) {
                 if(st.contains("package")){
-                    //org_f.append("package bound;");
                 }
                 else{
                     org_f.append(st + "\n");
@@ -360,8 +359,6 @@ public class mainController {
                 }
             }
             return out;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -378,6 +375,7 @@ public class mainController {
                 String cName = (file.getName().replace(".java",""));
                 Class<?> cls = classLoader.loadClass(cName);
                 bnd = (Bound) cls.getDeclaredConstructor().newInstance();
+                //bnd = (Bound) CustomClassloader.loadObject(file);
             } catch (MalformedURLException | ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }

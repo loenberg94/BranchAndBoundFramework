@@ -2,7 +2,7 @@ package com.mal;
 
 import bb_framework.enums.NodeStrategy;
 import com.mal.tests.Knapsack;
-import com.mal.utils.compiler.CustomClassloader;
+import utils.CustomClassloader;
 
 import java.io.File;
 

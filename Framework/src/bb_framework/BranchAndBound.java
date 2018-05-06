@@ -55,7 +55,15 @@ public class BranchAndBound {
                 boolean pruned = false;
                 switch (problems[i].type){
                     case MINIMIZATION:
-                        if(node.upperbound < best.lowerbound){
+                        if (node.depth == dataset.length - 1){
+                            pruned = true;
+                            double s_val = node.getObjectiveValue(dataset);
+                            if(s_val < incumbent){
+                                incumbent = s_val;
+                                best = node;
+                            }
+                        }
+                        else if(best.upperbound < node.lowerbound){
                             pruned = true;
                         }
                         else if (node.lowerbound == node.upperbound) {
@@ -108,6 +116,16 @@ public class BranchAndBound {
                         }
                         else{
                             branch_index = problems[i].getBranchIndex(node.getCurrentBoundSolution());
+                            if(branch_index >= 0){
+                                branch(node, problems[i], branch_index);
+                            }
+                            else{
+                                node.transferBoundSolutionToSolution();
+                                if(node.lowerbound < incumbent){
+                                    incumbent = node.lowerbound;
+                                    best = node;
+                                }
+                            }
                         }
                     }
                     else{
