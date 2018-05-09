@@ -1,5 +1,6 @@
 package bb_framework;
 
+import bb_framework.enums.ConstraintType;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.utils.Constraint;
@@ -8,6 +9,7 @@ import bb_framework.utils.Problem;
 import bb_framework.utils.Result;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.util.Pair;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
@@ -15,6 +17,7 @@ import java.util.PriorityQueue;
 import static bb_framework.enums.ProblemType.MAXIMIZATION;
 
 public class BranchAndBound {
+    int z = 0;
     private Problem[] problems;
     private double[] dataset;
     private Result[] results;
@@ -48,6 +51,7 @@ public class BranchAndBound {
             nodepool = new PriorityQueue<>(comparator);
             nodepool.add(root);
             best = root;
+            incumbent = extreme;
 
             while(!nodepool.isEmpty()) {
                 Node node = nodepool.poll();
@@ -58,7 +62,7 @@ public class BranchAndBound {
                         if (node.depth == dataset.length - 1){
                             pruned = true;
                             double s_val = node.getObjectiveValue(dataset);
-                            if(s_val < incumbent){
+                            if(node.feasible && s_val < incumbent){
                                 incumbent = s_val;
                                 best = node;
                             }
@@ -69,7 +73,7 @@ public class BranchAndBound {
                         else if (node.lowerbound == node.upperbound) {
                             pruned = true;
                             double s_val = node.getObjectiveValue(dataset);
-                            if(s_val < incumbent){
+                            if(node.feasible && s_val < incumbent){
                                 incumbent = s_val;
                                 best = node;
                             }
@@ -139,6 +143,7 @@ public class BranchAndBound {
             Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.length, problems[i].strategy,problems[i].getP_name());
             tmp.setObjectiveValue(best.getObjectiveValue(dataset));
             for(int j:best.getCurrentSolution().keySet()){
+                System.out.printf("index: %d, included: %b\n",j,best.getCurrentSolution().get(j)==1);
                 tmp.setSolution(j,best.getCurrentSolution().get(j));
             }
             results[i] = tmp;
@@ -185,35 +190,36 @@ public class BranchAndBound {
     }
 
     private void branch(Node node, Problem problem, int nextValIndex){
-        double nextVal = (nextValIndex >= 0)?nextValIndex:dataset[node.depth + 1];
+        z++;
+        int nextVal = (nextValIndex >= 0)?nextValIndex:node.depth + 1;
         boolean new_node_allowed = true;
 
+        boolean feasible = true;
         for(Constraint c: problem.getConstraints()) {
-            //if (!c.CheckConstraint(new Node(node, nextVal, true, dataset.length), dataset)) { new_node_allowed = false; }
-            double[] lhs = c.getLhs();
-            double val = 0;
-            for(int i = 0; i < lhs.length; i++){
-                if(node.getCurrentSolution().containsKey(i)){
-                    val += node.getCurrentSolution().get(i) * lhs[i];
+            Pair<Boolean,Boolean> tmp = c.checkConstraint(node.getCurrentSolution(),nextVal);
+            if(c.getcT() == ConstraintType.EQUALS){
+                if(tmp.getKey()){
+                    new_node_allowed &= true;
                 }
-                else if(i == nextValIndex){
-                    val += lhs[i];
+                else{
+                    if(tmp.getValue()){
+                        new_node_allowed &= true;
+                    }
+                    else{
+                        new_node_allowed &= false;
+                    }
                 }
+                feasible &= tmp.getKey() && tmp.getValue();
             }
-            switch (c.getcT()){
-                case LEQ:
-                    new_node_allowed = new_node_allowed && (val <= c.getRhs());
-                    break;
-                case EQUALS:
-                    new_node_allowed = new_node_allowed && (val == c.getRhs());
-                    break;
-                case GEQ:
-                    new_node_allowed = new_node_allowed && (val >= c.getRhs());
+            else{
+                feasible &= tmp.getKey();
+                new_node_allowed &= tmp.getKey() || tmp.getValue();
             }
         }
 
         if (new_node_allowed) {
-            Node is_included = (problem.isLpRelaxation())?new Node(node,nextVal, true, nextValIndex):new Node(node,nextVal, true);
+            Node is_included = new Node(node,nextVal, true, nextVal);
+            is_included.feasible = feasible;
             problem.Lowerbound(is_included,dataset);
             problem.Upperbound(is_included,dataset);
             nodepool.add(is_included);
@@ -221,13 +227,13 @@ public class BranchAndBound {
             is_included = null;
         }
 
-        Node not_included = (problem.isLpRelaxation())?new Node(node,nextVal, false, nextValIndex):new Node(node,nextVal, false);
+        Node not_included = new Node(node,nextVal, false, nextVal);
+        not_included.feasible = false;
         problem.Lowerbound(not_included,dataset);
         problem.Upperbound(not_included,dataset);
         nodepool.add(not_included);
         total_nodes++;
         not_included = null;
-        node.free();
     }
 
     public Result[] getResults() {

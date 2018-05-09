@@ -13,13 +13,15 @@ public class Node {
     public final int depth;
     private HashMap<Integer,Double> currentSolution;
 
+    public boolean feasible = false;
+
     private double[] currentBoundSolution;
 
     public Node (Node par, double val, boolean included){
         //this.parent = par;
         this.value = val;
         this.nodeIncluded = included;
-        this.depth = (par==null)?0:par.depth +1;
+        this.depth = (par==null)?-1:par.depth +1;
 
         this.currentSolution = (this.depth > 0)?new HashMap<>(par.getCurrentSolution()):new HashMap<>();
         if(this.depth > 0) this.currentSolution.put(this.depth,((included)?1.0:0.0));
@@ -29,7 +31,7 @@ public class Node {
         //this.parent = par;
         this.value = val;
         this.nodeIncluded = included;
-        this.depth = (par==null)?0:par.depth+1;
+        this.depth = (par==null)?-1:par.depth+1;
 
         this.currentSolution = (this.depth > 0)?new HashMap<>(par.getCurrentSolution()):new HashMap<>();
         this.currentSolution.put(index,((included)?1.0:0.0));

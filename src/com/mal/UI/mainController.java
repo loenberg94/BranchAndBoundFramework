@@ -292,7 +292,7 @@ public class mainController {
     }
 
     private Constraint[] getConstraints(){
-        if(consTF.getText().matches("^[a-zA-Z0-9:\\\\ ]*.txt$")){
+        if(consTF.getText().matches("^[a-zA-Z0-9:_\\\\ ]*.txt$")){
             File file = new File(consTF.getText());
             if (file.exists()) {
                 try {
@@ -301,27 +301,52 @@ public class mainController {
                     BufferedReader reader = new BufferedReader(new FileReader(file));
                     while((st = reader.readLine()) != null){
                         int i = 0;
-                        double[] lhs = new double[Integer.valueOf(coefNrTF.getText())];
+                        boolean i_constraint = false;
                         ConstraintType tp = null;
                         String[] string = st.split(" ");
-                        while (string[i].matches("^[0-9]+[.0-9]*$")) {
-                            lhs[i] = Double.valueOf(string[i]);
-                            i++;
+                        double[] d_lhs = new double[Integer.valueOf(coefNrTF.getText())];
+                        ArrayList<String> s_lhs = new ArrayList<>();
+                        if (st.matches("^(x[0-9]+( )*)* [<>=]+ [0-9]+$")){
+                            i_constraint = true;
+                            while(string[i].matches("x[0-9]+")){
+                                s_lhs.add(string[i].replace("x",""));
+                                i++;
+                            }
                         }
+                        else{
+                            while (string[i].matches("^[0-9]+[.0-9]*$")) {
+                                d_lhs[i] = Double.valueOf(string[i]);
+                                i++;
+                            }
+                        }
+
                         switch (string[i]){
                             case "<=":
                                 tp = ConstraintType.LEQ;
                                 break;
+                            case "<":
+                                tp = ConstraintType.LT;
+                                break;
+                            case ">":
+                                tp = ConstraintType.GT;
+                                break;
                             case ">=":
-                                tp = ConstraintType.EQUALS;
+                                tp = ConstraintType.GEQ;
                                 break;
                             case "==":
                             case "=":
-                                tp = ConstraintType.GEQ;
+                                tp = ConstraintType.EQUALS;
                                 break;
                         }
                         i++;
-                        tmp.add(new Constraint(lhs,Double.valueOf(string[i]),tp));
+                        if(i_constraint){
+                            tmp.add(new Constraint(s_lhs.toArray(new String[]{}),Double.valueOf(string[i]),tp,i_constraint));
+                        }
+                        else{
+                            tmp.add(new Constraint(d_lhs,Double.valueOf(string[i]),tp,i_constraint));
+                            s_lhs = null;
+                        }
+
                     }
                     return tmp.toArray(new Constraint[]{});
                 } catch (FileNotFoundException e) {
@@ -421,7 +446,7 @@ public class mainController {
             Alert alert = new Alert(Alert.AlertType.ERROR,"Number of coeffiecients specified, and number of actual coefficients dosn't correspond",ButtonType.OK);
             alert.showAndWait();
         }
-        else if (coefTF.getText().matches("^[a-zA-Z0-9:\\\\ ]*.txt$")){
+        else if (coefTF.getText().matches("^[a-zA-Z0-9_:\\\\ ]*.txt$")){
             File file = new File(coefTF.getText());
             if(file.exists()){
                 try {

@@ -27,13 +27,13 @@ public class Knapsack extends Problem {
             float weight = 0;
             for (int cs_i:currentSolution.keySet()){
                 sum += currentSolution.get(cs_i) * set[cs_i];
-                weight += currentSolution.get(cs_i) * constraints[0].getLhs()[cs_i];
+                weight += currentSolution.get(cs_i) * constraints[0].getD_lhs()[cs_i];
             }
             for(int i = 0; i < set.length; i++){
                 if(!currentSolution.containsKey(i)){
-                    if(weight + constraints[0].getLhs()[i] <= constraints[0].getRhs()){
+                    if(weight + constraints[0].getD_lhs()[i] <= constraints[0].getRhs()){
                         sum += set[i];
-                        weight += constraints[0].getLhs()[i];
+                        weight += constraints[0].getD_lhs()[i];
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class Knapsack extends Problem {
     }
 
     public static Knapsack CreateNew(){
-        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,750,ConstraintType.LEQ)};
+        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,750,ConstraintType.LEQ,false)};
         return new Knapsack(constraints, new knapsackBounds(),NodeStrategy.BEST_FIRST, ProblemType.MAXIMIZATION, true);
     }
 

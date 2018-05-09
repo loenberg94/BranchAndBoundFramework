@@ -42,8 +42,8 @@ public class Cplex {
         // Constraints
         for(Constraint cons:constraints){
             IloLinearNumExpr exprs = cplex.linearNumExpr();
-            for(int i = 0; i < cons.getLhs().length; i++){
-                exprs.addTerm(cons.getLhs()[i], x[i]);
+            for(int i = 0; i < cons.getD_lhs().length; i++){
+                exprs.addTerm(cons.getD_lhs()[i], x[i]);
             }
             switch (cons.getcT()){
                 case LEQ:
@@ -102,8 +102,8 @@ public class Cplex {
         // Constraints
         for(Constraint cons:constraints){
             IloLinearNumExpr exprs = cplex.linearNumExpr();
-            for(int i = 0; i < cons.getLhs().length; i++){
-                exprs.addTerm(cons.getLhs()[i], x[i]);
+            for(int i = 0; i < cons.getD_lhs().length; i++){
+                exprs.addTerm(cons.getD_lhs()[i], x[i]);
             }
             switch (cons.getcT()){
                 case LEQ:
