@@ -479,7 +479,7 @@ public class mainController {
 
         @Override
         public void run() {
-            bnb.Solve();
+            bnb.Solve(null);
             res = bnb.getResults();
             Platform.runLater(() -> {
                 updateResultView(res[0]);

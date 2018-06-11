@@ -1,6 +1,9 @@
 package bb_framework.interfaces;
 
 import bb_framework.utils.Constraint;
+import bb_framework.utils.Node;
+import bb_framework.utils.Problem;
+import javafx.scene.control.ProgressBar;
 
 import java.util.HashMap;
 
@@ -10,16 +13,16 @@ import java.util.HashMap;
 public interface Bound {
 
     /**
-     * @param currentSolution used to get current state.
+     * @param node used to get current state.
      * @param set can be used if necessary by user
      * @return lowerbound Double value for current node state
      * */
-    double Lowerbound(HashMap<Integer,Double> currentSolution, double[] set, Constraint[] constraints);
+    double Lowerbound(Node node, double[] set, Problem problem);
 
     /**
-     * @param currentSolution used to get current state.
+     * @param node used to get current state.
      * @param set can be used if necessary by user
      * @return upperbound Double value for current node state
      * */
-    double Upperbound(HashMap<Integer,Double> currentSolution, double[] set, Constraint[] constraints);
+    double Upperbound(Node node, double[] set, Problem problem);
 }

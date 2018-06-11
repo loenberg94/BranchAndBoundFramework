@@ -1,4 +1,4 @@
-package bb_framework.utils.cplex;
+package bb_framework.utils;
 
 import bb_framework.enums.ProblemType;
 import bb_framework.utils.Constraint;

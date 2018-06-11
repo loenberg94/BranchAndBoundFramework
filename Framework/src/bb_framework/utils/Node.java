@@ -7,7 +7,6 @@ import java.util.Set;
 public class Node {
     public double lowerbound;
     public double upperbound;
-    //private final Node parent;
     private final boolean nodeIncluded;
     private final double value;
     public final int depth;

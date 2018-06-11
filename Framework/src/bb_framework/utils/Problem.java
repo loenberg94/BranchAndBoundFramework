@@ -3,7 +3,6 @@ package bb_framework.utils;
 import bb_framework.interfaces.Bound;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
-import bb_framework.utils.cplex.Cplex;
 
 public class Problem {
     private String p_name;
@@ -17,20 +16,22 @@ public class Problem {
     public final ProblemType type;
 
     public double[] Lowerbound(Node node, double[] set){
-        if (node.depth == set.length){
+        if (node.depth == set.length -1){
             node.lowerbound = node.getObjectiveValue(set);
             return null;
         }
 
         if (!lpRelaxation || type.equals(ProblemType.MAXIMIZATION)){
-            node.lowerbound = bounds.Lowerbound(node.getCurrentSolution(),set,constraints);
+            double lb = bounds.Lowerbound(node,set,this);
+            System.out.printf("LOWERBOUND = %f\n", lb);
+            node.lowerbound = lb;
         }
         else {
             try {
                 Cplex cplex = new Cplex();
                 double[] retArr = cplex.lp_relaxation(set,node.getCurrentSolution(),constraints,type);
                 if(retArr != null){
-                    node.lowerbound = calculateBound(retArr, set);
+                    node.lowerbound = calculateObjValue(retArr, set);
                     node.setCurrentBoundSolution(retArr);
                 }
                 cplex.release();
@@ -44,20 +45,20 @@ public class Problem {
     }
 
     public double[] Upperbound(Node node, double[] set){
-        if (node.depth == set.length){
+        if (node.depth == set.length - 1){
             node.upperbound = node.getObjectiveValue(set);
             return null;
         }
 
         if (!lpRelaxation || type.equals(ProblemType.MINIMIZATION)){
-            node.upperbound = bounds.Upperbound(node.getCurrentSolution(),set,constraints);
+            node.upperbound = bounds.Upperbound(node,set,this);
         }
         else {
             try {
                 Cplex cplex = new Cplex();
                 double[] retArr = cplex.lp_relaxation(set,node.getCurrentSolution(),constraints,type);
                 if (retArr != null){
-                    node.upperbound = calculateBound(retArr,set);
+                    node.upperbound = calculateObjValue(retArr,set);
                     node.setCurrentBoundSolution(retArr);
                 }
                 cplex.release();
@@ -70,7 +71,7 @@ public class Problem {
         return null;
     }
 
-    private float calculateBound(double[] solution, double[] set){
+    private float calculateObjValue(double[] solution, double[] set){
         float sum = 0;
         for(int i = 0; i < set.length; i++){
             sum += solution[i] * set[i];
@@ -111,6 +112,12 @@ public class Problem {
         return p_name;
     }
 
+    public void updateConstraints(Constraint[] constraint){
+        this.constraints = constraint;
+    }
+
+    public void updateBound(Bound bnd){ this.bounds = bnd; }
+
     public Problem(String name, Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type){
         this.constraints = constraints;
         this.bounds = bound;
@@ -130,4 +137,9 @@ public class Problem {
         this.lp_branch_condition_val = lp_bcv;
         this.p_name = name;
     }
+
+    public Problem copy(){
+        return new Problem(this.p_name, this.constraints, this.bounds, this.strategy, this.type);
+    }
+
 }

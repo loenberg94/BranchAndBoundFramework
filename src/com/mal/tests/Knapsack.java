@@ -5,6 +5,7 @@ import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Bound;
 import bb_framework.utils.Constraint;
+import bb_framework.utils.Node;
 import bb_framework.utils.Problem;
 
 import java.util.HashMap;
@@ -20,20 +21,21 @@ public class Knapsack extends Problem {
         super("",constraints, bound, strategy, type, lp, 0.5);
     }
 
-    public static class knapsackBounds implements Bound {
+    private static class knapsackBounds implements Bound {
+
         @Override
-        public double Lowerbound(HashMap<Integer,Double> currentSolution, double[] set, Constraint[] constraints) {
+        public double Lowerbound(Node node, double[] set, Problem problem) {
             float sum = 0;
             float weight = 0;
-            for (int cs_i:currentSolution.keySet()){
-                sum += currentSolution.get(cs_i) * set[cs_i];
-                weight += currentSolution.get(cs_i) * constraints[0].getD_lhs()[cs_i];
+            for (int cs_i:node.getCurrentSolution().keySet()){
+                sum += node.getCurrentSolution().get(cs_i) * set[cs_i];
+                weight += node.getCurrentSolution().get(cs_i) * problem.getConstraints()[0].getD_lhs()[cs_i];
             }
             for(int i = 0; i < set.length; i++){
-                if(!currentSolution.containsKey(i)){
-                    if(weight + constraints[0].getD_lhs()[i] <= constraints[0].getRhs()){
+                if(!node.getCurrentSolution().containsKey(i)){
+                    if(weight + problem.getConstraints()[0].getD_lhs()[i] <= problem.getConstraints()[0].getRhs()){
                         sum += set[i];
-                        weight += constraints[0].getD_lhs()[i];
+                        weight += problem.getConstraints()[0].getD_lhs()[i];
                     }
                 }
             }
@@ -41,7 +43,7 @@ public class Knapsack extends Problem {
         }
 
         @Override
-        public double Upperbound(HashMap<Integer,Double> currentSolution, double[] set, Constraint[] constraints) {
+        public double Upperbound(Node node, double[] set, Problem problem) {
             return 0;
         }
     }

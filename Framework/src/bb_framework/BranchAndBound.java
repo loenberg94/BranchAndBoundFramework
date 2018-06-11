@@ -37,13 +37,23 @@ public class BranchAndBound {
         this.resultsSolved = new SimpleIntegerProperty();
     }
 
-    public void Solve(){
-        resultsSolved.setValue(0);
+    public void Solve(Node init){
+        if(init ==null){
+            resultsSolved.setValue(0);
+        }
+
         for(int i = 0; i < problems.length; i++){
             final long start_time = System.currentTimeMillis();
 
             int extreme = (problems[i].type==MAXIMIZATION)?Integer.MIN_VALUE:Integer.MAX_VALUE;
-            Node root = new Node(null, extreme,false);
+            Node root;
+            if (init == null){
+                root = new Node(null, extreme,false);
+            }
+            else{
+                root = init;
+            }
+
             problems[i].Upperbound(root,dataset);
             problems[i].Lowerbound(root,dataset);
 
@@ -67,7 +77,7 @@ public class BranchAndBound {
                                 best = node;
                             }
                         }
-                        else if(best.upperbound < node.lowerbound){
+                        else if(best.lowerbound < node.lowerbound){
                             pruned = true;
                         }
                         else if (node.lowerbound == node.upperbound) {
@@ -150,7 +160,9 @@ public class BranchAndBound {
             total_nodes = 0;
             resetIncumbent(problems[i].type);
             best = null;
-            resultsSolved.setValue(i + 1);
+            if(init == null){
+                resultsSolved.setValue(i + 1);
+            }
             System.gc();
         }
     }
