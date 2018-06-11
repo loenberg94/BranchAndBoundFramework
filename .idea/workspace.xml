@@ -8,16 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/interfaces/Bound.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/interfaces/Bound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/cplex/Cplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="src/com/mal/tests/loadtest.java" />
@@ -40,14 +30,8 @@
       <file leaf-file-name="BranchAndBound.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-941">
-              <caret line="85" column="46" lean-forward="true" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
-              <folding>
-                <element signature="e#6583#6584#0" expanded="true" />
-                <element signature="e#6619#6620#0" expanded="true" />
-                <element signature="e#9348#9349#0" expanded="true" />
-                <element signature="e#9378#9379#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -55,14 +39,10 @@
       <file leaf-file-name="Problem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="1870">
               <caret line="118" column="59" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3471#3472#0" expanded="true" />
-                <element signature="e#3515#3516#0" expanded="true" />
-                <element signature="e#4229#4230#0" expanded="true" />
-                <element signature="e#4322#4323#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,7 +51,7 @@
       <file leaf-file-name="Knapsack_24coef.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="1071">
               <caret line="73" column="88" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="88" />
             </state>
           </provider>
@@ -80,7 +60,7 @@
       <file leaf-file-name="mainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
+            <state relative-caret-position="6664">
               <caret line="394" column="43" selection-start-line="394" selection-start-column="43" selection-end-line="394" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -94,7 +74,7 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="612">
               <caret line="38" column="54" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="54" />
             </state>
           </provider>
@@ -104,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Result.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -121,8 +101,8 @@
       <file leaf-file-name="Constraint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Constraint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="425">
+              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -233,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -246,6 +225,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -253,7 +233,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="197" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/MiddleLayer/src" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/loenberg48-branch-and-bound-framework-7794fe78c94c/BB_Framework.iml" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/loenberg48-branch-and-bound-framework-7794fe78c94c/.idea/workspace.xml" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -438,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525885412620</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="working state">
+      <created>1528741651491</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1528741651491</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -446,14 +433,13 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3296837" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4051095" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4051095" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
@@ -463,26 +449,28 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39902675" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3296837" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32846716" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Module Dependencies" order="7" weight="0.3296322" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296322" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32846716" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32846716" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296322" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -492,11 +480,12 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15555556" />
       <window_info anchor="right" id="Module Dependencies" order="7" weight="0.3296322" />
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15555556" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info id="Learn" order="6" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3296837" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -504,8 +493,6 @@
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296322" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32846716" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39902675" />
     </layout-to-restore>
@@ -525,7 +512,8 @@
     <MESSAGE value="Updates:&#10;Working version, after restructuring" />
     <MESSAGE value="Updates:&#10;Working version after moving compiler and customClassloader classes to middlelayer module" />
     <MESSAGE value="Updates:&#10;interfaces.Constraint changed to abstract_classes.Constraint.&#10;interface -&gt; abstract class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates:&#10;interfaces.Constraint changed to abstract_classes.Constraint.&#10;interface -&gt; abstract class" />
+    <MESSAGE value="working state" />
+    <option name="LAST_COMMIT_MESSAGE" value="working state" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -626,13 +614,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/IBM/ILOG/CPLEX_Studio1271/cplex/lib/cplex.jar!/ilog/cplex/CplexI.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="876" column="37" lean-forward="true" selection-start-line="876" selection-start-column="37" selection-end-line="876" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/BranchValue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -866,16 +847,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="16" column="35" selection-start-line="16" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Constraint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        <state relative-caret-position="425">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -903,13 +881,13 @@
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Result.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="612">
           <caret line="38" column="54" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="54" />
         </state>
       </provider>
@@ -918,17 +896,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1128#1129#0" expanded="true" />
-            <element signature="e#1159#1160#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
+        <state relative-caret-position="6664">
           <caret line="394" column="43" selection-start-line="394" selection-start-column="43" selection-end-line="394" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -940,21 +913,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="1870">
           <caret line="118" column="59" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3471#3472#0" expanded="true" />
-            <element signature="e#3515#3516#0" expanded="true" />
-            <element signature="e#4229#4230#0" expanded="true" />
-            <element signature="e#4322#4323#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="1071">
           <caret line="73" column="88" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="88" />
         </state>
       </provider>
@@ -987,16 +956,13 @@
     <entry file="file://$USER_HOME$/Downloads/loenberg48-branch-and-bound-framework-7794fe78c94c/BB_Framework.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/loenberg48-branch-and-bound-framework-7794fe78c94c/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-941">
-          <caret line="85" column="46" lean-forward="true" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
-          <folding>
-            <element signature="e#6583#6584#0" expanded="true" />
-            <element signature="e#6619#6620#0" expanded="true" />
-            <element signature="e#9348#9349#0" expanded="true" />
-            <element signature="e#9378#9379#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
         </state>
       </provider>
     </entry>
