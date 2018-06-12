@@ -23,7 +23,6 @@ public class Problem {
 
         if (!lpRelaxation || type.equals(ProblemType.MAXIMIZATION)){
             double lb = bounds.Lowerbound(node,set,this);
-            System.out.printf("LOWERBOUND = %f\n", lb);
             node.lowerbound = lb;
         }
         else {

@@ -153,7 +153,7 @@ public class BranchAndBound {
             Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.length, problems[i].strategy,problems[i].getP_name());
             tmp.setObjectiveValue(best.getObjectiveValue(dataset));
             for(int j:best.getCurrentSolution().keySet()){
-                System.out.printf("index: %d, included: %b\n",j,best.getCurrentSolution().get(j)==1);
+                //System.out.printf("index: %d, included: %b\n",j,best.getCurrentSolution().get(j)==1);
                 tmp.setSolution(j,best.getCurrentSolution().get(j));
             }
             results[i] = tmp;

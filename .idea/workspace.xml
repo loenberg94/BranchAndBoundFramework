@@ -8,6 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="src/com/mal/tests/loadtest.java" />
@@ -27,20 +29,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BranchAndBound.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BranchAndBound.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+            <state relative-caret-position="51">
+              <caret line="155" column="18" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Problem.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Problem.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="118" column="59" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
+            <state relative-caret-position="153">
+              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,7 +62,7 @@
       <file leaf-file-name="mainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6664">
+            <state relative-caret-position="6069">
               <caret line="394" column="43" selection-start-line="394" selection-start-column="43" selection-end-line="394" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -187,10 +189,10 @@
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/loadtest.java" />
-        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/tspbounds.java" />
-        <option value="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/main.fxml" />
+        <option value="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" />
+        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" />
       </list>
     </option>
   </component>
@@ -214,6 +216,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,7 +228,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -234,7 +236,7 @@
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/MiddleLayer/src" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/loenberg48-branch-and-bound-framework-7794fe78c94c/.idea/workspace.xml" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -425,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528741651491</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="working state">
+      <created>1528742623919</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1528742623920</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -433,31 +442,31 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3296837" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4051095" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4051095" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17279667" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17279667" />
       <window_info id="Learn" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39902675" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39902675" />
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3296837" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32846716" />
-      <window_info anchor="right" id="Module Dependencies" order="7" weight="0.3296322" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Module Dependencies" order="7" weight="0.3296322" />
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3296322" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -901,22 +910,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6664">
+        <state relative-caret-position="6069">
           <caret line="394" column="43" selection-start-line="394" selection-start-column="43" selection-end-line="394" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#17341#17342#0" expanded="true" />
             <element signature="e#17390#17391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="118" column="59" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -950,8 +949,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$USER_HOME$/Downloads/loenberg48-branch-and-bound-framework-7794fe78c94c/BB_Framework.iml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -961,8 +960,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+        <state relative-caret-position="51">
+          <caret line="155" column="18" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -985,7 +994,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
