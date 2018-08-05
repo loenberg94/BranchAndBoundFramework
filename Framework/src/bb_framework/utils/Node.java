@@ -17,7 +17,6 @@ public class Node {
     private double[] currentBoundSolution;
 
     public Node (Node par, double val, boolean included){
-        //this.parent = par;
         this.value = val;
         this.nodeIncluded = included;
         this.depth = (par==null)?-1:par.depth +1;

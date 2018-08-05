@@ -140,6 +140,7 @@ public class mainController {
         resViewNodesLab.setText(String.valueOf(result.getNr_of_nodes()));
         resViewTimeLab.setText(String.valueOf(result.getRuntime()));
         resViewOVLab.setText(String.valueOf(result.getObjectiveValue()));
+        resPrevBtn.setDisable(true);
     }
 
     private void updateNodesBarchart(Result[] res){
