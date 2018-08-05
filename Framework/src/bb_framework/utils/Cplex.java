@@ -82,14 +82,22 @@ public class Cplex {
         }
     }
 
-    public double[] ip_solve(double[] coefficients, Constraint[] constraints, ProblemType type) throws Exception {
+    public double[] ip_solve(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
         IloCplex cplex = new IloCplex();
         IloNumVar[] x = cplex.boolVarArray(coefficients.length);
 
         // Objective function
         IloLinearNumExpr obj = cplex.linearNumExpr();
+
         for(int i = 0; i < coefficients.length; i++){
-            obj.addTerm(coefficients[i], x[i]);
+            if (currentSolution.containsKey(i)){
+                x[i].setLB(currentSolution.get(i));
+                x[i].setUB(currentSolution.get(i));
+                obj.addTerm(coefficients[i], x[i]);
+            }
+            else{
+                obj.addTerm(coefficients[i], x[i]);
+            }
         }
 
         if (type == ProblemType.MAXIMIZATION){
@@ -120,7 +128,7 @@ public class Cplex {
         cplex.solve();
 
         IloCplex.Status status = cplex.getStatus();
-        if (status.equals(IloCplex.Status.Optimal)){
+        if (status.equals(IloCplex.Status.Optimal) || status.equals(IloCplex.Status.Feasible)){
             System.out.printf("\n\n%f\n",cplex.getObjValue());
             double[] retarr = cplex.getValues(x);
             /*x = null;

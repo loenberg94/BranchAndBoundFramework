@@ -8,8 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/mainController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="src/com/mal/tests/loadtest.java" />
@@ -29,82 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BranchAndBound.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="155" column="18" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Problem.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Knapsack_24coef.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="73" column="88" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6069">
-              <caret line="394" column="43" selection-start-line="394" selection-start-column="43" selection-end-line="394" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#17341#17342#0" expanded="true" />
-                <element signature="e#17390#17391#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="38" column="54" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Result.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Result.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bound.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/interfaces/Bound.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constraint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Constraint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="561">
+              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -142,7 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/regular/RegCompiler.java" />
         <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/regular/RegClassloader.java" />
         <option value="$PROJECT_DIR$/src/com/mal/utils/Problem.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/resources.java" />
@@ -181,9 +110,6 @@
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/enums/ConstraintType.java" />
         <option value="$PROJECT_DIR$/bound/Loadtest.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Constraint.java" />
-        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/UI/mainController.java" />
-        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/interfaces/Bound.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack.java" />
@@ -193,6 +119,10 @@
         <option value="$PROJECT_DIR$/src/com/mal/UI/main.fxml" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java" />
+        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" />
+        <option value="$PROJECT_DIR$/bound/tspbounds.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/mainController.java" />
+        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java" />
       </list>
     </option>
   </component>
@@ -215,8 +145,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,11 +155,36 @@
               <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bb_framework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bb_framework" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -434,26 +390,33 @@
       <option name="project" value="LOCAL" />
       <updated>1528742623920</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Final version">
+      <created>1528834367089</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1528834367089</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3296837" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4051095" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24695864" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17279667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25815406" />
       <window_info id="Learn" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -462,6 +425,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39902675" />
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3296837" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32846716" />
@@ -522,14 +486,15 @@
     <MESSAGE value="Updates:&#10;Working version after moving compiler and customClassloader classes to middlelayer module" />
     <MESSAGE value="Updates:&#10;interfaces.Constraint changed to abstract_classes.Constraint.&#10;interface -&gt; abstract class" />
     <MESSAGE value="working state" />
-    <option name="LAST_COMMIT_MESSAGE" value="working state" />
+    <MESSAGE value="Final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/com/mal/UI/mainController.java</url>
-          <line>392</line>
+          <line>393</line>
           <properties class="com.mal.UI.mainController" method="getBound">
             <option name="EMULATED" value="true" />
           </properties>
@@ -565,7 +530,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="86" />
+      <option name="time" value="88" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -623,13 +588,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/BranchValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/PriorityQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-12">
@@ -803,13 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="62" column="51" selection-start-line="62" selection-start-column="51" selection-end-line="62" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/interfaces/ObjectiveFunction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -852,27 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/MainFx.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="35" selection-start-line="16" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Constraint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/interfaces/Bound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
@@ -887,20 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="38" column="54" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/tests/loadtest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -908,36 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6069">
-          <caret line="394" column="43" selection-start-line="394" selection-start-column="43" selection-end-line="394" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#17341#17342#0" expanded="true" />
-            <element signature="e#17390#17391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="73" column="88" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/tests/tspbounds.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="26" column="87" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -960,18 +850,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="2397">
           <caret line="155" column="18" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="391">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bound/tspbounds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <folding>
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/Knapsack_24coef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="73" column="88" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/mainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="135" column="36" lean-forward="true" selection-start-line="135" selection-start-column="36" selection-end-line="135" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2944#3377#0" />
+            <element signature="e#3822#4656#0" />
+            <element signature="e#4662#5163#0" />
+            <element signature="e#5169#5669#0" />
+            <element signature="e#5675#6499#0" />
+            <element signature="e#17341#17342#0" expanded="true" />
+            <element signature="e#17390#17391#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Constraint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/interfaces/Bound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/MainFx.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="35" selection-start-line="16" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
         </state>
       </provider>
     </entry>
