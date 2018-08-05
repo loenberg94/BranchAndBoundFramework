@@ -32,6 +32,7 @@ public class Node {
 
     public double getObjectiveValue(double[] dataset){
         double sum = 0;
+
         Set<Integer> keys = this.currentSolution.keySet();
         for(int i:keys){
             sum += this.currentSolution.get(i) * dataset[i];
