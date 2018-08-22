@@ -92,4 +92,8 @@ public class Constraint {
     public ConstraintType getcT() {
         return cT;
     }
+
+    public boolean isIndexConstraint() {
+        return indexConstraint;
+    }
 }

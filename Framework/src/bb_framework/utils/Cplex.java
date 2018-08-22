@@ -19,6 +19,7 @@ public class Cplex {
     public double[] lp_relaxation(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
         x = cplex.numVarArray(coefficients.length,0.0, 1.0);
         cplex.setOut(null);
+
         // Objective function
         obj = cplex.linearNumExpr();
         for(int i = 0; i < coefficients.length; i++){
