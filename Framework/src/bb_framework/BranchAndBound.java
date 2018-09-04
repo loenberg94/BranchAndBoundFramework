@@ -48,7 +48,7 @@ public class BranchAndBound {
             int extreme = (problems[i].type==MAXIMIZATION)?Integer.MIN_VALUE:Integer.MAX_VALUE;
             Node root;
             if (init == null){
-                root = new Node(null, extreme,false);
+                root = new Node(null,false/*, extreme*/);
             }
             else{
                 root = init;
@@ -146,6 +146,7 @@ public class BranchAndBound {
                         branch(node, problems[i], -1);
                     }
                 }
+                //node.free();
                 node = null;
             }
             final long end_time = System.currentTimeMillis();
@@ -230,22 +231,20 @@ public class BranchAndBound {
         }
 
         if (new_node_allowed) {
-            Node is_included = new Node(node,nextVal, true, nextVal);
+            Node is_included = new Node(node,true, nextVal);
             is_included.feasible = feasible;
             problem.Lowerbound(is_included,dataset);
             problem.Upperbound(is_included,dataset);
             nodepool.add(is_included);
             total_nodes++;
-            is_included = null;
         }
 
-        Node not_included = new Node(node,nextVal, false, nextVal);
+        Node not_included = new Node(node,false, nextVal);
         not_included.feasible = false;
         problem.Lowerbound(not_included,dataset);
         problem.Upperbound(not_included,dataset);
         nodepool.add(not_included);
         total_nodes++;
-        not_included = null;
     }
 
     public Result[] getResults() {

@@ -100,8 +100,10 @@ public class mainController {
     @FXML
     private TextField coefTF;
 
+    @SuppressWarnings("SpellCheckingInspection")
     @FXML
     private ProgressBar progBar;
+    @SuppressWarnings("SpellCheckingInspection")
     @FXML
     private Label progBarLab;
 
@@ -136,6 +138,7 @@ public class mainController {
         if(res != null || res.length > 0){
             resultViewGrid.setDisable(false);
         }
+        if(res.length == 1) resNextBtn.setDisable(true);
         resViewStratLab.setText(result.getStrategy().toString());
         resViewNodesLab.setText(String.valueOf(result.getNr_of_nodes()));
         resViewTimeLab.setText(String.valueOf(result.getRuntime()));

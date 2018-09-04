@@ -7,6 +7,7 @@ import ilog.cplex.*;
 
 import java.util.HashMap;
 
+@SuppressWarnings("Duplicates")
 public class Cplex {
     IloCplex cplex;
     IloNumVar[] x;
@@ -132,9 +133,9 @@ public class Cplex {
         if (status.equals(IloCplex.Status.Optimal) || status.equals(IloCplex.Status.Feasible)){
             System.out.printf("\n\n%f\n",cplex.getObjValue());
             double[] retarr = cplex.getValues(x);
-            /*x = null;
+            x = null;
             cplex = null;
-            obj = null;*/
+            obj = null;
             return retarr;
         }
         else {
