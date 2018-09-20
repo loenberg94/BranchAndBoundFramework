@@ -28,7 +28,7 @@ public class Problem {
         else {
             try {
                 Cplex cplex = new Cplex();
-                double[] retArr = cplex.lp_relaxation(set,node.getCurrentSolution(),constraints,type);
+                double[] retArr = cplex.lp_relaxation(set,node,constraints,type);
                 if(retArr != null){
                     node.lowerbound = calculateObjValue(retArr, set);
                     node.setCurrentBoundSolution(retArr);
@@ -55,7 +55,7 @@ public class Problem {
         else {
             try {
                 Cplex cplex = new Cplex();
-                double[] retArr = cplex.lp_relaxation(set,node.getCurrentSolution(),constraints,type);
+                double[] retArr = cplex.lp_relaxation(set,node,constraints,type);
                 if (retArr != null){
                     node.upperbound = calculateObjValue(retArr,set);
                     node.setCurrentBoundSolution(retArr);

@@ -1,4 +1,4 @@
-package com.mal.tests;
+package bb_framework.testFiles;
 
 import bb_framework.enums.ConstraintType;
 import bb_framework.enums.NodeStrategy;
@@ -8,16 +8,36 @@ import bb_framework.utils.Constraint;
 import bb_framework.utils.Node;
 import bb_framework.utils.Problem;
 
-import java.util.HashMap;
+public class Knapsack_24coef extends Problem {
 
-public class Knapsack extends Problem {
+    final static double[] leftHandSide = new double[] {382745,799601,909247,729069,467902,44328,34610,698150,823460,
+            903959,853665,551830,610856,670702,488960,951111,323046,446298,931161,31385,496951,264724,224916,169684};
+    final static double[] dataset      = new double[] {825594,
+            1677009,
+            1676628,
+            1523970,
+            943972,
+            97426,
+            69666,
+            1296457,
+            1679693,
+            1902996,
+            1844992,
+            1049289,
+            1252836,
+            1319836,
+            953277,
+            2067538,
+            675367,
+            853655,
+            1826027,
+            65731,
+            901489,
+            577243,
+            466257,
+            369261};
 
-    //final static double[] leftHandSide = new double[] {70,73,77,80,82,87,90,94,98,106,110,113,115,118,120};
-    public final static double[] leftHandSide = new double[] {120,118,115,113,110,106,98,94,90,87,82,80,77,73,70};
-    //final static double[] dataset      = new double[] {135,139,149,150,156,163,173,184,192,201,210,214,221,229,240};
-    final static double[] dataset      = new double[] {240,229,221,214,210,201,192,184,173,163,156,150,149,139,135};
-
-    private Knapsack(Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type, boolean lp) {
+    private Knapsack_24coef(Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type, boolean lp) {
         super("",constraints, bound, strategy, type, lp, 0.5);
     }
 
@@ -27,7 +47,7 @@ public class Knapsack extends Problem {
         public double Lowerbound(Node node, double[] set, Problem problem) {
             float sum = 0;
             float weight = 0;
-            for (int cs_i:node.getCurrentSolution().keySet()){
+            /*for (int cs_i:node.getCurrentSolution().keySet()){
                 sum += node.getCurrentSolution().get(cs_i) * set[cs_i];
                 weight += node.getCurrentSolution().get(cs_i) * problem.getConstraints()[0].getD_lhs()[cs_i];
             }
@@ -38,7 +58,7 @@ public class Knapsack extends Problem {
                         weight += problem.getConstraints()[0].getD_lhs()[i];
                     }
                 }
-            }
+            }*/
             return sum;
         }
 
@@ -48,9 +68,9 @@ public class Knapsack extends Problem {
         }
     }
 
-    public static Knapsack CreateNew(){
-        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,750,ConstraintType.LEQ,false)};
-        return new Knapsack(constraints, new knapsackBounds(),NodeStrategy.BEST_FIRST, ProblemType.MAXIMIZATION, true);
+    public static Knapsack_24coef CreateNew(){
+        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,6404180,ConstraintType.LEQ, false)};
+        return new Knapsack_24coef(constraints, new knapsackBounds(),NodeStrategy.BEST_FIRST, ProblemType.MAXIMIZATION, true);
     }
 
     public double[] getDataset() {

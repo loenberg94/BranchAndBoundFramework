@@ -17,19 +17,43 @@ public class Cplex {
         cplex = new IloCplex();
     }
 
-    public double[] lp_relaxation(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
+    public double[] lp_relaxation(double[] coefficients, Node currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
         x = cplex.numVarArray(coefficients.length,0.0, 1.0);
         cplex.setOut(null);
 
+        // TODO: Possibly make this a property of class, in order to minimize memory
+        DisjointSet ds = new DisjointSet(coefficients.length);
+
         // Objective function
         obj = cplex.linearNumExpr();
-        for(int i = 0; i < coefficients.length; i++){
+        /*for(int i = 0; i < coefficients.length; i++){
             if (currentSolution.containsKey(i)){
                 x[i].setLB(currentSolution.get(i));
                 x[i].setUB(currentSolution.get(i));
                 obj.addTerm(coefficients[i], x[i]);
             }
             else{
+                obj.addTerm(coefficients[i], x[i]);
+            }
+        }*/
+        int prev = -1;
+        Node curr = currentSolution;
+        while (curr.depth > -1){
+            if(prev != -1){
+                ds.Union(curr.index,prev);
+            }
+            prev = curr.index;
+
+            int val = curr.included?1:0;
+            x[curr.index].setLB(val);
+            x[curr.index].setUB(val);
+            obj.addTerm(coefficients[curr.index], x[curr.index]);
+            curr = curr.getParent();
+        }
+
+        int csSet = prev==-1?prev:ds.Find(prev);
+        for(int i = 0; i < coefficients.length; i++){
+            if(csSet != ds.Find(i)){
                 obj.addTerm(coefficients[i], x[i]);
             }
         }
@@ -87,6 +111,7 @@ public class Cplex {
     public double[] ip_solve(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
         IloCplex cplex = new IloCplex();
         IloNumVar[] x = cplex.boolVarArray(coefficients.length);
+        cplex.setOut(null);
 
         // Objective function
         IloLinearNumExpr obj = cplex.linearNumExpr();
@@ -131,7 +156,7 @@ public class Cplex {
 
         IloCplex.Status status = cplex.getStatus();
         if (status.equals(IloCplex.Status.Optimal) || status.equals(IloCplex.Status.Feasible)){
-            System.out.printf("\n\n%f\n",cplex.getObjValue());
+            //System.out.printf("\n\n%f\n",cplex.getObjValue());
             double[] retarr = cplex.getValues(x);
             x = null;
             cplex = null;
