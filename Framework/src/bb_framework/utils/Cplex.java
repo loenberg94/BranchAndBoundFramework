@@ -26,16 +26,7 @@ public class Cplex {
 
         // Objective function
         obj = cplex.linearNumExpr();
-        /*for(int i = 0; i < coefficients.length; i++){
-            if (currentSolution.containsKey(i)){
-                x[i].setLB(currentSolution.get(i));
-                x[i].setUB(currentSolution.get(i));
-                obj.addTerm(coefficients[i], x[i]);
-            }
-            else{
-                obj.addTerm(coefficients[i], x[i]);
-            }
-        }*/
+
         int prev = -1;
         Node curr = currentSolution;
         while (curr.depth > -1){

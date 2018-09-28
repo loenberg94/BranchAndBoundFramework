@@ -6,26 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Tree Traversal version">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/BB_Framework_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/loenb.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/cplex.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Tree Traversal version - Clean-up!!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/knapsack_bounds.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/knapsack_bounds.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/tspbounds.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/tspbounds.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/tspbounds2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/tspbounds2$bnd.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/tspbounds2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bound/tspbounds2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="src/com/mal/tests/loadtest.java" />
@@ -53,14 +36,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="33" />
-          <entry key="java" value="9760" />
-          <entry key="txt" value="22" />
+          <entry key="java" value="9761" />
+          <entry key="txt" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9760" />
-          <entry key="PLAIN_TEXT" value="55" />
+          <entry key="JAVA" value="9761" />
+          <entry key="PLAIN_TEXT" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -68,14 +51,14 @@
           <entry key="class" value="1" />
           <entry key="fxml" value="1" />
           <entry key="java" value="59" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="JAVA" value="59" />
-          <entry key="XML" value="2" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -93,20 +76,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="187">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -189,7 +163,6 @@
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Node.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/test/NodeTest.java" />
         <option value="$PROJECT_DIR$/src/com/mal/tests/Knapsack_7coef.java" />
-        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/test/ConstraintTest.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Logging.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java" />
@@ -201,6 +174,7 @@
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/test/CplexTest.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/test/BranchAndBoundTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java" />
       </list>
     </option>
   </component>
@@ -259,7 +233,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="197" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538154418269" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538154823417" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -584,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538153469975</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Tree Traversal version - Clean-up!!!!">
+      <created>1538154469474</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1538154469474</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -620,7 +601,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81165000" />
+    <option name="totallyTimeSpent" value="81517000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -633,7 +614,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16344085" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -702,7 +682,8 @@
     <MESSAGE value="Final version" />
     <MESSAGE value="Minor corrections" />
     <MESSAGE value="Tree Traversal version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tree Traversal version" />
+    <MESSAGE value="Tree Traversal version - Clean-up!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tree Traversal version - Clean-up!!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -795,20 +776,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/security/AccessController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="298" column="31" selection-start-line="298" selection-start-column="31" selection-end-line="298" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.base/com/sun/javafx/runtime/SystemProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/abstract_classes/Constraint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1016,13 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Constraint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1160,6 +1120,23 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/BB_Framework_jar.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
