@@ -66,7 +66,6 @@ public class CplexTest {
         IloNumVar[] x = cplex.numVarArray(dataset.length,0.0, 1.0);
         cplex.setOut(null);
 
-        // TODO: Possibly make this a property of class, in order to minimize memory
         DisjointSet ds = new DisjointSet(dataset.length);
 
         // Objective function
@@ -122,9 +121,8 @@ public class CplexTest {
             Node nodeSolution = buildNodeSolution(hmSolution);
 
             try {
-                Cplex cplex = new Cplex();
                 double[] oldMethodResult = oldLPRmethod(hmSolution,constraint[0],dataset);
-                double[] newMethodResult = cplex.lp_relaxation(dataset,nodeSolution,constraint, ProblemType.MAXIMIZATION);
+                double[] newMethodResult = Cplex.lp_relaxation(dataset,nodeSolution,constraint, ProblemType.MAXIMIZATION);
 
                 for(int j = 0; j < dataset.length; j++){
                     Assert.assertTrue(oldMethodResult[j] == newMethodResult[j]);

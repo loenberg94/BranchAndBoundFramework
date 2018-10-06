@@ -27,14 +27,11 @@ public class Problem {
         }
         else {
             try {
-                Cplex cplex = new Cplex();
-                double[] retArr = cplex.lp_relaxation(set,node,constraints,type);
+                double[] retArr = Cplex.lp_relaxation(set,node,constraints,type);
                 if(retArr != null){
                     node.lowerbound = calculateObjValue(retArr, set);
                     node.setCurrentBoundSolution(retArr);
                 }
-                cplex.release();
-                cplex = null;
                 return retArr;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -54,14 +51,11 @@ public class Problem {
         }
         else {
             try {
-                Cplex cplex = new Cplex();
-                double[] retArr = cplex.lp_relaxation(set,node,constraints,type);
+                double[] retArr = Cplex.lp_relaxation(set,node,constraints,type);
                 if (retArr != null){
                     node.upperbound = calculateObjValue(retArr,set);
                     node.setCurrentBoundSolution(retArr);
                 }
-                cplex.release();
-                cplex = null;
                 return retArr;
             } catch (Exception e) {
                 e.printStackTrace();

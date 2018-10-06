@@ -8,10 +8,11 @@ import bb_framework.interfaces.Bound;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Problem;
 import bb_framework.utils.Result;
+import com.mal.UI.utils.FileIO;
+import com.mal.UI.utils.Settings;
 import utils.Compiler;
-import utils.CustomClassloader;
-import com.mal.UI.utils.listview_item;
-import com.mal.UI.utils.resources;
+import com.mal.UI.utils.ProblemInstance;
+import com.mal.UI.utils.Resources;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +28,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.util.Pair;
 
+import javax.swing.*;
 import javax.tools.DiagnosticCollector;
 import javax.tools.JavaFileObject;
 import java.io.*;
@@ -37,15 +39,14 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class mainController {
-    HashMap<Integer,listview_item> list_items = new HashMap<>();
+public class MainController {
+    HashMap<Integer, ProblemInstance> list_items = new HashMap<>();
 
     int i = 0;
     Result[] res;
 
     @FXML
     private ComboBox pTypeCombobox;
-
     @FXML
     private TextField bvaltv;
     @FXML
@@ -79,6 +80,8 @@ public class mainController {
     @FXML
     private NumberAxis tYAxis;
 
+    @FXML
+    private Label resViewNameLab;
     @FXML
     private Label resViewStratLab;
     @FXML
@@ -117,7 +120,8 @@ public class mainController {
         if (res == null || res.length == 0){
             resultViewGrid.setDisable(true);
         }
-
+        resPrevBtn.setDisable(true);
+        resNextBtn.setDisable(true);
         nXAxis.setLabel("Problem");
         nYAxis.setLabel("Nodes created");
         tXAxis.setLabel("Problem");
@@ -127,7 +131,7 @@ public class mainController {
     @FXML
     protected void handleListviewAddBtn(ActionEvent event){
         String s = changetf.getText();
-        list_items.put(change_listview.getItems().size(),new listview_item(s));
+        list_items.put(change_listview.getItems().size(),new ProblemInstance(s));
         change_listview.getItems().add(change_listview.getItems().size(),s);
         changetf.setText("");
         change_listview.getSelectionModel().select(change_listview.getItems().size() - 1);
@@ -138,12 +142,12 @@ public class mainController {
         if(res != null || res.length > 0){
             resultViewGrid.setDisable(false);
         }
-        if(res.length == 1) resNextBtn.setDisable(true);
+        if(res.length > 1 && i != res.length - 1) resNextBtn.setDisable(false);
+        resViewNameLab.setText(result.getP_name());
         resViewStratLab.setText(result.getStrategy().toString());
         resViewNodesLab.setText(String.valueOf(result.getNr_of_nodes()));
         resViewTimeLab.setText(String.valueOf(result.getRuntime()));
         resViewOVLab.setText(String.valueOf(result.getObjectiveValue()));
-        resPrevBtn.setDisable(true);
     }
 
     private void updateNodesBarchart(Result[] res){
@@ -168,7 +172,7 @@ public class mainController {
     @FXML
     protected void handleCoefBrowseBtnClicked(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(resources.filechooserpath));
+        fileChooser.setInitialDirectory(new File(Resources.filechooserpath));
         fileChooser.setTitle("Locate coefficient file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files","*.txt"));
         String s = fileChooser.showOpenDialog(change_anchorpane.getScene().getWindow()).getAbsolutePath();
@@ -178,7 +182,7 @@ public class mainController {
     @FXML
     protected void handleConsBrowseBtnClicked(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(resources.filechooserpath));
+        fileChooser.setInitialDirectory(new File(Resources.filechooserpath));
         fileChooser.setTitle("Locate constraint file");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files","*.txt"));
         String s = fileChooser.showOpenDialog(change_anchorpane.getScene().getWindow()).getAbsolutePath();
@@ -236,56 +240,108 @@ public class mainController {
         else{
             bvaltv.setDisable(true);
         }
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setBound_file(bndfiletv.getText());
-        item.setBranch_val(bvaltv.getText());
-        item.setLp_relaxation(lpr_checkbox.isSelected());
-        item.setStrat_brth(strat_brth_radbtn.isSelected());
-        item.setStrat_bst(strat_bst_radbtn.isSelected());
-        item.setStrat_dpth(strat_dpth_radbtn.isSelected());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        instance.lpRelaxation = lpr_checkbox.isSelected();
     }
 
     @FXML
     protected void handleListviewItemClicked(MouseEvent event){
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        strat_brth_radbtn.setSelected(item.isStrat_brth());
-        strat_bst_radbtn.setSelected(item.isStrat_bst());
-        strat_dpth_radbtn.setSelected(item.isStrat_dpth());
-        lpr_checkbox.setSelected(item.isLp_relaxation());
-        bvaltv.setText(item.getBranch_val());
-        bndfiletv.setText(item.getBound_file());
-        bvaltv.setDisable(!item.isLp_relaxation());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        switch (instance.strategy){
+            case BEST_FIRST:
+                strat_bst_radbtn.setSelected(true);
+                break;
+            case DEPTH_FIRST:
+                strat_dpth_radbtn.setSelected(true);
+                break;
+            case BREADTH_FIRST:
+                strat_brth_radbtn.setSelected(true);
+                break;
+        }
+
+        lpr_checkbox.setSelected(instance.lpRelaxation);
+        bvaltv.setText(String.valueOf(instance.branchValue));
+        bndfiletv.setText(instance.boundFile);
+        bvaltv.setDisable(!instance.lpRelaxation);
     }
 
     @FXML
     protected void handleButtonChangeListener(ActionEvent event){
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setLp_relaxation(lpr_checkbox.isSelected());
-        item.setStrat_brth(strat_brth_radbtn.isSelected());
-        item.setStrat_bst(strat_bst_radbtn.isSelected());
-        item.setStrat_dpth(strat_dpth_radbtn.isSelected());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        Control control = (Control) event.getSource();
+        switch (control.getId()){
+            case "lpr_checkbox":
+                instance.lpRelaxation = lpr_checkbox.isSelected();
+                break;
+            case "strat_brth_radbtn":
+                instance.strategy = NodeStrategy.BREADTH_FIRST;
+                break;
+            case "strat_bst_radbtn":
+                instance.strategy = NodeStrategy.BEST_FIRST;
+                break;
+            case "strat_dpth_radbtn":
+                instance.strategy = NodeStrategy.DEPTH_FIRST;
+                break;
+            default:
+                break;
+        }
     }
 
     @FXML
     protected void handleTextChangeListener(KeyEvent event){
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setBound_file(bndfiletv.getText());
-        item.setBranch_val(bvaltv.getText());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        switch (((TextField) event.getSource()).getId()){
+            case "bndfiletv":
+                instance.boundFile = bndfiletv.getText();
+                break;
+            case "bvaltv":
+                instance.branchValue = Double.valueOf(bvaltv.getText());
+                break;
+            default:
+                break;
+        }
     }
 
     @FXML
     protected void handleBrowseBtnClicked(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(resources.filechooserpath));
+        fileChooser.setInitialDirectory(new File(Resources.filechooserpath));
         fileChooser.setTitle("Locate bound file");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Java files","*.java"),
                 new FileChooser.ExtensionFilter("Class files", "*.class"));
         File s = fileChooser.showOpenDialog(change_anchorpane.getScene().getWindow());
         bndfiletv.setText((s!=null)?s.getAbsolutePath():"");
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setBound_file(bndfiletv.getText());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        instance.boundFile = bndfiletv.getText();
     }
+
+    @FXML
+    protected void handleImportBtnClicked(ActionEvent event){
+
+    }
+
+    @FXML
+    protected void handleSaveBtnClicked(ActionEvent event){
+        String filename = getFilename();
+        //TODO: Does not work as intended yet - BNB ZIP FILE INSTEAD
+        if(filename != null && filename != ""){
+            filename = filename + ".bnb";
+            try {
+                FileIO.createFile(0,filename, "",true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    protected void handleExportBtnClicked(ActionEvent event){
+
+    }
+
+
+
 
     private void updateProgressString(int curr, int total){
         progBarLab.setText(String.format("Problem %d out of %d solved",curr, total));
@@ -413,14 +469,8 @@ public class mainController {
         return null;
     }
 
-    private NodeStrategy getStrategy(listview_item item){
-        if(item.isStrat_bst()){
-            return NodeStrategy.BEST_FIRST;
-        }
-        else if(item.isStrat_dpth()){
-            return NodeStrategy.DEPTH_FIRST;
-        }
-        return NodeStrategy.BREADTH_FIRST;
+    private NodeStrategy getStrategy(ProblemInstance item){
+        return item.strategy;
     }
 
     private ProblemType getProblemType(){
@@ -515,14 +565,23 @@ public class mainController {
             Alert alert = new Alert(Alert.AlertType.ERROR,"Constraints must be set", ButtonType.OK);
             alert.showAndWait();
         }
-        for(listview_item lv:list_items.values()){
-            if(lv.getBound_file().isEmpty()){
+        for(ProblemInstance lv:list_items.values()){
+            if(lv.boundFile.isEmpty()){
                 ret = false;
-                Alert alert = new Alert(Alert.AlertType.ERROR,String.format("Bound file of: %s must be set",lv.getName()), ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.ERROR,String.format("Bound file of: %s must be set",lv.name), ButtonType.OK);
                 alert.showAndWait();
             }
         }
         return ret;
+    }
+
+    private String getFilename(){
+        return JOptionPane.showInputDialog(
+                JOptionPane.getRootFrame(),
+                "Specify filename",
+                "Input box",
+                JOptionPane.PLAIN_MESSAGE
+        );
     }
 
     @FXML
@@ -538,12 +597,12 @@ public class mainController {
             double[] dataset = getDataset();
 
             int i = 0;
-            for(listview_item item:list_items.values()){
-                Bound bounds = getBound(item.getBound_file());
+            for(ProblemInstance item:list_items.values()){
+                Bound bounds = getBound(item.boundFile);
                 NodeStrategy strategy = getStrategy(item);
 
                 double bval = (bvaltv.getText().equals(""))?0.5:(Double.valueOf(bvaltv.getText()));
-                Problem tmp = new Problem(item.getName(),constraints,bounds,strategy,problemType,lpr_checkbox.isSelected(),bval);
+                Problem tmp = new Problem(item.name,constraints,bounds,strategy,problemType,lpr_checkbox.isSelected(),bval);
                 problems[i] = tmp;
                 tmp = null;
                 i++;

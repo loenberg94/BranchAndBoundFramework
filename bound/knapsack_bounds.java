@@ -1,13 +1,8 @@
 
-
 import bb_framework.interfaces.Bound;
-import bb_framework.utils.Constraint;
 import bb_framework.utils.DisjointSet;
 import bb_framework.utils.Node;
 import bb_framework.utils.Problem;
-import bb_framework.BranchAndBound;
-
-import java.util.HashMap;
 
 public class knapsack_bounds implements Bound {
         @Override
@@ -23,12 +18,11 @@ public class knapsack_bounds implements Bound {
                     ds.Union(prev, curr.index);
                 }
                 prev = curr.index;
-                int in = node.included?1:0;
-                sum += in * set[curr.index];
-                weight += in * problem.getConstraints()[0].getD_lhs()[curr.index];
+                sum += curr.included?set[curr.index]:0;
+                weight += curr.included?problem.getConstraints()[0].getD_lhs()[curr.index]:0;
                 curr = curr.getParent();
             }
-            
+
             int csSet = prev==-1?prev:ds.Find(prev);
             for (int i = 0; i < set.length; i++){
                 if(csSet == -1 || ds.Find(csSet) != ds.Find(i)){

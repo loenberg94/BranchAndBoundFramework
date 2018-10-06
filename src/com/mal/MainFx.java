@@ -11,7 +11,7 @@ public class MainFx extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("UI/main.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Branch And Bound Framework");
         primaryStage.setScene(new Scene(root, 1280, 850));
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(1000);

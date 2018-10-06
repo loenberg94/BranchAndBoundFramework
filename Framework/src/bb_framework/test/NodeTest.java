@@ -102,4 +102,18 @@ public class NodeTest {
             Assert.assertTrue(expectedObjectiveValue == actualObjectiveValue);
         }
     }
+
+    @Test
+    public void free(){
+        Node root = new Node(null,false);
+        Node n1 = new Node(root,true);
+        Node n2 = new Node(n1,true);
+        Node stop = new Node(n2,true);
+        Node n3 = new Node(n2,true);
+        Node n4 = new Node(n3,true);
+        Node n5 = new Node(n4,true);
+        n5.free();
+        Assert.assertTrue(n5.getParent() == null && n4.getParent() == null);
+        Assert.assertTrue(stop.getParent() != null && n2.getParent() != null && n1.getParent() != null);
+    }
 }

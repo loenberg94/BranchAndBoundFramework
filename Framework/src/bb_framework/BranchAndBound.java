@@ -77,6 +77,9 @@ public class BranchAndBound {
                                 incumbent = s_val;
                                 best = node;
                             }
+                            else{
+                                node.free();
+                            }
                         }
                         else if(best.lowerbound < node.lowerbound){
                             pruned = true;
@@ -88,30 +91,39 @@ public class BranchAndBound {
                                 incumbent = s_val;
                                 best = node;
                             }
+                            else{
+                                node.free();
+                            }
                         }
                         break;
                     case MAXIMIZATION:
                         if(node.depth == dataset.length - 1){
-                            log.Log("1: Node has reached max depth",Level.INFO);
+                            //log.Log("1: Node has reached max depth",Level.INFO);
                             pruned = true;
                             double val = node.getObjectiveValue(dataset);
                             if (val > incumbent) {
-                                log.Log("1.1: Value was better than incumbent, value: " + String.valueOf(val),Level.INFO);
+                                //log.Log("1.1: Value was better than incumbent, value: " + String.valueOf(val),Level.INFO);
                                 incumbent = val;
                                 best = node;
                             }
+                            else{
+                                node.free();
+                            }
                         }
                         else if(best.lowerbound > node.upperbound){
-                            log.Log(String.format("2: best.lowerbound: %f, node.upperbound: %f", best.lowerbound, node.upperbound),Level.INFO);
+                            //log.Log(String.format("2: best.lowerbound: %f, node.upperbound: %f", best.lowerbound, node.upperbound),Level.INFO);
                             pruned = true;
                         } else if (node.lowerbound == node.upperbound) {
-                            log.Log("3: Lowerbound equals Upperbound - optimal solution for branch found",Level.INFO);
+                            //log.Log("3: Lowerbound equals Upperbound - optimal solution for branch found",Level.INFO);
                             pruned = true;
                             double s_val = node.upperbound;
                             if(s_val > incumbent){
-                                log.Log("3.1: Solution value is greater than current best value, value: " + String.valueOf(s_val),Level.INFO);
+                                //log.Log("3.1: Solution value is greater than current best value, value: " + String.valueOf(s_val),Level.INFO);
                                 incumbent = s_val;
                                 best = node.transferBoundSolutionToSolution();
+                            }
+                            else{
+                                node.free();
                             }
                         }
                         break;
@@ -151,7 +163,6 @@ public class BranchAndBound {
                         branch(node, problems[i], -1);
                     }
                 }
-                //node.free();
                 node = null;
             }
             final long end_time = System.currentTimeMillis();

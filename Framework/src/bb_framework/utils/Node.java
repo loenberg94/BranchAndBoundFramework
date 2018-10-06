@@ -17,7 +17,10 @@ public class Node {
 
     private double[] currentBoundSolution;
 
+    private int children = 0;
+
     public Node (Node par, boolean included){
+        if (par != null) par.incrementChildren();
         this.parent = par;
         this.included = included;
         this.depth = (par==null)?-1:par.depth +1;
@@ -25,6 +28,7 @@ public class Node {
     }
 
     public Node (Node par, boolean included ,int index){
+        if (par != null) par.incrementChildren();
         this.parent = par;
         this.included = included;
         this.depth = (par==null)?-1:par.depth+1;
@@ -83,8 +87,23 @@ public class Node {
         return this.parent;
     }
 
+    private void incrementChildren(){
+        this.children++;
+    }
+
+    private void decrementChildren(){
+        this.children--;
+    }
+
     public void free(){
-        this.currentBoundSolution = null;
-        this.parent = null;
+        Node curr = this;
+        Node prev;
+        while(curr.children == 0){
+            prev = curr;
+            curr.currentBoundSolution = null;
+            curr.parent.decrementChildren();
+            curr = curr.parent;
+            prev.parent = null;
+        }
     }
 }

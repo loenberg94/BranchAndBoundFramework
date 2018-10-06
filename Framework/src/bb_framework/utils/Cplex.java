@@ -9,23 +9,27 @@ import java.util.HashMap;
 
 @SuppressWarnings("Duplicates")
 public class Cplex {
-    IloCplex cplex;
-    IloNumVar[] x;
-    IloLinearNumExpr obj;
+    static IloCplex cplex;
 
-    public Cplex() throws IloException {
-        cplex = new IloCplex();
+    static {
+        try {
+            cplex = new IloCplex();
+        } catch (IloException e) {
+            e.printStackTrace();
+        }
     }
 
-    public double[] lp_relaxation(double[] coefficients, Node currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
-        x = cplex.numVarArray(coefficients.length,0.0, 1.0);
+    //TODO: Make possible to take index constraints - x_1 + .. + x_n <= c
+
+    public static double[] lp_relaxation(double[] coefficients, Node currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
+        IloNumVar[] x = cplex.numVarArray(coefficients.length,0.0, 1.0);
         cplex.setOut(null);
 
         // TODO: Possibly make this a property of class, in order to minimize memory
         DisjointSet ds = new DisjointSet(coefficients.length);
 
         // Objective function
-        obj = cplex.linearNumExpr();
+        IloLinearNumExpr obj = cplex.linearNumExpr();
 
         int prev = -1;
         Node curr = currentSolution;
@@ -82,25 +86,17 @@ public class Cplex {
         if(status == IloCplex.Status.Optimal || status == IloCplex.Status.Feasible){
             retArr = cplex.getValues(x);
         }
+
+        // Clean-up
+        cplex.clearModel();
+        x = null;
+        obj.clear();
+        obj = null;
+
         return retArr;
     }
 
-    public void release(){
-        try {
-            cplex.clearModel();
-            for(int i = 0; i < x.length; i++){
-                x[i] = null;
-            }
-            x = null;
-            obj.clear();
-            obj = null;
-        } catch (IloException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public double[] ip_solve(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
-        IloCplex cplex = new IloCplex();
+    public static double[] ip_solve(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
         IloNumVar[] x = cplex.boolVarArray(coefficients.length);
         cplex.setOut(null);
 
@@ -146,16 +142,21 @@ public class Cplex {
         cplex.solve();
 
         IloCplex.Status status = cplex.getStatus();
+
+        double[] retarr = null;
         if (status.equals(IloCplex.Status.Optimal) || status.equals(IloCplex.Status.Feasible)){
-            //System.out.printf("\n\n%f\n",cplex.getObjValue());
-            double[] retarr = cplex.getValues(x);
-            x = null;
-            cplex = null;
-            obj = null;
-            return retarr;
+            retarr = cplex.getValues(x);
         }
         else {
             throw new Exception("No optimal solution found");
         }
+
+        // Clean-up
+        cplex.clearModel();
+        x = null;
+        obj.clear();
+        obj = null;
+
+        return retarr;
     }
 }

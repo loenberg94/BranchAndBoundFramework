@@ -11,6 +11,9 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
@@ -22,300 +25,88 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="1024.0" minWidth="1280.0" prefHeight="1024.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mal.UI.mainController">
+<AnchorPane maxHeight="850.0" minHeight="1024.0" minWidth="1280.0" prefHeight="850.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mal.UI.MainController">
   <children>
-    <SplitPane dividerPositions="0.7503912363067292" prefHeight="800.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <items>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-          <children>
-            <GridPane prefHeight="1022.0" prefWidth="423.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="7.5" AnchorPane.rightAnchor="-7.5" AnchorPane.topAnchor="-9.0">
+    <GridPane maxHeight="850.0" prefHeight="850.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <SplitPane dividerPositions="0.7668231611893583" maxHeight="850.0" prefHeight="850.0" prefWidth="1280.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+          <items>
+            <AnchorPane maxHeight="850.0" prefHeight="850.0" prefWidth="200.0">
               <children>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <GridPane maxHeight="988.0" prefHeight="988.0" prefWidth="423.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="7.5" AnchorPane.rightAnchor="-7.5" AnchorPane.topAnchor="-9.0">
                   <children>
-                    <GridPane prefHeight="571.0" prefWidth="558.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                       <children>
-                        <BarChart fx:id="nodesBarChart" title="Number of nodes" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                          <xAxis>
-                            <CategoryAxis fx:id="nXAxis" side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis fx:id="nYAxis" side="LEFT" />
-                          </yAxis>
-                        </BarChart>
-                        <BarChart fx:id="timeBarChart" title="Time in seconds" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                          <xAxis>
-                            <CategoryAxis fx:id="tXAxis" side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis fx:id="tYAxis" side="LEFT" />
-                          </yAxis>
-                        </BarChart>
-                        <GridPane fx:id="resultViewGrid" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <GridPane prefHeight="571.0" prefWidth="558.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <children>
-                            <Label alignment="CENTER" contentDisplay="CENTER" text="Results in numbers" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
-                              <font>
-                                <Font size="19.0" />
-                              </font>
-                            </Label>
-                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <BarChart fx:id="nodesBarChart" title="Number of nodes" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                              <xAxis>
+                                <CategoryAxis fx:id="nXAxis" side="BOTTOM" />
+                              </xAxis>
+                              <yAxis>
+                                <NumberAxis fx:id="nYAxis" side="LEFT" />
+                              </yAxis>
+                            </BarChart>
+                            <BarChart fx:id="timeBarChart" title="Time in seconds" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <xAxis>
+                                <CategoryAxis fx:id="tXAxis" side="BOTTOM" />
+                              </xAxis>
+                              <yAxis>
+                                <NumberAxis fx:id="tYAxis" side="LEFT" />
+                              </yAxis>
+                            </BarChart>
+                            <GridPane fx:id="resultViewGrid" GridPane.columnIndex="2" GridPane.rowIndex="0">
                               <children>
-                                <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                  <GridPane.margin>
-                                    <Insets left="10.0" fx:id="x1" />
-                                  </GridPane.margin>
+                                <Label alignment="CENTER" contentDisplay="CENTER" text="Results in numbers" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                                  <font>
+                                    <Font size="19.0" />
+                                  </font>
                                 </Label>
-                                <Label text="Strategy" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="1" />
-                                <Label text="Nodes" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2" />
-                                <Label text="Time" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="3" />
-                                <Label text="Objective Value" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="4" />
-                                <Label text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
-                                  <GridPane.margin>
-                                    <Insets right="20.0" fx:id="x2" />
-                                  </GridPane.margin>
-                                </Label>
-                                <Label fx:id="resViewStratLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="1" />
-                                <Label fx:id="resViewNodesLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="2" />
-                                <Label fx:id="resViewTimeLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="3" />
-                                <Label fx:id="resViewOVLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="4" />
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="103.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="199.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
-                              <children>
-                                <Button fx:id="resPrevBtn" mnemonicParsing="false" onAction="#handlePrevResBtnClicked" text="&lt;" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                  <GridPane.margin>
-                                    <Insets left="10.0" fx:id="x1" />
-                                  </GridPane.margin>
-                                </Button>
-                                <Button fx:id="resNextBtn" mnemonicParsing="false" onAction="#handleNextResBtnClicked" text="&gt;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="0" />
-                              </children>
-                              <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              </columnConstraints>
-                              <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              </rowConstraints>
-                            </GridPane>
-                          </children>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="154.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="276.0" minHeight="10.0" prefHeight="238.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="275.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
-                      </children>
-                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="310.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="328.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="318.0" />
-                      </columnConstraints>
-                      <rowConstraints>
-                        <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="286.0" vgrow="SOMETIMES" />
-                      </rowConstraints>
-                    </GridPane>
-                  </children>
-                </AnchorPane>
-                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
-                  <children>
-                    <Label text="Problem name:" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                      <GridPane.margin>
-                        <Insets left="10.0" fx:id="x1" />
-                      </GridPane.margin>
-                    </Label>
-                    <TextField prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                      <GridPane.margin>
-                        <Insets left="140.0" right="10.0" />
-                      </GridPane.margin>
-                    </TextField>
-                    <ComboBox fx:id="pTypeCombobox" prefWidth="217.0" promptText="Problem type" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                      <items>
-                        <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="Maximization" />
-                          <String fx:value="Minimization" />
-                        </FXCollections>
-                      </items>
-                    </ComboBox>
-                    <Label text="Coef number" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                      <GridPane.margin>
-                        <Insets left="20.0" />
-                      </GridPane.margin>
-                    </Label>
-                    <TextField fx:id="coefNrTF" minWidth="50.0" prefWidth="200.0" text="15" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                      <GridPane.margin>
-                        <Insets left="130.0" right="100.0" />
-                      </GridPane.margin>
-                    </TextField>
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="130.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
-                  <children>
-                    <TextField fx:id="coefTF" prefWidth="200.0" text="C:\Users\loenb\Desktop\test files\knapsack_dataset15.txt" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <TextField fx:id="consTF" prefWidth="200.0" text="C:\Users\loenb\Desktop\test files\knapsack_constraints15.txt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <Button fx:id="coefBrowseBtn" mnemonicParsing="false" onAction="#handleCoefBrowseBtnClicked" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="0">
-                      <GridPane.margin>
-                        <Insets left="10.0" right="10.0" fx:id="x4" />
-                      </GridPane.margin>
-                    </Button>
-                    <Button id="ConsBrowseBtn" fx:id="consBrowseBtn" mnemonicParsing="false" onAction="#handleConsBrowseBtnClicked" text="Browse" GridPane.columnIndex="2" GridPane.margin="$x4" GridPane.rowIndex="1" />
-                    <Label text="Coefficients:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <Label text="Constraints:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="126.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="792.0" minWidth="10.0" prefWidth="719.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="792.0" minWidth="10.0" prefWidth="111.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="156.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="176.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="3">
-                  <children>
-                    <Button fx:id="run_btn" minWidth="138.0" mnemonicParsing="false" onAction="#handleRunBtnClicked" text="Run" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-                      <GridPane.margin>
-                        <Insets left="200.0" />
-                      </GridPane.margin>
-                    </Button>
-                    <Button minWidth="138.0" mnemonicParsing="false" text="Export results" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-                      <GridPane.margin>
-                        <Insets right="200.0" />
-                      </GridPane.margin>
-                    </Button>
-                    <ProgressBar fx:id="progBar" prefWidth="691.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Label fx:id="progBarLab" text="Problem x out of x solved" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="114.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="781.0" minWidth="10.0" prefWidth="728.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="114.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-              </children>
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="341.0" minHeight="10.0" prefHeight="195.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="524.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="607.0" minHeight="10.0" prefHeight="331.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="386.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-          </children>
-        </AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-          <children>
-            <SplitPane dividerPositions="0.9382352941176471" orientation="VERTICAL" prefHeight="798.0" prefWidth="264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                  <children>
-                    <SplitPane dividerPositions="0.6691176470588235" orientation="VERTICAL" prefHeight="724.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                      <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                          <children>
-                            <ListView fx:id="change_listview" onMouseClicked="#handleListviewItemClicked" prefHeight="675.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                          </children>
-                        </AnchorPane>
-                        <AnchorPane fx:id="change_anchorpane" disable="true" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                          <children>
-                            <GridPane prefHeight="197.0" prefWidth="260.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <children>
-                                <GridPane>
+                                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
                                   <children>
-                                    <RadioButton fx:id="strat_bst_radbtn" mnemonicParsing="false" onAction="#handleButtonChangeListener" selected="true" text="Best">
-                                      <font>
-                                        <Font size="14.0" fx:id="x3" />
-                                      </font>
-                                      <toggleGroup>
-                                        <ToggleGroup fx:id="strategy" />
-                                      </toggleGroup>
-                                      <GridPane.margin>
-                                        <Insets left="10.0" fx:id="x1" />
-                                      </GridPane.margin>
-                                    </RadioButton>
-                                    <RadioButton fx:id="strat_dpth_radbtn" font="$x3" mnemonicParsing="false" onAction="#handleButtonChangeListener" text="Depth" toggleGroup="$strategy" GridPane.columnIndex="1" />
-                                    <RadioButton fx:id="strat_brth_radbtn" font="$x3" mnemonicParsing="false" onAction="#handleButtonChangeListener" text="Breadth" toggleGroup="$strategy" GridPane.columnIndex="2" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane GridPane.rowIndex="1">
-                                  <children>
-                                    <CheckBox fx:id="lpr_checkbox" mnemonicParsing="false" onAction="#handleLPRelaxationCheckbox" text="LP-Relaxation">
-                                      <GridPane.margin>
-                                        <Insets left="10.0" fx:id="x1" />
-                                      </GridPane.margin>
-                                    </CheckBox>
-                                    <TextField fx:id="bvaltv" disable="true" onKeyTyped="#handleTextChangeListener" text="0.5" GridPane.columnIndex="2" />
-                                    <Label text="Branch val:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-                                  </children>
-                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="99.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="92.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="71.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="27.0" />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                </GridPane>
-                                <GridPane GridPane.rowIndex="2">
-                                  <children>
-                                    <Button fx:id="bndfile_browse_btn" mnemonicParsing="false" onAction="#handleBrowseBtnClicked" text="Browse" GridPane.columnIndex="2">
-                                      <GridPane.margin>
-                                        <Insets right="10.0" />
-                                      </GridPane.margin>
-                                    </Button>
-                                    <TextField fx:id="bndfiletv" onAction="#handleTextChangeListener" onKeyTyped="#handleTextChangeListener" text="C:\Users\loenb\Desktop\test files\knapsack_bounds.java" GridPane.columnIndex="1" />
-                                    <Label text="Bound file:">
+                                    <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0">
                                       <GridPane.margin>
                                         <Insets left="10.0" fx:id="x1" />
                                       </GridPane.margin>
                                     </Label>
+                                    <Label text="Strategy" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="1" />
+                                    <Label text="Nodes" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2" />
+                                    <Label text="Time" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="3" />
+                                    <Label text="Objective Value" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="4" />
+                                    <Label fx:id="resViewNameLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets right="20.0" fx:id="x2" />
+                                      </GridPane.margin>
+                                    </Label>
+                                    <Label fx:id="resViewStratLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                                    <Label fx:id="resViewNodesLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                                    <Label fx:id="resViewTimeLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                                    <Label fx:id="resViewOVLab" text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="4" />
                                   </children>
                                   <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="70.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="180.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="69.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="103.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="199.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                </GridPane>
+                                <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                  <children>
+                                    <Button fx:id="resPrevBtn" mnemonicParsing="false" onAction="#handlePrevResBtnClicked" text="&lt;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                      <GridPane.margin>
+                                        <Insets left="10.0" fx:id="x1" />
+                                      </GridPane.margin>
+                                    </Button>
+                                    <Button fx:id="resNextBtn" mnemonicParsing="false" onAction="#handleNextResBtnClicked" text="&gt;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                                  </children>
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   </columnConstraints>
                                   <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -326,43 +117,276 @@
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               </columnConstraints>
                               <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="154.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="276.0" minHeight="10.0" prefHeight="238.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="275.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
                               </rowConstraints>
                             </GridPane>
                           </children>
-                        </AnchorPane>
-                      </items>
-                    </SplitPane>
-                  </children>
-                </AnchorPane>
-                <AnchorPane maxHeight="60.0" minHeight="60.0" minWidth="0.0" prefHeight="60.0" prefWidth="160.0">
-                  <children>
-                    <GridPane prefHeight="111.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="310.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="328.0" minWidth="10.0" prefWidth="328.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="318.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="286.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
                       <children>
-                        <Button fx:id="listview_add_btn" mnemonicParsing="false" onAction="#handleListviewAddBtn" text="Add diff" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <TextField fx:id="changetf" text="best">
+                        <Label text="Problem name:" GridPane.columnIndex="0" GridPane.rowIndex="1">
                           <GridPane.margin>
-                            <Insets left="10.0" right="10.0" fx:id="x4" />
+                            <Insets left="10.0" fx:id="x1" />
+                          </GridPane.margin>
+                        </Label>
+                        <TextField prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets left="140.0" right="10.0" />
+                          </GridPane.margin>
+                        </TextField>
+                        <ComboBox fx:id="pTypeCombobox" prefWidth="217.0" promptText="Problem type" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Maximization" />
+                              <String fx:value="Minimization" />
+                            </FXCollections>
+                          </items>
+                        </ComboBox>
+                        <Label text="Coef number" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets left="20.0" />
+                          </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="coefNrTF" minWidth="50.0" prefWidth="200.0" text="15" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                            <Insets left="130.0" right="100.0" />
                           </GridPane.margin>
                         </TextField>
                       </children>
                       <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="169.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="93.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       </columnConstraints>
                       <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+                      <children>
+                        <TextField fx:id="coefTF" prefWidth="200.0" text="C:\Users\loenb\Desktop\test files\knapsack_dataset15.txt" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <TextField fx:id="consTF" prefWidth="200.0" text="C:\Users\loenb\Desktop\test files\knapsack_constraints15.txt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="coefBrowseBtn" mnemonicParsing="false" onAction="#handleCoefBrowseBtnClicked" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                          <GridPane.margin>
+                            <Insets left="10.0" right="10.0" fx:id="x4" />
+                          </GridPane.margin>
+                        </Button>
+                        <Button id="ConsBrowseBtn" fx:id="consBrowseBtn" mnemonicParsing="false" onAction="#handleConsBrowseBtnClicked" text="Browse" GridPane.columnIndex="2" GridPane.margin="$x4" GridPane.rowIndex="1" />
+                        <Label text="Coefficients:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                        <Label text="Constraints:" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="477.0" minWidth="10.0" prefWidth="126.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="792.0" minWidth="10.0" prefWidth="719.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="792.0" minWidth="10.0" prefWidth="111.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="164.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="3">
+                      <children>
+                        <Button fx:id="run_btn" minWidth="138.0" mnemonicParsing="false" onAction="#handleRunBtnClicked" text="Run" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets left="200.0" />
+                          </GridPane.margin>
+                        </Button>
+                        <Button minWidth="138.0" mnemonicParsing="false" onAction="#handleExportBtnClicked" text="Export results" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                          <GridPane.margin>
+                            <Insets right="200.0" />
+                          </GridPane.margin>
+                        </Button>
+                        <ProgressBar fx:id="progBar" prefWidth="691.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Label fx:id="progBarLab" text="Problem x out of x solved" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="114.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="781.0" minWidth="10.0" prefWidth="728.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="114.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
                       </rowConstraints>
                     </GridPane>
                   </children>
-                </AnchorPane>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints maxHeight="341.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="524.0" minHeight="10.0" prefHeight="170.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="607.0" minHeight="10.0" prefHeight="334.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="386.0" minHeight="10.0" prefHeight="183.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+              </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="850.0" minHeight="0.0" minWidth="0.0" prefHeight="850.0" prefWidth="100.0">
+              <children>
+                <SplitPane dividerPositions="0.9240963855421687" orientation="VERTICAL" prefHeight="798.0" prefWidth="264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <items>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <children>
+                        <SplitPane dividerPositions="0.7125984251968503" orientation="VERTICAL" prefHeight="724.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                              <children>
+                                <ListView fx:id="change_listview" onMouseClicked="#handleListviewItemClicked" prefHeight="675.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              </children>
+                            </AnchorPane>
+                            <AnchorPane fx:id="change_anchorpane" disable="true" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                              <children>
+                                <GridPane prefHeight="197.0" prefWidth="260.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <children>
+                                    <GridPane>
+                                      <children>
+                                        <RadioButton fx:id="strat_bst_radbtn" mnemonicParsing="false" onAction="#handleButtonChangeListener" selected="true" text="Best">
+                                          <font>
+                                            <Font size="14.0" fx:id="x3" />
+                                          </font>
+                                          <toggleGroup>
+                                            <ToggleGroup fx:id="strategy" />
+                                          </toggleGroup>
+                                          <GridPane.margin>
+                                            <Insets left="10.0" fx:id="x1" />
+                                          </GridPane.margin>
+                                        </RadioButton>
+                                        <RadioButton fx:id="strat_dpth_radbtn" font="$x3" mnemonicParsing="false" onAction="#handleButtonChangeListener" text="Depth" toggleGroup="$strategy" GridPane.columnIndex="1" />
+                                        <RadioButton fx:id="strat_brth_radbtn" font="$x3" mnemonicParsing="false" onAction="#handleButtonChangeListener" text="Breadth" toggleGroup="$strategy" GridPane.columnIndex="2" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="1">
+                                      <children>
+                                        <CheckBox fx:id="lpr_checkbox" mnemonicParsing="false" onAction="#handleLPRelaxationCheckbox" text="LP-Relaxation">
+                                          <GridPane.margin>
+                                            <Insets left="10.0" fx:id="x1" />
+                                          </GridPane.margin>
+                                        </CheckBox>
+                                        <TextField fx:id="bvaltv" disable="true" onKeyTyped="#handleTextChangeListener" text="0.5" GridPane.columnIndex="2" />
+                                        <Label text="Branch val:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="99.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="92.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="71.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="27.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="2">
+                                      <children>
+                                        <Button fx:id="bndfile_browse_btn" mnemonicParsing="false" onAction="#handleBrowseBtnClicked" text="Browse" GridPane.columnIndex="2">
+                                          <GridPane.margin>
+                                            <Insets right="10.0" />
+                                          </GridPane.margin>
+                                        </Button>
+                                        <TextField fx:id="bndfiletv" onAction="#handleTextChangeListener" onKeyTyped="#handleTextChangeListener" text="C:\Users\loenb\Desktop\test files\knapsack_bounds.java" GridPane.columnIndex="1" />
+                                        <Label text="Bound file:">
+                                          <GridPane.margin>
+                                            <Insets left="10.0" fx:id="x1" />
+                                          </GridPane.margin>
+                                        </Label>
+                                      </children>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="70.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="180.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="69.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                  </children>
+                                  <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                </GridPane>
+                              </children>
+                            </AnchorPane>
+                          </items>
+                        </SplitPane>
+                      </children>
+                    </AnchorPane>
+                    <AnchorPane maxHeight="60.0" minHeight="60.0" minWidth="0.0" prefHeight="60.0" prefWidth="160.0">
+                      <children>
+                        <GridPane prefHeight="111.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <children>
+                            <Button fx:id="listview_add_btn" mnemonicParsing="false" onAction="#handleListviewAddBtn" text="Add diff" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                            <TextField fx:id="changetf" text="best">
+                              <GridPane.margin>
+                                <Insets left="10.0" right="10.0" fx:id="x4" />
+                              </GridPane.margin>
+                            </TextField>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="169.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="93.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </AnchorPane>
+                  </items>
+                </SplitPane>
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+        <MenuBar id="menubar" useSystemMenuBar="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem fx:id="menuItemImport" mnemonicParsing="false" onAction="#handleImportBtnClicked" text="Import" />
+                <MenuItem fx:id="menuItemSave" mnemonicParsing="false" onAction="#handleSaveBtnClicked" text="Save" />
               </items>
-            </SplitPane>
-          </children>
-        </AnchorPane>
-      </items>
-    </SplitPane>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="850.0" minHeight="10.0" prefHeight="850.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
   </children>
 </AnchorPane>

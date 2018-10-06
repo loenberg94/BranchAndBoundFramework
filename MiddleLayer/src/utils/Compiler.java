@@ -20,7 +20,7 @@ public class Compiler {
 
         List<String> optionList = new ArrayList<>();
         optionList.add("-classpath");
-        optionList.add(System.getProperty("java.class.path") /*+ ";Framework.jar"*/);
+        optionList.add(System.getProperty("java.class.path"));
 
         Iterable<? extends JavaFileObject> compilationUnit = fileManager.getJavaFileObjectsFromFiles(Arrays.asList(file));
         JavaCompiler.CompilationTask task = compiler.getTask(null,fileManager,diagnostics,optionList,null,compilationUnit);
