@@ -8,8 +8,8 @@ import bb_framework.interfaces.Bound;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Problem;
 import bb_framework.utils.Result;
+import com.mal.UI.utils.MultiThreadCompiler;
 import com.mal.UI.utils.FileIO;
-import com.mal.UI.utils.Settings;
 import utils.Compiler;
 import com.mal.UI.utils.ProblemInstance;
 import com.mal.UI.utils.Resources;
@@ -41,6 +41,7 @@ import java.util.HashMap;
 
 public class MainController {
     HashMap<Integer, ProblemInstance> list_items = new HashMap<>();
+    MultiThreadCompiler multiThreadCompiler = new MultiThreadCompiler(list_items);
 
     int i = 0;
     Result[] res;
@@ -460,7 +461,6 @@ public class MainController {
                 String cName = (file.getName().replace(".java",""));
                 Class<?> cls = classLoader.loadClass(cName);
                 bnd = (Bound) cls.getDeclaredConstructor().newInstance();
-                //bnd = (Bound) CustomClassloader.loadObject(file);
             } catch (MalformedURLException | ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }

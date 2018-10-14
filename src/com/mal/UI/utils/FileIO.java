@@ -3,6 +3,7 @@ package com.mal.UI.utils;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.nio.file.Files;
 
 import static javax.swing.JOptionPane.YES_OPTION;
 
@@ -10,14 +11,14 @@ public class FileIO {
 
     private static final String localFileDirectory = System.getenv("APPDATA") + "\\BranchAndBound\\";
 
-    private static boolean checkDirectoryPath(String path, boolean createIfNonExisting) {
+    public static boolean checkDirectoryPath(String path, boolean createIfNonExisting) throws IOException {
         File tmp = new File(path);
         if(tmp.getParentFile().exists()){
             return true;
         }
         else {
             if(createIfNonExisting){
-                tmp.getParentFile().mkdir();
+                Files.createDirectories(tmp.getParentFile().toPath());
                 return true;
             }
             return false;
@@ -27,9 +28,9 @@ public class FileIO {
     private static String getFolder(int id) {
         switch (id){
             case 0:
-                return "\\problems\\";
+                return "\\Problems\\";
             case 1:
-                return "\\classes\\";
+                return "\\Classes\\";
             default:
                 return "";
         }

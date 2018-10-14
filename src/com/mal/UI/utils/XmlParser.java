@@ -1,5 +1,8 @@
 package com.mal.UI.utils;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
+
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -13,11 +16,8 @@ public class XmlParser {
     }
 
     public static <T> String parseToString(T obj){
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        XMLEncoder encoder = new XMLEncoder(baos);
-        encoder.writeObject(obj);
-        encoder.close();
-        return baos.toString();
+        XStream xStream = new XStream(new StaxDriver());
+        return xStream.toXML(obj);
     }
 
     public static <T> T retrieveFromFile(String filepath) throws FileNotFoundException {
