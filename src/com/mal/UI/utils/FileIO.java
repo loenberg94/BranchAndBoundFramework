@@ -1,9 +1,14 @@
 package com.mal.UI.utils;
 
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.swing.JOptionPane.YES_OPTION;
 
@@ -57,18 +62,18 @@ public class FileIO {
         }
     }
 
-    public static String locateFile(Component component){
-
-        return "";
+    public static String locateFile(Window main, String title, FileChooser.ExtensionFilter... filters){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(Resources.filechooserpath));
+        fileChooser.setTitle(title);
+        for(FileChooser.ExtensionFilter filter: filters){
+            fileChooser.getExtensionFilters().add(filter);
+        }
+        return fileChooser.showOpenDialog(main).getAbsolutePath();
     }
 
-    public static String locateDirectory(Component component){
+    public static String locateDirectory(Window main){
 
         return "";
-    }
-
-    public static String[] locateFiles(Component component){
-
-        return new String[] {""};
     }
 }

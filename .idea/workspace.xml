@@ -6,19 +6,21 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Tree Traversal version - Clean-up in UI code!!!!">
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/utils/MemoryCompiler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/JavaFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/MultiThreadCompiler.java" afterDir="false" />
+    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Multithreaded compiler class added">
+      <change afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/ErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/mal/tests/MultiThreadCompilerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BB_Framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BB_Framework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/utils/MemoryCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/utils/MemoryCompiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/UI/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/UI/utils/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/FileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/utils/JavaFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/JavaFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/utils/MultiThreadCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/MultiThreadCompiler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/UI/utils/ProblemInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/ProblemInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mal/UI/utils/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mal/UI/utils/XmlParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mal/UI/utils/XmlParser.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="src/com/mal/tests/loadtest.java" />
@@ -47,14 +49,14 @@
         <counts>
           <entry key="fxml" value="63" />
           <entry key="gitignore" value="42" />
-          <entry key="java" value="21527" />
-          <entry key="txt" value="48" />
+          <entry key="java" value="26196" />
+          <entry key="txt" value="84" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="21527" />
-          <entry key="PLAIN_TEXT" value="90" />
+          <entry key="JAVA" value="26196" />
+          <entry key="PLAIN_TEXT" value="126" />
           <entry key="XML" value="63" />
         </counts>
       </usages-collector>
@@ -63,39 +65,42 @@
           <entry key="class" value="1" />
           <entry key="fxml" value="6" />
           <entry key="gitignore" value="2" />
-          <entry key="java" value="106" />
+          <entry key="java" value="123" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="106" />
+          <entry key="JAVA" value="123" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="5" />
           <entry key="project.open.time.25" value="2" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.33" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/UI/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="466" column="23" lean-forward="true" selection-start-line="466" selection-start-column="23" selection-end-line="466" selection-end-column="23" />
+            <state relative-caret-position="203">
+              <caret line="381" column="10" selection-start-line="381" selection-start-column="10" selection-end-line="381" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,35 +108,58 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MiddleLayer/src/utils/MemoryCompiler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-              <folding>
-                <element signature="method#MemoryCompiler#0;class#MemoryCompiler#0" />
-                <element signature="method#useParentClassLoader#0;class#MemoryCompiler#0" />
-                <element signature="method#useOptions#0;class#MemoryCompiler#0" />
-                <element signature="method#ignoreWarnings#0;class#MemoryCompiler#0" />
-                <element signature="method#compileAll#0;class#MemoryCompiler#0" />
-                <element signature="method#compile#0;class#MemoryCompiler#0" />
-                <element signature="method#addSource#0;class#MemoryCompiler#0" />
-                <element signature="class#CompiledCode#0;class#MemoryCompiler#0" />
-                <element signature="class#SourceCode#0;class#MemoryCompiler#0" />
-                <element signature="class#ExtendedJavaFileManager#0;class#MemoryCompiler#0" />
-                <element signature="class#DynamicClassloader#0;class#MemoryCompiler#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/MultiThreadCompiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+            <state relative-caret-position="152">
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#MultiThreadCompiler#0;class#MultiThreadCompiler#0" />
+                <element signature="method#addFile#0;class#MultiThreadCompiler#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-576">
+              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/ErrorHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+              <folding>
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#625#626#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,24 +169,13 @@
         <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/ProblemInstance.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <element signature="method#write#0;class#BnbFile#0" />
+                <element signature="method#ProblemInstance#0;class#ProblemInstance#0" />
+                <element signature="method#ProblemInstance#1;class#ProblemInstance#0" />
+                <element signature="method#setBound#0;class#ProblemInstance#0" />
+                <element signature="method#copy#0;class#ProblemInstance#0" />
               </folding>
             </state>
           </provider>
@@ -167,10 +184,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="63" column="12" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+            <state relative-caret-position="1054">
+              <caret line="102" column="38" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
               <folding>
                 <element signature="method#testFramework#0;class#Main#0" />
+                <element signature="method#testBnbFile#0;class#Main#0" />
               </folding>
             </state>
           </provider>
@@ -201,6 +219,20 @@
       <find>resultViewGrid</find>
       <find>resNextBtn</find>
       <find>getCurrentSolution</find>
+      <find>classLoader</find>
+      <find>SourceCode</find>
+      <find>poll</find>
+      <find>notFull</find>
+      <find>linkFirst</find>
+      <find>linkLast</find>
+      <find>addLast</find>
+      <find>contai</find>
+      <find>notEmpty</find>
+      <find>get</find>
+      <find>iterator</find>
+      <find>resultsSolved</find>
+      <find>boundF</find>
+      <find>bndfiletv</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,8 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/mal/utils/compiler/Compiler.java" />
-        <option value="$PROJECT_DIR$/MiddleLayer/src/utils/CustomClassloader.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/utils/SimpleConstraint.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/abstract_classes/Constraint.java" />
         <option value="$PROJECT_DIR$/Framework/src/bb_framework/enums/ConstraintType.java" />
@@ -254,18 +284,20 @@
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/ListviewItem.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/main.fxml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/Settings.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/Main.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/XmlParser.java" />
-        <option value="$PROJECT_DIR$/MiddleLayer/src/utils/MemoryCompiler.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/FileIO.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/JavaFile.java" />
-        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/ProblemInstance.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/CompileTask.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/CompileThread.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/tests/MultiThreadCompilerTest.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/JavaFile.java" />
+        <option value="$PROJECT_DIR$/MiddleLayer/src/utils/MemoryCompiler.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/utils/MultiThreadCompiler.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/ProblemInstance.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/ErrorHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/FileIO.java" />
         <option value="$PROJECT_DIR$/src/com/mal/UI/MainController.java" />
+        <option value="$PROJECT_DIR$/src/com/mal/UI/utils/Settings.java" />
       </list>
     </option>
   </component>
@@ -301,30 +333,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="MiddleLayer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="MiddleLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="MiddleLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
@@ -356,7 +371,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -367,14 +381,14 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="197" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539516960830" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540201741276" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/Framework/src" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/xstream-1.4.10.jar!/" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/studie/Kurser/diskret-optimisering/Assignments/assignment_1/SourceFiles/SourceFiles/OptAss1" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -383,6 +397,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.mal.tests" />
       <recent name="bb_framework.test" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -569,7 +584,10 @@
       <workItem from="1538569608390" duration="28556000" />
       <workItem from="1539020897939" duration="29110000" />
       <workItem from="1539435836866" duration="11461000" />
-      <workItem from="1539523595465" duration="596000" />
+      <workItem from="1539523595465" duration="29127000" />
+      <workItem from="1539772090073" duration="21659000" />
+      <workItem from="1541889817383" duration="97000" />
+      <workItem from="1542464378685" duration="2251000" />
     </task>
     <task id="LOCAL-00001" summary="Dataset updated to be an abstract class:&#10;* because predefined function was needed.&#10;&#10;Subset class created for the dataset">
       <created>1522429428652</created>
@@ -718,7 +736,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538858922064</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Multithreaded compiler class added">
+      <created>1539524374458</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1539524374458</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -754,7 +779,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180013000" />
+    <option name="totallyTimeSpent" value="232551000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -767,9 +792,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1455" height="975" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17204301" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17992832" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -783,13 +807,13 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28859857" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.33915213" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.21733966" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32917705" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32846716" />
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32917705" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32897863" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -838,25 +862,16 @@
     <MESSAGE value="Tree Traversal version" />
     <MESSAGE value="Tree Traversal version - Clean-up!!!!" />
     <MESSAGE value="Tree Traversal version - Clean-up in UI code!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tree Traversal version - Clean-up in UI code!!!!" />
+    <MESSAGE value="Multithreaded compiler class added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multithreaded compiler class added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="67" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="86" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -918,49 +933,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.graphics/javafx/scene/PropertyHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/types/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/types/Edge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/testFiles/Knapsack_24coef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/testFiles/loadtest.java" />
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/testFiles/tspbounds.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.base/com/sun/javafx/runtime/SystemProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
         </state>
       </provider>
     </entry>
@@ -1094,13 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Problem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1112,13 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="115" column="55" selection-start-line="115" selection-start-column="55" selection-end-line="115" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1158,13 +1120,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.compiler/javax/tools/StandardJavaFileManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3135">
@@ -1172,20 +1127,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/FileIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/XmlParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1193,13 +1138,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/JavaFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -1211,42 +1149,106 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/CompileTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/MainController.java">
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/concurrent/locks/ReentrantLock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="466" column="23" lean-forward="true" selection-start-line="466" selection-start-column="23" selection-end-line="466" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="198">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/tests/MultiThreadCompilerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/concurrent/ConcurrentHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14739">
+          <caret line="943" column="13" selection-start-line="943" selection-start-column="13" selection-end-line="943" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/concurrent/ArrayBlockingQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4333">
+          <caret line="85" column="13" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/concurrent/LinkedBlockingDeque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="1162" column="45" lean-forward="true" selection-start-line="1162" selection-start-column="45" selection-end-line="1162" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.base/com/sun/javafx/runtime/SystemProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/BranchAndBound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3145">
+          <caret line="197" column="43" selection-start-line="197" selection-start-column="30" selection-end-line="197" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MiddleLayer/src/utils/MemoryCompiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        <state relative-caret-position="517">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/JavaFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="method#MemoryCompiler#0;class#MemoryCompiler#0" />
-            <element signature="method#useParentClassLoader#0;class#MemoryCompiler#0" />
-            <element signature="method#useOptions#0;class#MemoryCompiler#0" />
-            <element signature="method#ignoreWarnings#0;class#MemoryCompiler#0" />
-            <element signature="method#compileAll#0;class#MemoryCompiler#0" />
-            <element signature="method#compile#0;class#MemoryCompiler#0" />
-            <element signature="method#addSource#0;class#MemoryCompiler#0" />
-            <element signature="class#CompiledCode#0;class#MemoryCompiler#0" />
-            <element signature="class#SourceCode#0;class#MemoryCompiler#0" />
-            <element signature="class#ExtendedJavaFileManager#0;class#MemoryCompiler#0" />
-            <element signature="class#DynamicClassloader#0;class#MemoryCompiler#0" />
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/MultiThreadCompiler.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/FileIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+        <state relative-caret-position="495">
+          <caret line="68" column="44" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/ErrorHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding>
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1254,32 +1256,53 @@
     <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/ProblemInstance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/BnbFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="method#write#0;class#BnbFile#0" />
+            <element signature="method#ProblemInstance#0;class#ProblemInstance#0" />
+            <element signature="method#ProblemInstance#1;class#ProblemInstance#0" />
+            <element signature="method#setBound#0;class#ProblemInstance#0" />
+            <element signature="method#copy#0;class#ProblemInstance#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mal/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="63" column="12" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+        <state relative-caret-position="1054">
+          <caret line="102" column="38" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
           <folding>
             <element signature="method#testFramework#0;class#Main#0" />
+            <element signature="method#testBnbFile#0;class#Main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/utils/Cplex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="381" column="10" selection-start-line="381" selection-start-column="10" selection-end-line="381" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mal/UI/utils/MultiThreadCompiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#MultiThreadCompiler#0;class#MultiThreadCompiler#0" />
+            <element signature="method#addFile#0;class#MultiThreadCompiler#0" />
           </folding>
         </state>
       </provider>

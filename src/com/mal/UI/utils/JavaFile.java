@@ -8,4 +8,12 @@ public class JavaFile {
         filename = fn;
         content = cnt;
     }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public String getContent() {
+        return content;
+    }
 }

@@ -3,23 +3,28 @@ package com.mal.UI.utils;
 import bb_framework.interfaces.Bound;
 import utils.MemoryCompiler;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class MultiThreadCompiler {
-    private final int MAX_NR_OF_THREADS = 10;
+    //TODO: Add Compile Exception Handling
+    private final int MAX_NR_OF_THREADS = 5;
 
     private MemoryCompiler compiler;
-    private LinkedList<JavaFile> files = new LinkedList<>(); // Used to keep track of files with index
-    private HashMap<String, List<Integer>> filesUsedIndex = new HashMap<>(); // Used to keep track of where files are used in
-
+    private LinkedBlockingDeque<JavaFile> files = new LinkedBlockingDeque<>();
+    private ConcurrentHashMap<String,LinkedBlockingDeque<Integer>> filesUsedIndex = new ConcurrentHashMap<>();
     private HashMap<Integer, ProblemInstance> problemInstances;
-
     private CompilerThread[] threads = new CompilerThread[MAX_NR_OF_THREADS];
-    ReentrantLock compilerLock = new ReentrantLock();
+
+    private final Object lock = new Object();
+    private final ReentrantReadWriteLock indexLock = new ReentrantReadWriteLock(true);
+    private final Lock read = indexLock.readLock();
+    private final Lock write = indexLock.writeLock();
+
 
     public MultiThreadCompiler(HashMap<Integer, ProblemInstance> pi){
         compiler = MemoryCompiler.newInstance();
@@ -32,57 +37,65 @@ public class MultiThreadCompiler {
     }
 
     public void addFile(int index,JavaFile file){
-        try {
-            compilerLock.lock();
-            if(!filesUsedIndex.containsKey(file.filename)){
-                ArrayList<Integer> tmp = new ArrayList<>();
-                tmp.add(index);
-                filesUsedIndex.put(file.filename,tmp);
-                files.add(file);
-            }
-            else{
-                filesUsedIndex.get(file.filename).add(index);
-            }
-        } finally {
-            compilerLock.unlock();
+        read.lock();
+        if(!filesUsedIndex.containsKey(file.filename)){
+            read.unlock();
+            LinkedBlockingDeque<Integer> tmp = new LinkedBlockingDeque<>();
+            tmp.add(index);
+            write.lock();
+            filesUsedIndex.put(file.filename,tmp);
+            write.unlock();
+            files.add(file);
+        }
+        else{
+            read.unlock();
+            write.lock();
+            filesUsedIndex.get(file.filename).add(index);
+            write.unlock();
         }
     }
 
     public void compileAll(){
-        files.notifyAll();
+        synchronized (lock){
+            lock.notifyAll();
+        }
     }
 
     public void compile(int index, JavaFile file){
-        addFile(index,file);
-        compileAll();
+        synchronized (lock) {
+            addFile(index, file);
+            lock.notify();
+        }
     }
 
     private class CompilerThread extends Thread {
         @Override
         public void run() {
             while(true){
-                try{
-                    try {
-                        files.wait();
-                        compilerLock.lock();
+                try {
+                    synchronized (lock){
+                        lock.wait();
+                        System.out.println("Compiling file");
                         while (!files.isEmpty()){
-                            JavaFile tmp = files.removeFirst();
-                            compilerLock.unlock();
-                            Class<?> boundClass = compiler.compile(tmp.filename,tmp.content);
-                            Bound bound = (Bound) boundClass.getDeclaredConstructor().newInstance();
-                            for(Integer i : filesUsedIndex.get(tmp.filename)){
-                                problemInstances.get(i).bound = bound;
+                            JavaFile tmp = files.takeFirst();
+                            if (tmp != null){
+                                Class<?> boundClass = compiler.compile(tmp.filename.split("\\.")[0],tmp.content);
+                                Bound bound = (Bound) boundClass.getDeclaredConstructor().newInstance();
+                                read.lock();
+                                for(Integer i : filesUsedIndex.get(tmp.filename)){
+                                    problemInstances.get(i).setBound(bound);
+                                }
+                                read.unlock();
+                                write.lock();
+                                filesUsedIndex.remove(tmp.filename);
+                                write.unlock();
                             }
                         }
-                    } catch (Exception e) {
-                        compilerLock.unlock();
-                        e.printStackTrace();
                     }
-                } finally {
-                    compilerLock.unlock();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
-
 }
