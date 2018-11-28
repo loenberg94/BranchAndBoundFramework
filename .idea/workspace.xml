@@ -6,20 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Working version">
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/ConstraintGrammar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/DatasetGrammar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/Grammar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/Interpreter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/ObjectiveFunctionGrammar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/Tokenizer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Lexer/DFA.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/Lexer/NFA.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BB_Framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BB_Framework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Framework/Framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Framework/Framework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/MiddleLayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/MiddleLayer.iml" afterDir="false" />
-    </list>
+    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Working version" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="src/com/mal/tests/loadtest.java" />
     <ignored path="bound/Loadtest.class" />
@@ -81,7 +68,8 @@
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="1" />
@@ -94,14 +82,14 @@
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MiddleLayer/src/Lexer/NFA.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
@@ -110,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MiddleLayer/src/Lexer/DFA.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
@@ -260,6 +248,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,30 +257,10 @@
               <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
               <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="MiddleLayer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="MiddleLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BB_Framework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BB_Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="MiddleLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Lexer" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -514,6 +484,7 @@
       <workItem from="1542719199625" duration="1785000" />
       <workItem from="1542753954139" duration="23739000" />
       <workItem from="1543403797293" duration="3692000" />
+      <workItem from="1543412466685" duration="52000" />
     </task>
     <task id="LOCAL-00001" summary="Dataset updated to be an abstract class:&#10;* because predefined function was needed.&#10;&#10;Subset class created for the dataset">
       <created>1522429428652</created>
@@ -712,7 +683,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262680000" />
+    <option name="totallyTimeSpent" value="262732000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -727,7 +698,7 @@
     <frame x="-7" y="-7" width="1455" height="975" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1921147" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19498208" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -744,7 +715,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.21733966" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50107527" side_tool="true" weight="0.13539192" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49892473" visible="true" weight="0.13539192" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49892473" weight="0.21021378" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32846716" />
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32897863" />
@@ -773,6 +744,32 @@
         <option value="3" />
         <option value="1" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1126,9 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1212,17 +1206,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MiddleLayer/src/Lexer/NFA.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MiddleLayer/src/Lexer/DFA.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MiddleLayer/src/Lexer/NFA.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
         </state>
       </provider>
     </entry>
