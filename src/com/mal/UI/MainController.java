@@ -8,10 +8,8 @@ import bb_framework.interfaces.Bound;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Problem;
 import bb_framework.utils.Result;
+import com.mal.UI.utils.*;
 import utils.Compiler;
-import utils.CustomClassloader;
-import com.mal.UI.utils.listview_item;
-import com.mal.UI.utils.resources;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +25,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.util.Pair;
 
+import javax.swing.*;
 import javax.tools.DiagnosticCollector;
 import javax.tools.JavaFileObject;
 import java.io.*;
@@ -34,18 +33,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class mainController {
-    HashMap<Integer,listview_item> list_items = new HashMap<>();
+public class MainController {
+    HashMap<Integer, ProblemInstance> list_items = new HashMap<>();
+    MultiThreadCompiler multiThreadCompiler = new MultiThreadCompiler(list_items);
 
     int i = 0;
     Result[] res;
 
+    String dataset;
+    String constraints;
+
     @FXML
     private ComboBox pTypeCombobox;
-
     @FXML
     private TextField bvaltv;
     @FXML
@@ -53,7 +56,7 @@ public class mainController {
     @FXML
     private TextField changetf;
     @FXML
-    private TextField bndfiletv;
+    private Label bndfiletv;
     @FXML
     private CheckBox lpr_checkbox;
     @FXML
@@ -80,6 +83,8 @@ public class mainController {
     private NumberAxis tYAxis;
 
     @FXML
+    private Label resViewNameLab;
+    @FXML
     private Label resViewStratLab;
     @FXML
     private Label resViewNodesLab;
@@ -100,14 +105,18 @@ public class mainController {
     @FXML
     private TextField coefTF;
 
+    @SuppressWarnings("SpellCheckingInspection")
     @FXML
     private ProgressBar progBar;
+    @SuppressWarnings("SpellCheckingInspection")
     @FXML
     private Label progBarLab;
 
     @FXML
     private GridPane resultViewGrid;
 
+    @FXML
+    private CheckBox compiledCB;
 
 
     @FXML
@@ -115,7 +124,8 @@ public class mainController {
         if (res == null || res.length == 0){
             resultViewGrid.setDisable(true);
         }
-
+        resPrevBtn.setDisable(true);
+        resNextBtn.setDisable(true);
         nXAxis.setLabel("Problem");
         nYAxis.setLabel("Nodes created");
         tXAxis.setLabel("Problem");
@@ -125,7 +135,13 @@ public class mainController {
     @FXML
     protected void handleListviewAddBtn(ActionEvent event){
         String s = changetf.getText();
-        list_items.put(change_listview.getItems().size(),new listview_item(s));
+        ProblemInstance pi = new ProblemInstance(s);
+        pi.getIsCompiled().addListener((observable, oldValue, newValue) -> {
+            if(pi.equals(list_items.get(change_listview.getSelectionModel().getSelectedIndex()))){
+                compiledCB.setSelected(newValue);
+            }
+        });
+        list_items.put(change_listview.getItems().size(),pi);
         change_listview.getItems().add(change_listview.getItems().size(),s);
         changetf.setText("");
         change_listview.getSelectionModel().select(change_listview.getItems().size() - 1);
@@ -136,11 +152,12 @@ public class mainController {
         if(res != null || res.length > 0){
             resultViewGrid.setDisable(false);
         }
+        if(res.length > 1 && i != res.length - 1) resNextBtn.setDisable(false);
+        resViewNameLab.setText(result.getP_name());
         resViewStratLab.setText(result.getStrategy().toString());
         resViewNodesLab.setText(String.valueOf(result.getNr_of_nodes()));
         resViewTimeLab.setText(String.valueOf(result.getRuntime()));
         resViewOVLab.setText(String.valueOf(result.getObjectiveValue()));
-        resPrevBtn.setDisable(true);
     }
 
     private void updateNodesBarchart(Result[] res){
@@ -164,21 +181,15 @@ public class mainController {
 
     @FXML
     protected void handleCoefBrowseBtnClicked(ActionEvent event){
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(resources.filechooserpath));
-        fileChooser.setTitle("Locate coefficient file");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files","*.txt"));
-        String s = fileChooser.showOpenDialog(change_anchorpane.getScene().getWindow()).getAbsolutePath();
+        String s = FileIO.locateFile(change_anchorpane.getScene().getWindow(),"Locate coefficient file");
+        dataset = getStringFromFile(s);
         coefTF.setText(s);
     }
 
     @FXML
     protected void handleConsBrowseBtnClicked(ActionEvent event){
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(resources.filechooserpath));
-        fileChooser.setTitle("Locate constraint file");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text files","*.txt"));
-        String s = fileChooser.showOpenDialog(change_anchorpane.getScene().getWindow()).getAbsolutePath();
+        String s = FileIO.locateFile(change_anchorpane.getScene().getWindow(),"Locate constraint file");
+        constraints = getStringFromFile(s);
         consTF.setText(s);
     }
 
@@ -233,56 +244,165 @@ public class mainController {
         else{
             bvaltv.setDisable(true);
         }
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setBound_file(bndfiletv.getText());
-        item.setBranch_val(bvaltv.getText());
-        item.setLp_relaxation(lpr_checkbox.isSelected());
-        item.setStrat_brth(strat_brth_radbtn.isSelected());
-        item.setStrat_bst(strat_bst_radbtn.isSelected());
-        item.setStrat_dpth(strat_dpth_radbtn.isSelected());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        instance.lpRelaxation = lpr_checkbox.isSelected();
     }
 
     @FXML
     protected void handleListviewItemClicked(MouseEvent event){
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        strat_brth_radbtn.setSelected(item.isStrat_brth());
-        strat_bst_radbtn.setSelected(item.isStrat_bst());
-        strat_dpth_radbtn.setSelected(item.isStrat_dpth());
-        lpr_checkbox.setSelected(item.isLp_relaxation());
-        bvaltv.setText(item.getBranch_val());
-        bndfiletv.setText(item.getBound_file());
-        bvaltv.setDisable(!item.isLp_relaxation());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        switch (instance.strategy){
+            case BEST_FIRST:
+                strat_bst_radbtn.setSelected(true);
+                break;
+            case DEPTH_FIRST:
+                strat_dpth_radbtn.setSelected(true);
+                break;
+            case BREADTH_FIRST:
+                strat_brth_radbtn.setSelected(true);
+                break;
+        }
+
+        lpr_checkbox.setSelected(instance.lpRelaxation);
+        bvaltv.setText(String.valueOf(instance.branchValue));
+        bndfiletv.setText(instance.getFileName());
+        bvaltv.setDisable(!instance.lpRelaxation);
+        compiledCB.setSelected(instance.getBound() != null);
     }
 
     @FXML
     protected void handleButtonChangeListener(ActionEvent event){
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setLp_relaxation(lpr_checkbox.isSelected());
-        item.setStrat_brth(strat_brth_radbtn.isSelected());
-        item.setStrat_bst(strat_bst_radbtn.isSelected());
-        item.setStrat_dpth(strat_dpth_radbtn.isSelected());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        Control control = (Control) event.getSource();
+        switch (control.getId()){
+            case "lpr_checkbox":
+                instance.lpRelaxation = lpr_checkbox.isSelected();
+                break;
+            case "strat_brth_radbtn":
+                instance.strategy = NodeStrategy.BREADTH_FIRST;
+                break;
+            case "strat_bst_radbtn":
+                instance.strategy = NodeStrategy.BEST_FIRST;
+                break;
+            case "strat_dpth_radbtn":
+                instance.strategy = NodeStrategy.DEPTH_FIRST;
+                break;
+            default:
+                break;
+        }
     }
 
     @FXML
     protected void handleTextChangeListener(KeyEvent event){
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setBound_file(bndfiletv.getText());
-        item.setBranch_val(bvaltv.getText());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        switch (((TextField) event.getSource()).getId()){
+            case "bndfiletv":
+                instance.boundFile = bndfiletv.getText();
+                break;
+            case "bvaltv":
+                instance.branchValue = Double.valueOf(bvaltv.getText());
+                break;
+            default:
+                break;
+        }
+    }
+
+    @SuppressWarnings("Duplicates")
+    private JavaFile getFile(String path){
+        JavaFile ret = null;
+        try {
+            BufferedReader stream = new BufferedReader(new FileReader(path));
+            File tmp = new File(path);
+
+            StringBuilder st = new StringBuilder();
+            String line;
+            while ((line = stream.readLine()) != null){
+                st.append(line);
+            }
+            ret = new JavaFile(tmp.getName(),st.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 
     @FXML
     protected void handleBrowseBtnClicked(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(resources.filechooserpath));
+        fileChooser.setInitialDirectory(new File(Resources.filechooserpath));
         fileChooser.setTitle("Locate bound file");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Java files","*.java"),
                 new FileChooser.ExtensionFilter("Class files", "*.class"));
         File s = fileChooser.showOpenDialog(change_anchorpane.getScene().getWindow());
-        bndfiletv.setText((s!=null)?s.getAbsolutePath():"");
-        listview_item item = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
-        item.setBound_file(bndfiletv.getText());
+        ProblemInstance instance = list_items.get(change_listview.getSelectionModel().getSelectedIndex());
+        instance.boundFile = (s!=null)?s.getAbsolutePath():"";
+        bndfiletv.setText(instance.getFileName());
+        multiThreadCompiler.compile(change_listview.getSelectionModel().getSelectedIndex(),getFile(s.getAbsolutePath()));
     }
+
+    private String getStringFromFile(String file) {
+        if((new File(file)).exists()){
+            try {
+                StringBuilder sb = new StringBuilder();
+                BufferedReader reader = null;
+                reader = new BufferedReader(new FileReader(file));
+                String line;
+                while ((line = reader.readLine()) != null){
+                    sb.append(line);
+                }
+                return sb.toString();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return "";
+    }
+
+    @FXML
+    protected void handleImportBtnClicked(ActionEvent event){
+        //TODO custom load and update methods required to load the BnbFile and update the UI
+        String filepath = FileIO.locateFile(change_anchorpane.getScene().getWindow(),"Open BnB File");
+        System.out.println(filepath);
+    }
+
+    private void updateListItems(){
+
+    }
+
+    //TODO: Migrate to only accepting Dataset and Constraints as text files not raw text-input
+    //BnbFile will have to contain the added dataset and constraint text files as well
+
+    @FXML
+    protected void handleSaveBtnClicked(ActionEvent event){
+        String filename = getFilename();
+        //TODO: Error Handling
+        //CASES WHERE WE WONT CREATE FILE:
+        //) No Coefficients or Constraints specified
+        //) No ProblemInstances in list_items
+        if(filename != null && filename != ""){
+            BnbFile bnbFile = new BnbFile(filename);
+            ProblemInstance[] problemInstances = new ProblemInstance[list_items.size()];
+            for(int i = 0; i < list_items.size(); i++){
+                problemInstances[i] = list_items.get(i).copy();
+            }
+            Settings settings = new Settings(dataset,constraints, getProblemType(),problemInstances);
+            try {
+                bnbFile.write(settings);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    protected void handleExportBtnClicked(ActionEvent event){
+
+    }
+
 
     private void updateProgressString(int curr, int total){
         progBarLab.setText(String.format("Problem %d out of %d solved",curr, total));
@@ -293,68 +413,65 @@ public class mainController {
     }
 
     private Constraint[] getConstraints(){
-        if(consTF.getText().matches("^[a-zA-Z0-9:_\\\\ ]*.txt$")){
-            File file = new File(consTF.getText());
-            if (file.exists()) {
-                try {
-                    ArrayList<Constraint> tmp = new ArrayList<>();
-                    String st;
-                    BufferedReader reader = new BufferedReader(new FileReader(file));
-                    while((st = reader.readLine()) != null){
-                        int i = 0;
-                        boolean i_constraint = false;
-                        ConstraintType tp = null;
-                        String[] string = st.split(" ");
-                        double[] d_lhs = new double[Integer.valueOf(coefNrTF.getText())];
-                        ArrayList<String> s_lhs = new ArrayList<>();
-                        if (st.matches("^(x[0-9]+( )*)* [<>=]+ [0-9]+$")){
-                            i_constraint = true;
-                            while(string[i].matches("x[0-9]+")){
-                                s_lhs.add(string[i].replace("x",""));
-                                i++;
-                            }
+        if(constraints != ""){
+            try {
+                ArrayList<Constraint> tmp = new ArrayList<>();
+                String st;
+                BufferedReader reader = new BufferedReader(new StringReader(constraints));
+                while((st = reader.readLine()) != null){
+                    int i = 0;
+                    boolean i_constraint = false;
+                    ConstraintType tp = null;
+                    String[] string = st.split(" ");
+                    double[] d_lhs = new double[Integer.valueOf(coefNrTF.getText())];
+                    ArrayList<String> s_lhs = new ArrayList<>();
+                    if (st.matches("^(x[0-9]+( )*)* [<>=]+ [0-9]+$")){
+                        i_constraint = true;
+                        while(string[i].matches("x[0-9]+")){
+                            s_lhs.add(string[i].replace("x",""));
+                            i++;
                         }
-                        else{
-                            while (string[i].matches("^[0-9]+[.0-9]*$")) {
-                                d_lhs[i] = Double.valueOf(string[i]);
-                                i++;
-                            }
-                        }
-
-                        switch (string[i]){
-                            case "<=":
-                                tp = ConstraintType.LEQ;
-                                break;
-                            case "<":
-                                tp = ConstraintType.LT;
-                                break;
-                            case ">":
-                                tp = ConstraintType.GT;
-                                break;
-                            case ">=":
-                                tp = ConstraintType.GEQ;
-                                break;
-                            case "==":
-                            case "=":
-                                tp = ConstraintType.EQUALS;
-                                break;
-                        }
-                        i++;
-                        if(i_constraint){
-                            tmp.add(new Constraint(s_lhs.toArray(new String[]{}),Double.valueOf(string[i]),tp,i_constraint));
-                        }
-                        else{
-                            tmp.add(new Constraint(d_lhs,Double.valueOf(string[i]),tp,i_constraint));
-                            s_lhs = null;
-                        }
-
                     }
-                    return tmp.toArray(new Constraint[]{});
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    else{
+                        while (string[i].matches("^[0-9]+[.0-9]*$")) {
+                            d_lhs[i] = Double.valueOf(string[i]);
+                            i++;
+                        }
+                    }
+
+                    switch (string[i]){
+                        case "<=":
+                            tp = ConstraintType.LEQ;
+                            break;
+                        case "<":
+                            tp = ConstraintType.LT;
+                            break;
+                        case ">":
+                            tp = ConstraintType.GT;
+                            break;
+                        case ">=":
+                            tp = ConstraintType.GEQ;
+                            break;
+                        case "==":
+                        case "=":
+                            tp = ConstraintType.EQUALS;
+                            break;
+                    }
+                    i++;
+                    if(i_constraint){
+                        tmp.add(new Constraint(s_lhs.toArray(new String[]{}),Double.valueOf(string[i]),tp,i_constraint));
+                    }
+                    else{
+                        tmp.add(new Constraint(d_lhs,Double.valueOf(string[i]),tp,i_constraint));
+                        s_lhs = null;
+                    }
+
                 }
+                return tmp.toArray(new Constraint[]{});
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         return null;
@@ -391,6 +508,7 @@ public class mainController {
         return null;
     }
 
+    @Deprecated
     private Bound getBound(String filename){
         File file = formatFileStructure(new File(filename));
         Pair<Boolean, DiagnosticCollector<JavaFileObject>> res = Compiler.compileClass(file);
@@ -401,7 +519,6 @@ public class mainController {
                 String cName = (file.getName().replace(".java",""));
                 Class<?> cls = classLoader.loadClass(cName);
                 bnd = (Bound) cls.getDeclaredConstructor().newInstance();
-                //bnd = (Bound) CustomClassloader.loadObject(file);
             } catch (MalformedURLException | ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
@@ -410,14 +527,8 @@ public class mainController {
         return null;
     }
 
-    private NodeStrategy getStrategy(listview_item item){
-        if(item.isStrat_bst()){
-            return NodeStrategy.BEST_FIRST;
-        }
-        else if(item.isStrat_dpth()){
-            return NodeStrategy.DEPTH_FIRST;
-        }
-        return NodeStrategy.BREADTH_FIRST;
+    private NodeStrategy getStrategy(ProblemInstance item){
+        return item.strategy;
     }
 
     private ProblemType getProblemType(){
@@ -438,43 +549,30 @@ public class mainController {
     private double[] getDataset(){
         int size = Integer.valueOf(coefNrTF.getText());
         double[] tmp = null;
-        if (coefTF.getText().matches("^[0-9. ]*$")){
-            String[] coefs = coefTF.getText().split(" ");
-            if(size == coefs.length){
-                tmp = getValuesFromString(coefs,size);
-                return tmp;
-            }
-            Alert alert = new Alert(Alert.AlertType.ERROR,"Number of coeffiecients specified, and number of actual coefficients dosn't correspond",ButtonType.OK);
-            alert.showAndWait();
-        }
-        else if (coefTF.getText().matches("^[a-zA-Z0-9_:\\\\ ]*.txt$")){
-            File file = new File(coefTF.getText());
-            if(file.exists()){
-                try {
-                    String line;
-                    BufferedReader reader = new BufferedReader(new FileReader(file));
-                    while((line = reader.readLine()) != null){
-                        if(line.matches("^[0-9. ]*$")){
-                            tmp = getValuesFromString(line.split(" "),size);
-                        }
+
+        if (dataset != ""){
+            try {
+                String line;
+                BufferedReader reader = new BufferedReader(new StringReader(dataset));
+                while((line = reader.readLine()) != null){
+                    if(line.matches("^[0-9. ]*$")){
+                        tmp = getValuesFromString(line.split(" "),size);
                     }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
-                return tmp;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            Alert alert = new Alert(Alert.AlertType.ERROR,String.format("File: %s, doesn't exist.",coefTF.getText()),ButtonType.OK);
-            alert.showAndWait();
+            return tmp;
         }
         return null;
     }
 
-    class solveThread extends Thread {
+    class SolveThread extends Thread {
         private BranchAndBound bnb;
 
-        public solveThread(BranchAndBound branchAndBound){
+        public SolveThread(BranchAndBound branchAndBound){
             this.bnb = branchAndBound;
         }
 
@@ -512,14 +610,23 @@ public class mainController {
             Alert alert = new Alert(Alert.AlertType.ERROR,"Constraints must be set", ButtonType.OK);
             alert.showAndWait();
         }
-        for(listview_item lv:list_items.values()){
-            if(lv.getBound_file().isEmpty()){
+        for(ProblemInstance lv:list_items.values()){
+            if(lv.boundFile.isEmpty()){
                 ret = false;
-                Alert alert = new Alert(Alert.AlertType.ERROR,String.format("Bound file of: %s must be set",lv.getName()), ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.ERROR,String.format("Bound file of: %s must be set",lv.name), ButtonType.OK);
                 alert.showAndWait();
             }
         }
         return ret;
+    }
+
+    private String getFilename(){
+        return JOptionPane.showInputDialog(
+                JOptionPane.getRootFrame(),
+                "Specify filename",
+                "Input box",
+                JOptionPane.PLAIN_MESSAGE
+        );
     }
 
     @FXML
@@ -535,12 +642,12 @@ public class mainController {
             double[] dataset = getDataset();
 
             int i = 0;
-            for(listview_item item:list_items.values()){
-                Bound bounds = getBound(item.getBound_file());
+            for(ProblemInstance item:list_items.values()){
+                Bound bounds = item.getBound();
                 NodeStrategy strategy = getStrategy(item);
 
                 double bval = (bvaltv.getText().equals(""))?0.5:(Double.valueOf(bvaltv.getText()));
-                Problem tmp = new Problem(item.getName(),constraints,bounds,strategy,problemType,lpr_checkbox.isSelected(),bval);
+                Problem tmp = new Problem(item.name,constraints,bounds,strategy,problemType,lpr_checkbox.isSelected(),bval);
                 problems[i] = tmp;
                 tmp = null;
                 i++;
@@ -553,7 +660,7 @@ public class mainController {
                     updateProgressBar(newValue.doubleValue(),list_items.size());
                 });
             });
-            solveThread thread = new solveThread(branchAndBound);
+            SolveThread thread = new SolveThread(branchAndBound);
             thread.start();
         }
     }

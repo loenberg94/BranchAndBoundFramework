@@ -1,35 +1,92 @@
 package com.mal;
 
+import bb_framework.BranchAndBound;
 import bb_framework.enums.NodeStrategy;
-import com.mal.tests.Knapsack;
-import utils.CustomClassloader;
+import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Bound;
+import bb_framework.utils.Cplex;
+import bb_framework.utils.Problem;
+import bb_framework.utils.Result;
+import bb_framework.testFiles.Knapsack;
+import com.mal.UI.utils.*;
+import utils.MemoryCompiler;
 
-import java.io.File;
+import java.io.*;
+import java.util.HashMap;
 
+@SuppressWarnings("Duplicates")
 public class Main {
 
-    public static void main(String[] args) {
+    private static JavaFile getFile(String path){
+        JavaFile ret = null;
+        try {
+            BufferedReader stream = new BufferedReader(new FileReader(path));
+            File tmp = new File(path);
+
+            StringBuilder st = new StringBuilder();
+            String line;
+            while ((line = stream.readLine()) != null){
+                st.append(line);
+            }
+            ret = new JavaFile(tmp.getName(),st.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    public static void testCompile(){
+        JavaFile file = getFile("C:\\Users\\loenb\\Desktop\\test files\\knapsack_bounds.java");
+        JavaFile file2 = getFile("C:\\Users\\loenb\\Desktop\\test files\\tspbounds.java");
+        HashMap<Integer, ProblemInstance> test = new HashMap<>();
+        test.put(0, new ProblemInstance("test"));
+        test.put(1, new ProblemInstance("test"));
+        test.put(2, new ProblemInstance("test"));
+        MultiThreadCompiler threadCompiler = new MultiThreadCompiler(test);
+        try {
+            System.out.println("Waiting 2 sec");
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        /*threadCompiler.compile(0,file);
+        threadCompiler.compile(1,file2);
+        threadCompiler.compile(2,file);*/
+        threadCompiler.addFile(0,file);
+        threadCompiler.addFile(1,file2);
+        threadCompiler.addFile(2,file);
+        threadCompiler.compileAll();
+        while(true){
+            System.out.format("pi1: %b\n", (test.get(0).getBound()!= null));
+            System.out.format("pi2: %b\n", (test.get(1).getBound() != null));
+            System.out.format("pi3: %b\n", (test.get(2).getBound() != null));
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void testFramework(){
         Knapsack knapsack_bst  = Knapsack.CreateNew();
         Knapsack knapsack_dpth = Knapsack.CreateNew();
         knapsack_dpth.strategy = NodeStrategy.DEPTH_FIRST;
         Knapsack knapsack_brth = Knapsack.CreateNew();
         knapsack_brth.strategy = NodeStrategy.BREADTH_FIRST;
-        /*Knapsack_24coef knapsack_24coef_bst = Knapsack_24coef.CreateNew();
-        Knapsack_24coef knapsack_24coef_dpth = Knapsack_24coef.CreateNew();
-        knapsack_24coef_dpth.strategy = NodeStrategy.DEPTH_FIRST;
-        Knapsack_24coef knapsack_24coef_brth = Knapsack_24coef.CreateNew();
-        knapsack_24coef_brth.strategy = NodeStrategy.BREADTH_FIRST;*/
-        /*try {
+        try {
             Cplex cplex = new Cplex();
-            double[] resArr = cplex.ip_solve(knapsack_bst.getDataset(),knapsack_bst.getConstraints(),knapsack_bst.type);
+            double[] resArr = cplex.ip_solve(knapsack_bst.getDataset(),new HashMap<>(),knapsack_bst.getConstraints(),knapsack_bst.type);
             for(double res:resArr){
-                System.out.printf("%f\n",res);
+                System.out.printf("%d ", (int)res);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
-        /*BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_bst,knapsack_dpth,knapsack_brth},knapsack_bst.getDataset());
-        bnb.Solve();
+        }
+        BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_bst,knapsack_dpth,knapsack_brth},knapsack_bst.getDataset());
+        bnb.Solve(null);
         Result[] res = bnb.getResults();
         for(Result r:res){
             System.out.printf("\n\nStrategy: %s\n",r.getStrategy().toString());
@@ -40,24 +97,27 @@ public class Main {
             for(int s:r.getSolution()){
                 System.out.printf("%d ",s);
             }
-        }*/
-        /*try {
-            System.in.read();
+        }
+    }
+
+    private static void testBnbFile() {
+        ProblemInstance[] instances = new ProblemInstance[]{
+                new ProblemInstance("BestFist",NodeStrategy.BEST_FIRST,true,"C:\\Users\\loenb\\Desktop\\test files\\tspbounds.java"),
+                new ProblemInstance("DepthFirst", NodeStrategy.DEPTH_FIRST, true, "C:\\Users\\loenb\\Desktop\\test files\\tspbounds.java"),
+                new ProblemInstance("BreadthFirst", NodeStrategy.BREADTH_FIRST, false, "C:\\Users\\loenb\\Desktop\\test files\\knapsack_bounds.java")
+        };
+        Settings settings = new Settings("5 3 2 5 6 7 8 5 3","3 4 5 6 7 8 2 3 <= 45", ProblemType.MAXIMIZATION,instances);
+
+        BnbFile testFile = new BnbFile("test");
+        try {
+            testFile.write(settings);
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
-
-        //String path = "C:\\Users\\loenb\\Documents\\Projects\\BB_Framework\\out\\production\\BB_Framework\\com\\mal\\tests\\loadtest.class";
-        String path = "C:\\Users\\loenb\\Documents\\Projects\\BB_Framework\\testfiles\\Loadtest.java";
-        File file = new File(path);
-        /*Pair<Boolean, DiagnosticCollector<JavaFileObject>> t = Compiler.compileClass(new File(path));
-        if(t.getKey()){
-            System.out.printf("SUCCES");
         }
-        else{
-            System.out.printf("%b, %s", t.getKey(),t.getValue().getDiagnostics().get(0).getSource());
-        }*/
+    }
 
-        CustomClassloader.loadObject(file);
+    public static void main(String[] args) {
+        //testCompile();
+        testBnbFile();
     }
 }

@@ -1,4 +1,3 @@
-package com.mal.tests;
 
 
 import bb_framework.interfaces.Bound;

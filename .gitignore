@@ -1,1 +1,7 @@
 ﻿out/
+.idea/*
+.vscode/
+*/bound/*
+
+*.class
+*.jar
