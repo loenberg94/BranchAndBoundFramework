@@ -1,6 +1,6 @@
-package Interpreter
+package interpreter.lexer
 
-class ObjectiveFunctionGrammar:Grammar() {
+class ObjectiveFunctionGrammar: Grammar() {
     val sum by token("sum")
     val underscore by token("_")
     val lcurl by token("\\{")

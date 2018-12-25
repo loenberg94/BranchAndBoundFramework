@@ -1,4 +1,4 @@
-package Interpreter
+package interpreter
 
 class DatasetGrammar:Grammar() {
 

@@ -1,4 +1,4 @@
-package Interpreter
+package interpreter
 
 import org.intellij.lang.annotations.Language
 import kotlin.reflect.KProperty
