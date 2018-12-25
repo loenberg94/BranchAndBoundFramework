@@ -1,4 +1,4 @@
-package interpreter
+package interpreter.lexer
 
 import org.intellij.lang.annotations.Language
 import kotlin.reflect.KProperty
@@ -11,7 +11,7 @@ abstract class Grammar {
     fun token(@Language("RegExp") pattern: String) = TokenDefinition(pattern)
     fun token(pattern: Regex) = TokenDefinition(pattern)
 
-    open val tokenizer: Tokenizer by lazy {Tokenizer(tokens)}
+    open val tokenizer: Tokenizer by lazy { Tokenizer(tokens) }
 
     protected operator fun TokenDefinition.provideDelegate(thisRef: Grammar, property: KProperty<*>) : TokenDefinition =
             also {

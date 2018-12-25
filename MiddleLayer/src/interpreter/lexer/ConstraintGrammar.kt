@@ -1,6 +1,6 @@
-package interpreter
+package interpreter.lexer
 
-class ConstraintGrammar:Grammar(){
+class ConstraintGrammar: Grammar(){
     val sum by token("sum")
     val underscore by token("_")
     val lcurl by token("\\{")

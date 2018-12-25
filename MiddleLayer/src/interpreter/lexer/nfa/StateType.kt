@@ -1,4 +1,4 @@
-package Lexer.nfa
+package interpreter.lexer.nfa
 
 enum class StateType {
     START,

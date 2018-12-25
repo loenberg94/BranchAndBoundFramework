@@ -1,16 +1,18 @@
-package Interpreter.util
+package interpreter
 
-abstract class Option<T>(v: T?){
-    val value: T? = v
-
-    fun isSome():Boolean{ return this is Some<*> }
-    fun isNone():Boolean{ return this is None }
-}
-
-class Some<T : Any>(v:T):Option<T>(v){
-    init {
-        requireNotNull(v)
+abstract class Option(){
+    fun isSome():Boolean{ return this is Some<*>
+    }
+    fun isNone():Boolean{ return this is None
     }
 }
 
-class None: Option<Int>(null)
+class Some<T>(v:T): Option(){
+    private val value: T = v
+
+    fun getVal():T{
+        return value
+    }
+}
+
+class None: Option()

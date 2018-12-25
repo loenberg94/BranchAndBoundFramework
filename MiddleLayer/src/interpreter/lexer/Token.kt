@@ -1,4 +1,4 @@
-package interpreter
+package interpreter.lexer
 
 interface Token
 enum class SymbolTokens: Token {

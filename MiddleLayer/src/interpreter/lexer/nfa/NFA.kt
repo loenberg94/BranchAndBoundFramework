@@ -1,6 +1,6 @@
 @file:Suppress("PackageName")
 
-package Lexer.nfa
+package interpreter.lexer.nfa
 
 import java.util.*
 import kotlin.collections.ArrayList

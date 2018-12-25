@@ -1,5 +1,5 @@
-package interpreter
+package interpreter.lexer
 
-class DatasetGrammar:Grammar() {
+class DatasetGrammar: Grammar() {
 
 }

@@ -6,39 +6,23 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Working version">
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/interfaces/Dataset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/Coefficient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/DatasetIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/DatasetMatrixIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/DatasetVectorIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/Empty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/Index.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/Value.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Framework/src/bb_framework/types/Vector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/exceptions/LexicalException.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/exceptions/ParsingException.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/Option.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/GrammarTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Token.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Tokenizer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/Link.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/NFA.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/NFATest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/State.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/StateType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/parser/Expression.kt" afterDir="false" />
+    <list default="true" id="05bda565-5c68-40ff-a104-1d1726835b29" name="Default" comment="Lexer part fully implemented&#10;&#10;Parser part still ongoing&#10;- to be decided how general structure of parser is to be done&#10;&#10;Evaluation part to be done later.&#10;&#10;Rearrangement of files in MiddleLayer in order to help overview of&#10;files.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/MiddleLayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/MiddleLayer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/ConstraintGrammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/ConstraintGrammar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/DatasetGrammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/DatasetGrammar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/Grammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Grammar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/Interpreter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/Interpreter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/ObjectiveFunctionGrammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/ObjectiveFunctionGrammar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/Tokenizer.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Lexer/DFA.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Lexer/NFA.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/Interpreter/Interpreter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/Option.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/Option.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/ConstraintGrammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/ConstraintGrammar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/DatasetGrammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/DatasetGrammar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Grammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Grammar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/GrammarTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/GrammarTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/ObjectiveFunctionGrammar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/ObjectiveFunctionGrammar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Token.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Token.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Tokenizer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/Tokenizer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/Link.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/Link.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/NFA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/NFA.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/NFATest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/NFATest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/State.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/State.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/StateType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/lexer/nfa/StateType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddleLayer/src/interpreter/parser/Expression.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MiddleLayer/src/interpreter/parser/Expression.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="src/com/mal/tests/loadtest.java" />
@@ -59,8 +43,9 @@
     <session id="694577538">
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.create.new" value="2" />
+          <entry key="git.branch.create.new" value="3" />
           <entry key="git.branch.delete.local" value="2" />
+          <entry key="git.branch.delete.remote" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -76,7 +61,7 @@
         <counts>
           <entry key="JAVA" value="27261" />
           <entry key="Kotlin" value="11876" />
-          <entry key="PLAIN_TEXT" value="141" />
+          <entry key="PLAIN_TEXT" value="375" />
           <entry key="XML" value="63" />
         </counts>
       </usages-collector>
@@ -128,8 +113,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/types/Coefficient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            <state relative-caret-position="306">
+              <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding>
                 <element signature="e#94#95#0" expanded="true" />
                 <element signature="e#137#138#0" expanded="true" />
@@ -227,7 +212,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Interpreter" />
       </map>
     </option>
   </component>
@@ -354,7 +339,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="197" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545774365232" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545775296738" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -585,7 +570,7 @@
       <workItem from="1544876220631" duration="1674000" />
       <workItem from="1545077655121" duration="7225000" />
       <workItem from="1545736600805" duration="65000" />
-      <workItem from="1545736864141" duration="12398000" />
+      <workItem from="1545736864141" duration="13009000" />
     </task>
     <task id="LOCAL-00001" summary="Dataset updated to be an abstract class:&#10;* because predefined function was needed.&#10;&#10;Subset class created for the dataset">
       <created>1522429428652</created>
@@ -762,7 +747,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543412769585</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Lexer part fully implemented&#10;&#10;Parser part still ongoing&#10;- to be decided how general structure of parser is to be done&#10;&#10;Evaluation part to be done later.&#10;&#10;Rearrangement of files in MiddleLayer in order to help overview of&#10;files.">
+      <created>1545774957513</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1545774957513</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -798,7 +790,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371549000" />
+    <option name="totallyTimeSpent" value="372160000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,9 +803,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1455" height="975" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21792115" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49924812" visible="true" weight="0.21792115" />
+      <window_info id="Structure" order="1" sideWeight="0.50075185" side_tool="true" weight="0.21792115" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -822,14 +815,14 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32779098" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49892473" visible="true" weight="0.23515439" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49892473" weight="0.23515439" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28859857" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.21733966" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49964157" weight="0.32897863" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50107527" side_tool="true" weight="0.23515439" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49892473" weight="0.21021378" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49892473" visible="true" weight="0.21021378" />
       <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32846716" />
       <window_info anchor="bottom" id="Dependency Viewer" order="11" weight="0.3296837" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32897863" />
@@ -909,7 +902,8 @@
     <MESSAGE value="Tree Traversal version - Clean-up in UI code!!!!" />
     <MESSAGE value="Multithreaded compiler class added" />
     <MESSAGE value="Working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working version" />
+    <MESSAGE value="Lexer part fully implemented&#10;&#10;Parser part still ongoing&#10;- to be decided how general structure of parser is to be done&#10;&#10;Evaluation part to be done later.&#10;&#10;Rearrangement of files in MiddleLayer in order to help overview of&#10;files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lexer part fully implemented&#10;&#10;Parser part still ongoing&#10;- to be decided how general structure of parser is to be done&#10;&#10;Evaluation part to be done later.&#10;&#10;Rearrangement of files in MiddleLayer in order to help overview of&#10;files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1374,8 +1368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Framework/src/bb_framework/types/Coefficient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding>
             <element signature="e#94#95#0" expanded="true" />
             <element signature="e#137#138#0" expanded="true" />

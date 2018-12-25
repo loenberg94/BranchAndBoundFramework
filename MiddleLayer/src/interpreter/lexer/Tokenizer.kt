@@ -1,5 +1,9 @@
-package interpreter
+package interpreter.lexer
 
+import exceptions.LexicalException
+import interpreter.None
+import interpreter.Option
+import interpreter.Some
 import org.intellij.lang.annotations.Language
 import java.lang.Integer
 import java.lang.NumberFormatException
@@ -19,7 +23,7 @@ class TokenDefinition {
     }
 }
 
-data class TokenMatch(val token:Token, val position:Int, val row:Int, val column:Int){
+data class TokenMatch(val token: Token, val position:Int, val row:Int, val column:Int){
     override fun toString(): String {
         return "$token at $position ($row:$column)"
     }
@@ -89,13 +93,13 @@ class Tokenizer(tokens:List<TokenDefinition>) {
 
                 when (val token = getToken(match)){
                     is Some<*> ->{
-                        val result = TokenMatch(token.getVal() as Token,pos,row,col)
+                        val result = TokenMatch(token.getVal() as Token, pos, row, col)
                         ftList.add(result)
                     }
                 }
             }
             else{
-                throw LexicalException(input.substring(pos),pos,row,col)
+                throw LexicalException(input.substring(pos), pos, row, col)
             }
         }
 
