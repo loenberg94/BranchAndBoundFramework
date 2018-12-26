@@ -17,12 +17,12 @@ public interface Bound {
      * @param set can be used if necessary by user
      * @return lowerbound Double value for current node state
      * */
-    double Lowerbound(Node node, double[] set, Problem problem);
+    double Lowerbound(Node node, Dataset set, Problem problem);
 
     /**
      * @param node used to get current state.
      * @param set can be used if necessary by user
      * @return upperbound Double value for current node state
      * */
-    double Upperbound(Node node, double[] set, Problem problem);
+    double Upperbound(Node node, Dataset set, Problem problem);
 }

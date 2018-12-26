@@ -8,19 +8,15 @@ public class Vector implements Dataset {
     Coefficient[] elements;
 
     @Override
-    public Coefficient get(DatasetIndex index) {
-        return elements[((DatasetVectorIndex) index).i];
-    }
-
-    @Override
-    public DatasetIndex next(DatasetIndex index) {
-        return new DatasetVectorIndex(((DatasetVectorIndex) index).i + 1);
+    public Coefficient get(int index) {
+        return elements[index];
     }
 
     @Override
     public int size() {
         return n;
     }
+
 
     public Vector(Coefficient[] coefficients, int n){
         this.n = n;

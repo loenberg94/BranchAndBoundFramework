@@ -115,7 +115,7 @@ public class CplexTest {
         int[] actualSolution = new int[]{1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1};
         Knapsack problem = Knapsack.CreateNew();
         for(int i = 0; i < NR_OF_TESTS; i++){
-            double[] dataset = problem.getDataset();
+            /*double[] dataset = problem.getDataset();
             Constraint[] constraint = problem.getConstraints();
             HashMap<Integer, Double> hmSolution = buildHashMapSolution(dataset.length,rand.nextInt((int) Math.sqrt(dataset.length)),actualSolution);
             Node nodeSolution = buildNodeSolution(hmSolution);
@@ -130,7 +130,7 @@ public class CplexTest {
             } catch (Exception e) {
                 System.out.println("Exception thrown");
                 e.printStackTrace();
-            }
+            }*/
         }
     }
 }

@@ -1,8 +1,6 @@
 package bb_framework.utils;
 
-import java.util.HashMap;
-
-import java.util.Set;
+import bb_framework.interfaces.Dataset;
 
 public class Node {
     private Node parent;
@@ -27,7 +25,7 @@ public class Node {
         this.index = this.depth;
     }
 
-    public Node (Node par, boolean included ,int index){
+    public Node (Node par, boolean included, int index){
         if (par != null) par.incrementChildren();
         this.parent = par;
         this.included = included;
@@ -35,11 +33,12 @@ public class Node {
         this.index = index;
     }
 
-    public double getObjectiveValue(double[] dataset){
+    public double getObjectiveValue(Dataset dataset){
         double sum = 0;
         Node curr = this;
         while(curr.depth > -1){
-            sum += curr.included ? dataset[curr.index]:0;
+            //TODO: fix so it works with indices as well, and not only values
+            sum += curr.included ? (Double) dataset.get(curr.index).getVal():0;
             curr = curr.parent;
         }
         return sum;
@@ -50,7 +49,7 @@ public class Node {
         ds.InitializeWithCurrentSolution(this);
 
         Node par = this;
-        int csSet = this.index == -1?this.index:ds.Find(this.index);
+        int csSet = this.depth == -1?this.depth:ds.Find(this.index);
         for(int i = 0; i < currentBoundSolution.length;i++){
                 if(csSet != ds.Find(i)){
                     Node tmp = new Node(par,currentBoundSolution[i] == 1?true:false, i);

@@ -33,9 +33,9 @@ public class BoundTest {
         Node n12 = new Node(n11,true,14);
 
         Bound lb = new KnapsackBound();
-        double p_val = n12.getObjectiveValue(pb.getDataset());
+        //double p_val = n12.getObjectiveValue(pb.getDataset());
 
-        double tmp = lb.Lowerbound(n12,pb.getDataset(),pb);
-        System.out.println(tmp);
+        //double tmp = lb.Lowerbound(n12,pb.getDataset(),pb);
+        //System.out.println(tmp);
     }
 }

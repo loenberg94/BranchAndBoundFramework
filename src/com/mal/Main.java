@@ -78,14 +78,14 @@ public class Main {
         knapsack_brth.strategy = NodeStrategy.BREADTH_FIRST;
         try {
             Cplex cplex = new Cplex();
-            double[] resArr = cplex.ip_solve(knapsack_bst.getDataset(),new HashMap<>(),knapsack_bst.getConstraints(),knapsack_bst.type);
+            /*double[] resArr = cplex.ip_solve(knapsack_bst.getDataset(),new HashMap<>(),knapsack_bst.getConstraints(),knapsack_bst.type);
             for(double res:resArr){
                 System.out.printf("%d ", (int)res);
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
-        BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_bst,knapsack_dpth,knapsack_brth},knapsack_bst.getDataset());
+        BranchAndBound bnb = new BranchAndBound(new Problem[] {knapsack_bst},knapsack_bst.ds);
         bnb.Solve(null);
         Result[] res = bnb.getResults();
         for(Result r:res){
@@ -118,6 +118,7 @@ public class Main {
 
     public static void main(String[] args) {
         //testCompile();
-        testBnbFile();
+        //testBnbFile();
+        testFramework();
     }
 }

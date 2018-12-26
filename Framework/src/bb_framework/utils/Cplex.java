@@ -1,6 +1,7 @@
 package bb_framework.utils;
 
 import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Dataset;
 import bb_framework.utils.Constraint;
 import ilog.concert.*;
 import ilog.cplex.*;
@@ -21,12 +22,12 @@ public class Cplex {
 
     //TODO: Make possible to take index constraints - x_1 + .. + x_n <= c
 
-    public static double[] lp_relaxation(double[] coefficients, Node currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
-        IloNumVar[] x = cplex.numVarArray(coefficients.length,0.0, 1.0);
+    public static double[] lp_relaxation(Dataset coefficients, Node currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
+        IloNumVar[] x = cplex.numVarArray(coefficients.size(),0.0, 1.0);
         cplex.setOut(null);
 
         // TODO: Possibly make this a property of class, in order to minimize memory
-        DisjointSet ds = new DisjointSet(coefficients.length);
+        DisjointSet ds = new DisjointSet(coefficients.size());
 
         // Objective function
         IloLinearNumExpr obj = cplex.linearNumExpr();
@@ -42,14 +43,14 @@ public class Cplex {
             int val = curr.included?1:0;
             x[curr.index].setLB(val);
             x[curr.index].setUB(val);
-            obj.addTerm(coefficients[curr.index], x[curr.index]);
+            obj.addTerm((Double) coefficients.get(curr.index).getVal(), x[curr.index]);
             curr = curr.getParent();
         }
 
         int csSet = prev==-1?prev:ds.Find(prev);
-        for(int i = 0; i < coefficients.length; i++){
+        for(int i = 0; i < coefficients.size(); i++){
             if(csSet != ds.Find(i)){
-                obj.addTerm(coefficients[i], x[i]);
+                obj.addTerm((Double) coefficients.get(i).getVal(), x[i]);
             }
         }
 
@@ -96,21 +97,21 @@ public class Cplex {
         return retArr;
     }
 
-    public static double[] ip_solve(double[] coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
-        IloNumVar[] x = cplex.boolVarArray(coefficients.length);
+    public static double[] ip_solve(Dataset coefficients, HashMap<Integer,Double> currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
+        IloNumVar[] x = cplex.boolVarArray(coefficients.size());
         cplex.setOut(null);
 
         // Objective function
         IloLinearNumExpr obj = cplex.linearNumExpr();
 
-        for(int i = 0; i < coefficients.length; i++){
+        for(int i = 0; i < coefficients.size(); i++){
             if (currentSolution.containsKey(i)){
                 x[i].setLB(currentSolution.get(i));
                 x[i].setUB(currentSolution.get(i));
-                obj.addTerm(coefficients[i], x[i]);
+                obj.addTerm((Double) coefficients.get(i).getVal(), x[i]);
             }
             else{
-                obj.addTerm(coefficients[i], x[i]);
+                obj.addTerm((Double) coefficients.get(i).getVal(), x[i]);
             }
         }
 

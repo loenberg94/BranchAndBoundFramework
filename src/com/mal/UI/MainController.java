@@ -5,6 +5,10 @@ import bb_framework.enums.ConstraintType;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Bound;
+import bb_framework.interfaces.Dataset;
+import bb_framework.types.Coefficient;
+import bb_framework.types.Value;
+import bb_framework.types.Vector;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Problem;
 import bb_framework.utils.Result;
@@ -538,17 +542,17 @@ public class MainController {
         return ProblemType.MINIMIZATION;
     }
 
-    private double[] getValuesFromString(String[] st, int size){
-        double[] tmp = new double[size];
+    private Coefficient[] getValuesFromString(String[] st, int size){
+        Coefficient[] tmp = new Coefficient[size];
         for(int i = 0; i < size; i++){
-            tmp[i] = Double.valueOf(st[i]);
+            tmp[i] = new Value(Double.valueOf(st[i]));
         }
         return tmp;
     }
 
-    private double[] getDataset(){
+    private Dataset getDataset(){
         int size = Integer.valueOf(coefNrTF.getText());
-        double[] tmp = null;
+        Coefficient[] tmp = null;
 
         if (dataset != ""){
             try {
@@ -564,7 +568,7 @@ public class MainController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return tmp;
+            return new Vector(tmp,tmp.length);
         }
         return null;
     }
@@ -639,7 +643,7 @@ public class MainController {
             Constraint[] constraints = getConstraints();
             ProblemType problemType = getProblemType();
             Problem[] problems = new Problem[list_items.size()];
-            double[] dataset = getDataset();
+            Dataset dataset = getDataset();
 
             int i = 0;
             for(ProblemInstance item:list_items.values()){

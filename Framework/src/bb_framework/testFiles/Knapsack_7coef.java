@@ -4,6 +4,7 @@ import bb_framework.enums.ConstraintType;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Bound;
+import bb_framework.interfaces.Dataset;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.DisjointSet;
 import bb_framework.utils.Node;
@@ -21,10 +22,10 @@ public class Knapsack_7coef extends Problem {
     private static class knapsackBounds implements Bound {
 
         @Override
-        public double Lowerbound(Node node, double[] set, Problem problem) {
+        public double Lowerbound(Node node, Dataset set, Problem problem) {
             float sum = 0;
             float weight = 0;
-            DisjointSet ds = new DisjointSet(set.length);
+            DisjointSet ds = new DisjointSet(set.size());
 
             int prev = -1;
             Node curr = node;
@@ -34,16 +35,16 @@ public class Knapsack_7coef extends Problem {
                 }
                 prev = curr.index;
                 int in = node.included?1:0;
-                sum += in * set[curr.index];
+                sum += in * (Double) set.get(curr.index).getVal();
                 weight += in * problem.getConstraints()[0].getD_lhs()[curr.index];
                 curr = curr.getParent();
             }
 
             int csSet = prev==-1?prev:ds.Find(prev);
-            for (int i = 0; i < set.length; i++){
+            for (int i = 0; i < set.size(); i++){
                 if(csSet != ds.Find(i)){
                     if(weight + problem.getConstraints()[0].getD_lhs()[i] <= problem.getConstraints()[0].getRhs()){
-                        sum += set[i];
+                        sum += (Double) set.get(i).getVal();
                         weight += problem.getConstraints()[0].getD_lhs()[i];
                     }
                 }
@@ -52,7 +53,7 @@ public class Knapsack_7coef extends Problem {
         }
 
         @Override
-        public double Upperbound(Node node, double[] set, Problem problem) {
+        public double Upperbound(Node node, Dataset set, Problem problem) {
             return 0;
         }
     }

@@ -4,6 +4,7 @@ import bb_framework.enums.ConstraintType;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Bound;
+import bb_framework.interfaces.Dataset;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Node;
 import bb_framework.utils.Problem;
@@ -44,7 +45,7 @@ public class Knapsack_24coef extends Problem {
     private static class knapsackBounds implements Bound {
 
         @Override
-        public double Lowerbound(Node node, double[] set, Problem problem) {
+        public double Lowerbound(Node node, Dataset set, Problem problem) {
             float sum = 0;
             float weight = 0;
             /*for (int cs_i:node.getCurrentSolution().keySet()){
@@ -63,7 +64,7 @@ public class Knapsack_24coef extends Problem {
         }
 
         @Override
-        public double Upperbound(Node node, double[] set, Problem problem) {
+        public double Upperbound(Node node, Dataset set, Problem problem) {
             return 0;
         }
     }

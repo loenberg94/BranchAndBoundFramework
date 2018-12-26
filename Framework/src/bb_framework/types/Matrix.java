@@ -8,18 +8,8 @@ public class Matrix implements Dataset {
     Coefficient[][] elements;
 
     @Override
-    public Coefficient get(DatasetIndex index) {
-        DatasetMatrixIndex dmi = (DatasetMatrixIndex) index;
-        return elements[dmi.i][dmi.j];
-    }
-
-    @Override
-    public DatasetIndex next(DatasetIndex index) {
-        DatasetMatrixIndex dmi = (DatasetMatrixIndex) index;
-        if(dmi.i == n - 1){
-            return new DatasetMatrixIndex(0,dmi.j + 1);
-        }
-        return new DatasetMatrixIndex(dmi.i + 1,dmi.j);
+    public Coefficient get(int index) {
+        return elements[index%n][index/n];
     }
 
     @Override

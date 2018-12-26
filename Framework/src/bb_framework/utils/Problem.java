@@ -3,6 +3,7 @@ package bb_framework.utils;
 import bb_framework.interfaces.Bound;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Dataset;
 
 public class Problem {
     private String p_name;
@@ -15,8 +16,8 @@ public class Problem {
     public NodeStrategy strategy;
     public final ProblemType type;
 
-    public double[] Lowerbound(Node node, double[] set){
-        if (node.depth == set.length -1){
+    public double[] Lowerbound(Node node, Dataset set){
+        if (node.depth == set.size() -1){
             node.lowerbound = node.getObjectiveValue(set);
             return null;
         }
@@ -40,8 +41,8 @@ public class Problem {
         return null;
     }
 
-    public double[] Upperbound(Node node, double[] set){
-        if (node.depth == set.length - 1){
+    public double[] Upperbound(Node node, Dataset set){
+        if (node.depth == set.size() - 1){
             node.upperbound = node.getObjectiveValue(set);
             return null;
         }
@@ -64,10 +65,11 @@ public class Problem {
         return null;
     }
 
-    private float calculateObjValue(double[] solution, double[] set){
+    private float calculateObjValue(double[] solution, Dataset set){
         float sum = 0;
-        for(int i = 0; i < set.length; i++){
-            sum += solution[i] * set[i];
+        for(int i = 0; i < set.size(); i++){
+            //TODO: Change to use index as well
+            sum += solution[i] * (Double) set.get(i).getVal();
         }
         return sum;
     }

@@ -3,6 +3,7 @@ package bb_framework;
 import bb_framework.enums.ConstraintType;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Dataset;
 import bb_framework.utils.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -19,7 +20,7 @@ public class BranchAndBound {
 
     int z = 0;
     private Problem[] problems;
-    private double[] dataset;
+    private Dataset dataset;
     private Result[] results;
     int total_nodes = 0;
 
@@ -30,7 +31,7 @@ public class BranchAndBound {
     double incumbent;
     Node best;
 
-    public BranchAndBound(Problem[] instances, double[] set){
+    public BranchAndBound(Problem[] instances, Dataset set){
         this.problems = instances;
         this.dataset = set;
         this.results = new Result[instances.length];
@@ -70,7 +71,7 @@ public class BranchAndBound {
                 boolean pruned = false;
                 switch (problems[i].type){
                     case MINIMIZATION:
-                        if (node.depth == dataset.length - 1){
+                        if (node.depth == dataset.size() - 1){
                             pruned = true;
                             double s_val = node.getObjectiveValue(dataset);
                             if(node.feasible && s_val < incumbent){
@@ -97,7 +98,7 @@ public class BranchAndBound {
                         }
                         break;
                     case MAXIMIZATION:
-                        if(node.depth == dataset.length - 1){
+                        if(node.depth == dataset.size() - 1){
                             //log.Log("1: Node has reached max depth",Level.INFO);
                             pruned = true;
                             double val = node.getObjectiveValue(dataset);
@@ -168,21 +169,14 @@ public class BranchAndBound {
             final long end_time = System.currentTimeMillis();
 
 
-            Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.length, problems[i].strategy,problems[i].getP_name());
+            Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.size(), problems[i].strategy,problems[i].getP_name());
             tmp.setObjectiveValue(best.getObjectiveValue(dataset));
 
-
-            /*int[] sol = best.getCurrentSolution(dataset.length);
-            for(int j:sol){
-                //System.out.printf("index: %d, included: %b\n",j,sol[j]==1);
-                tmp.setSolution(j, (double) sol[j]);
-            }*/
             Node curr = best;
             while (curr.depth > -1){
                 tmp.setSolution(curr.index, (double) (curr.included?1:0));
                 curr = curr.getParent();
             }
-
 
             results[i] = tmp;
             total_nodes = 0;

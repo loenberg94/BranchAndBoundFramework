@@ -4,8 +4,12 @@ import bb_framework.BranchAndBound;
 import bb_framework.enums.ConstraintType;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Dataset;
 import bb_framework.testFiles.Knapsack;
 import bb_framework.testFiles.KnapsackBound;
+import bb_framework.types.Coefficient;
+import bb_framework.types.Value;
+import bb_framework.types.Vector;
 import bb_framework.utils.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,10 +27,10 @@ public class BranchAndBoundTest {
 
     Random rand = new Random();
 
-    private double[] buildKnapsackDataset(int size){
-        double[] tmp = new double[size];
-        for (int i = 0; i < size; i++) tmp[i] = rand.nextInt(MAX_VAL) + 50;
-        return tmp;
+    private Dataset buildKnapsackDataset(int size){
+        Coefficient[] tmp = new Coefficient[size];
+        for (int i = 0; i < size; i++) tmp[i] = new Value((double) (rand.nextInt(MAX_VAL) + 50));
+        return new Vector(tmp,tmp.length);
     }
 
     private Constraint buildKnapsackConstraint(int size){
@@ -40,14 +44,14 @@ public class BranchAndBoundTest {
     public void solve() throws Exception {
         for (int i = 0; i < NR_OF_TESTS; i++){
             int size = rand.nextInt(MAX_NR_OF_ELEMENTS) + 5;
-            double[] dataset = buildKnapsackDataset(size);
+            Dataset dataset = buildKnapsackDataset(size);
             Constraint cs = buildKnapsackConstraint(size);
             //double[] dataset = ;
             //Constraint cs = buildKnapsackConstraint(size);
 
             double[] solution = Cplex.ip_solve(dataset,new HashMap<>(),new Constraint[]{cs},ProblemType.MAXIMIZATION);
             double solution_value = 0;
-            for(int j = 0; j < dataset.length; j++) solution_value += dataset[j] * solution[j];
+            for(int j = 0; j < dataset.size(); j++) solution_value += (Double) dataset.get(j).getVal() * solution[j];
 
             Problem bestFirst = new Problem("BestFirst", new Constraint[]{cs}, new KnapsackBound(), NodeStrategy.BEST_FIRST, ProblemType.MAXIMIZATION,true,0.5);
             Problem depthFirst = new Problem("DepthFirst", new Constraint[]{cs}, new KnapsackBound(), NodeStrategy.DEPTH_FIRST, ProblemType.MAXIMIZATION,true,0.5);
