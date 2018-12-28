@@ -4,9 +4,7 @@ import bb_framework.BranchAndBound;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Bound;
-import bb_framework.utils.Cplex;
-import bb_framework.utils.Problem;
-import bb_framework.utils.Result;
+import bb_framework.utils.*;
 import bb_framework.testFiles.Knapsack;
 import com.mal.UI.utils.*;
 import utils.MemoryCompiler;
@@ -16,6 +14,68 @@ import java.util.HashMap;
 
 @SuppressWarnings("Duplicates")
 public class Main {
+
+    static String teststr =
+            "package extraClasses;\n" +
+                    "\n" +
+                    "import bb_framework.interfaces.Bound;\n" +
+                    "import bb_framework.interfaces.Dataset;\n" +
+                    "import bb_framework.utils.DisjointSet;\n" +
+                    "import bb_framework.utils.Node;\n" +
+                    "import bb_framework.utils.Problem;\n" +
+                    "\n" +
+                    "@SuppressWarnings(\"Duplicates\")\n" +
+                    "public class knapsack_bound implements Bound{\n" +
+                    "        @Override\n" +
+                    "        public double Lowerbound(Node node, Dataset set, Problem problem) {\n" +
+                    "            float sum = 0;\n" +
+                    "            float weight = 0;\n" +
+                    "            DisjointSet ds = new DisjointSet(set.size());\n" +
+                    "\n" +
+                    "            int prev = -1;\n" +
+                    "            Node curr = node;\n" +
+                    "            while (curr.depth > -1){\n" +
+                    "                if(prev != -1){\n" +
+                    "                    ds.Union(prev, curr.index);\n" +
+                    "                }\n" +
+                    "                prev = curr.index;\n" +
+                    "                sum += curr.included?(Double) set.get(curr.index).getVal():0;\n" +
+                    "                weight += curr.included?problem.getConstraints()[0].getD_lhs()[curr.index]:0;\n" +
+                    "                curr = curr.getParent();\n" +
+                    "            }\n" +
+                    "\n" +
+                    "            int csSet = prev==-1?prev:ds.Find(prev);\n" +
+                    "            for (int i = 0; i < set.size(); i++){\n" +
+                    "                if(csSet == -1 || ds.Find(csSet) != ds.Find(i)){\n" +
+                    "                    if(weight + problem.getConstraints()[0].getD_lhs()[i] <= problem.getConstraints()[0].getRhs()){\n" +
+                    "                        sum += (Double) set.get(i).getVal();\n" +
+                    "                        weight += problem.getConstraints()[0].getD_lhs()[i];\n" +
+                    "                    }\n" +
+                    "                }\n" +
+                    "            }\n" +
+                    "            return sum;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        @Override\n" +
+                    "        public double Upperbound(Node node, Dataset set, Problem problem) {\n" +
+                    "            return 30000000;\n" +
+                    "        }\n" +
+                    "}";
+
+
+    private static void testCurrentError() {
+        MemoryCompiler mc = MemoryCompiler.newInstance();
+        Class<?> cmpClass = null;
+        try {
+            cmpClass = mc.compile("knapsack_bound",teststr);
+            Bound test = (Bound) cmpClass.getDeclaredConstructor().newInstance();
+
+            test.Lowerbound(null,null,null);
+            test.Upperbound(null,null,null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private static JavaFile getFile(String path){
         JavaFile ret = null;
@@ -119,6 +179,7 @@ public class Main {
     public static void main(String[] args) {
         //testCompile();
         //testBnbFile();
-        testFramework();
+        //testFramework();
+        testCurrentError();
     }
 }

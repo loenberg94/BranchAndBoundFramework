@@ -79,7 +79,8 @@ public class MultiThreadCompiler {
                         while (!files.isEmpty()){
                             JavaFile tmp = files.takeFirst();
                             if (tmp != null){
-                                Class<?> boundClass = compiler.compile(tmp.filename.split("\\.")[0],tmp.content);
+                                String cname = tmp.filename.split("\\.")[0];
+                                Class<?> boundClass = compiler.compile(cname,tmp.content);
                                 Bound bound = (Bound) boundClass.getDeclaredConstructor().newInstance();
                                 read.lock();
                                 for(Integer i : filesUsedIndex.get(tmp.filename)){

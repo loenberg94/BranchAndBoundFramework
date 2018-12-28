@@ -4,6 +4,7 @@ import bb_framework.interfaces.Bound;
 import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Dataset;
+import bb_framework.testFiles.Knapsack;
 
 public class Problem {
     private String p_name;

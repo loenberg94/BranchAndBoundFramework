@@ -42,5 +42,4 @@ public class KnapsackBound implements Bound{
         public double Upperbound(Node node, Dataset set, Problem problem) {
             return 30000000;
         }
-
 }

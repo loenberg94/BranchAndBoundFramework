@@ -542,7 +542,7 @@ public class MainController {
         return ProblemType.MINIMIZATION;
     }
 
-    private Coefficient[] getValuesFromString(String[] st, int size){
+    protected Coefficient[] getValuesFromString(String[] st, int size){
         Coefficient[] tmp = new Coefficient[size];
         for(int i = 0; i < size; i++){
             tmp[i] = new Value(Double.valueOf(st[i]));
@@ -550,7 +550,7 @@ public class MainController {
         return tmp;
     }
 
-    private Dataset getDataset(){
+    protected Dataset getDataset(){
         int size = Integer.valueOf(coefNrTF.getText());
         Coefficient[] tmp = null;
 
@@ -562,6 +562,7 @@ public class MainController {
                     if(line.matches("^[0-9. ]*$")){
                         tmp = getValuesFromString(line.split(" "),size);
                     }
+                    //TODO: throw exception if dataset isn't correct format
                 }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
