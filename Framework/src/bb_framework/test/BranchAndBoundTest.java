@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class BranchAndBoundTest {
 
-    int NR_OF_TESTS = 100;
+    int NR_OF_TESTS = 10;
     int MAX_NR_OF_ELEMENTS = 10;
     int MAX_VAL = 550;
     int MAX_CONSTRAINT_VAL = 450;

@@ -319,7 +319,12 @@ public class MainController {
             File tmp = new File(path);
 
             StringBuilder st = new StringBuilder();
-            String line;
+            String line = stream.readLine();
+
+            if(line != null && !line.contains("package")){
+                st.append(line);
+            }
+
             while ((line = stream.readLine()) != null){
                 st.append(line);
             }

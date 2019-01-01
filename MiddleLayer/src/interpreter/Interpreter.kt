@@ -11,6 +11,5 @@ class Interpreter {
 
     fun getDataset(input:String){
         val tokenMatchList = DSgrammar.tokenizer.tokenize(input)
-
     }
 }

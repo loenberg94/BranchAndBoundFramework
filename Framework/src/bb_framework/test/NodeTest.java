@@ -1,5 +1,9 @@
 package bb_framework.test;
 
+import bb_framework.interfaces.Dataset;
+import bb_framework.types.Coefficient;
+import bb_framework.types.Value;
+import bb_framework.types.Vector;
 import bb_framework.utils.DisjointSet;
 import bb_framework.utils.Node;
 import org.junit.Assert;
@@ -60,12 +64,12 @@ public class NodeTest {
         return tmp;
     }
 
-    private double[] buildDataset(int size){
-        double[] tmp = new double[size];
+    private Dataset buildDataset(int size){
+        Coefficient[] tmp = new Coefficient[size];
         for(int i = 0; i < size; i++){
-            tmp[i] = rand.nextInt(MAX_VAL_DATASET) + 10;
+            tmp[i] = new Value(Double.valueOf(rand.nextInt(MAX_VAL_DATASET) + 10));
         }
-        return tmp;
+        return new Vector(tmp,tmp.length);
     }
 
     @Test
@@ -80,10 +84,10 @@ public class NodeTest {
         }
     }
 
-    private int calculateValue(double[] data, double[] solution){
+    private int calculateValue(Dataset data, double[] solution){
         int sum = 0;
-        for (int i = 0; i < data.length; i++){
-            sum += data[i] * solution[i];
+        for (int i = 0; i < data.size(); i++){
+            sum += (Double) data.get(i).getVal() * solution[i];
         }
         return sum;
     }
@@ -93,13 +97,13 @@ public class NodeTest {
         for(int i = 0; i < NR_OF_TESTS; i++){
             int size = rand.nextInt(MAX_SIZE_SOLUTION);
             double[] bSolution = buildBoundSolution(size);
-            double[] dataset = buildDataset(size);
+            Dataset dataset = buildDataset(size);
             Node n = buildNodeSolution(bSolution, size);
 
             int expectedObjectiveValue = calculateValue(dataset, bSolution);
-            //int actualObjectiveValue = (int) n.getObjectiveValue(dataset);
+            int actualObjectiveValue = (int) n.getObjectiveValue(dataset);
 
-            //Assert.assertTrue(expectedObjectiveValue == actualObjectiveValue);
+            Assert.assertTrue(expectedObjectiveValue == actualObjectiveValue);
         }
     }
 

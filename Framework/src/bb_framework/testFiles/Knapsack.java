@@ -33,8 +33,8 @@ public class Knapsack extends Problem {
         return new Knapsack(constraints, new KnapsackBound(),NodeStrategy.BEST_FIRST, ProblemType.MAXIMIZATION, true);
     }
 
-    public double[] getDataset() {
-        return dataset;
+    public Dataset getDataset() {
+        return ds;
     }
 
     public Bound getBound(){

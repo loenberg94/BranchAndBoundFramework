@@ -1,6 +1,7 @@
 package bb_framework.test;
 
 import bb_framework.enums.ProblemType;
+import bb_framework.interfaces.Dataset;
 import bb_framework.testFiles.Knapsack;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Cplex;
@@ -61,23 +62,23 @@ public class CplexTest {
         return new Constraint(lhs,rhs,LEQ,false);
     }
 
-    private double[] oldLPRmethod(HashMap<Integer,Double> cSolution, Constraint cs, double[] dataset) throws IloException {
+    private double[] oldLPRmethod(HashMap<Integer,Double> cSolution, Constraint cs, Dataset dataset) throws IloException {
         IloCplex cplex = new IloCplex();
-        IloNumVar[] x = cplex.numVarArray(dataset.length,0.0, 1.0);
+        IloNumVar[] x = cplex.numVarArray(dataset.size(),0.0, 1.0);
         cplex.setOut(null);
 
-        DisjointSet ds = new DisjointSet(dataset.length);
+        DisjointSet ds = new DisjointSet(dataset.size());
 
         // Objective function
         IloLinearNumExpr obj = cplex.linearNumExpr();
-        for(int i = 0; i < dataset.length; i++){
+        for(int i = 0; i < dataset.size(); i++){
             if (cSolution.containsKey(i)){
                 x[i].setLB(cSolution.get(i));
                 x[i].setUB(cSolution.get(i));
-                obj.addTerm(dataset[i], x[i]);
+                obj.addTerm((Double) dataset.get(i).getVal(), x[i]);
             }
             else{
-                obj.addTerm(dataset[i], x[i]);
+                obj.addTerm((Double) dataset.get(i).getVal(), x[i]);
             }
         }
 
@@ -115,22 +116,22 @@ public class CplexTest {
         int[] actualSolution = new int[]{1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1};
         Knapsack problem = Knapsack.CreateNew();
         for(int i = 0; i < NR_OF_TESTS; i++){
-            /*double[] dataset = problem.getDataset();
+            Dataset dataset = problem.getDataset();
             Constraint[] constraint = problem.getConstraints();
-            HashMap<Integer, Double> hmSolution = buildHashMapSolution(dataset.length,rand.nextInt((int) Math.sqrt(dataset.length)),actualSolution);
+            HashMap<Integer, Double> hmSolution = buildHashMapSolution(dataset.size(),rand.nextInt((int) Math.sqrt(dataset.size())),actualSolution);
             Node nodeSolution = buildNodeSolution(hmSolution);
 
             try {
                 double[] oldMethodResult = oldLPRmethod(hmSolution,constraint[0],dataset);
                 double[] newMethodResult = Cplex.lp_relaxation(dataset,nodeSolution,constraint, ProblemType.MAXIMIZATION);
 
-                for(int j = 0; j < dataset.length; j++){
+                for(int j = 0; j < dataset.size(); j++){
                     Assert.assertTrue(oldMethodResult[j] == newMethodResult[j]);
                 }
             } catch (Exception e) {
                 System.out.println("Exception thrown");
                 e.printStackTrace();
-            }*/
+            }
         }
     }
 }

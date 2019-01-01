@@ -1,6 +1,6 @@
 package interpreter
 
-abstract class Option(){
+abstract class Option{
     fun isSome():Boolean{ return this is Some<*>
     }
     fun isNone():Boolean{ return this is None
