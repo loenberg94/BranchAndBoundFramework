@@ -1,7 +1,10 @@
 package bb_framework.utils;
 
 import bb_framework.enums.ProblemType;
+import bb_framework.exceptions.IncorrectCoefficientTypeException;
 import bb_framework.interfaces.Dataset;
+import bb_framework.types.Coefficient;
+import bb_framework.types.Index;
 import bb_framework.utils.Constraint;
 import ilog.concert.*;
 import ilog.cplex.*;
@@ -20,13 +23,10 @@ public class Cplex {
         }
     }
 
-    //TODO: Make possible to take index constraints - x_1 + .. + x_n <= c
-
     public static double[] lp_relaxation(Dataset coefficients, Node currentSolution, Constraint[] constraints, ProblemType type) throws Exception {
         IloNumVar[] x = cplex.numVarArray(coefficients.size(),0.0, 1.0);
         cplex.setOut(null);
 
-        // TODO: Possibly make this a property of class, in order to minimize memory
         DisjointSet ds = new DisjointSet(coefficients.size());
 
         // Objective function
@@ -43,7 +43,13 @@ public class Cplex {
             int val = curr.included?1:0;
             x[curr.index].setLB(val);
             x[curr.index].setUB(val);
-            obj.addTerm((Double) coefficients.get(curr.index).getVal(), x[curr.index]);
+            Coefficient tmp = coefficients.get(curr.index);
+            if(tmp.isIndex()){
+                obj.addTerm(1, x[(int) tmp.getVal()]);
+            }
+            else{
+                obj.addTerm((Double) coefficients.get(curr.index).getVal(), x[curr.index]);
+            }
             curr = curr.getParent();
         }
 
@@ -64,8 +70,26 @@ public class Cplex {
         // Constraints
         for(Constraint cons:constraints){
             IloLinearNumExpr exprs = cplex.linearNumExpr();
-            for(int i = 0; i < cons.getD_lhs().length; i++){
-                exprs.addTerm(cons.getD_lhs()[i], x[i]);
+
+            for(int i = 0; i < cons.getLhs().length; i++){
+                Coefficient constraintCoeff = cons.getLhs()[i];
+                if(cons.isIndexConstraint()){
+                    if(constraintCoeff.isIndex()){
+                        int index = (int) constraintCoeff.getVal();
+                        exprs.addTerm(1, x[index]);
+                    }
+                    else{
+                        throw new IncorrectCoefficientTypeException("Index", constraintCoeff.toString());
+                    }
+                }
+                else{
+                    if(constraintCoeff.isValue()){
+                        exprs.addTerm((Double) cons.getLhs()[i].getVal(), x[i]);
+                    }
+                    else{
+                        throw new IncorrectCoefficientTypeException("Value", constraintCoeff.toString());
+                    }
+                }
             }
             switch (cons.getcT()){
                 case LEQ:
@@ -125,8 +149,8 @@ public class Cplex {
         // Constraints
         for(Constraint cons:constraints){
             IloLinearNumExpr exprs = cplex.linearNumExpr();
-            for(int i = 0; i < cons.getD_lhs().length; i++){
-                exprs.addTerm(cons.getD_lhs()[i], x[i]);
+            for(int i = 0; i < cons.getLhs().length; i++){
+                exprs.addTerm((Double)cons.getLhs()[i].getVal(), x[i]);
             }
             switch (cons.getcT()){
                 case LEQ:

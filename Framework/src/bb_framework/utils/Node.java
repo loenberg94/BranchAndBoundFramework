@@ -1,6 +1,7 @@
 package bb_framework.utils;
 
 import bb_framework.interfaces.Dataset;
+import bb_framework.types.Coefficient;
 
 public class Node {
     private Node parent;
@@ -37,8 +38,13 @@ public class Node {
         double sum = 0;
         Node curr = this;
         while(curr.depth > -1){
-            //TODO: fix so it works with indices as well, and not only values
-            sum += curr.included ? (Double) dataset.get(curr.index).getVal():0;
+            Coefficient coefficient = dataset.get(curr.index);
+            if(coefficient.isValue()){
+                sum += curr.included ? (Double) dataset.get(curr.index).getVal():0;
+            }
+            else if(coefficient.isIndex()){
+                sum += curr.included ? 1:0;
+            }
             curr = curr.parent;
         }
         return sum;

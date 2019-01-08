@@ -7,12 +7,14 @@ import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Bound;
 import bb_framework.interfaces.Dataset;
 import bb_framework.types.Coefficient;
+import bb_framework.types.Index;
 import bb_framework.types.Value;
 import bb_framework.types.Vector;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Problem;
 import bb_framework.utils.Result;
 import com.mal.UI.utils.*;
+import kotlin.text.Regex;
 import utils.Compiler;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -319,14 +321,22 @@ public class MainController {
             File tmp = new File(path);
 
             StringBuilder st = new StringBuilder();
-            String line = stream.readLine();
+            String line = null;
 
-            if(line != null && !line.contains("package")){
-                st.append(line);
-            }
+            boolean packageFound = false;
 
             while ((line = stream.readLine()) != null){
-                st.append(line);
+                if(packageFound){
+                    st.append(line);
+                }
+                else{
+                    if(line.matches("(package)[a-zA-Z0-9 ._;]*")){
+                        packageFound = true;
+                    } else if(line.matches("(import|public)[a-zA-Z0-9 ._;]*")){
+                        packageFound = true;
+                        st.append(line);
+                    }
+                }
             }
             ret = new JavaFile(tmp.getName(),st.toString());
         } catch (FileNotFoundException e) {
@@ -360,7 +370,7 @@ public class MainController {
                 reader = new BufferedReader(new FileReader(file));
                 String line;
                 while ((line = reader.readLine()) != null){
-                    sb.append(line);
+                    sb.append(line + "\n");
                 }
                 return sb.toString();
             } catch (IOException e) {
@@ -432,18 +442,18 @@ public class MainController {
                     boolean i_constraint = false;
                     ConstraintType tp = null;
                     String[] string = st.split(" ");
-                    double[] d_lhs = new double[Integer.valueOf(coefNrTF.getText())];
-                    ArrayList<String> s_lhs = new ArrayList<>();
+                    ArrayList<Coefficient> lhs = new ArrayList<>(Integer.valueOf(coefNrTF.getText()));
                     if (st.matches("^(x[0-9]+( )*)* [<>=]+ [0-9]+$")){
                         i_constraint = true;
                         while(string[i].matches("x[0-9]+")){
-                            s_lhs.add(string[i].replace("x",""));
+                            int index = Integer.valueOf(string[i].substring(1));
+                            lhs.add(new Index(index));
                             i++;
                         }
                     }
                     else{
                         while (string[i].matches("^[0-9]+[.0-9]*$")) {
-                            d_lhs[i] = Double.valueOf(string[i]);
+                            lhs.add(new Value(Double.valueOf(string[i])));
                             i++;
                         }
                     }
@@ -468,13 +478,12 @@ public class MainController {
                     }
                     i++;
                     if(i_constraint){
-                        tmp.add(new Constraint(s_lhs.toArray(new String[]{}),Double.valueOf(string[i]),tp,i_constraint));
+                        tmp.add(new Constraint(lhs.toArray(new Index[]{}),Double.valueOf(string[i]),tp));
                     }
                     else{
-                        tmp.add(new Constraint(d_lhs,Double.valueOf(string[i]),tp,i_constraint));
-                        s_lhs = null;
+                        tmp.add(new Constraint(lhs.toArray(new Value[]{}),Double.valueOf(string[i]),tp));
                     }
-
+                    lhs = null;
                 }
                 return tmp.toArray(new Constraint[]{});
             } catch (FileNotFoundException e) {
@@ -574,7 +583,7 @@ public class MainController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return new Vector(tmp,tmp.length);
+            return new Vector(tmp);
         }
         return null;
     }

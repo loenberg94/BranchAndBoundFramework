@@ -1,46 +1,61 @@
 package bb_framework.utils;
 
 import bb_framework.enums.ConstraintType;
+import bb_framework.types.Coefficient;
+import bb_framework.types.Index;
+import bb_framework.types.Value;
 import javafx.util.Pair;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Constraint {
-    boolean indexConstraint;
-    HashMap<Integer,Boolean> s_lhs;
-    double[] d_lhs;
-    ConstraintType cT;
-    double rhs;
+    private boolean indexConstraint;
+    private Coefficient[] lhs;
+    private ConstraintType cT;
+    private double rhs;
+
+    /*public boolean containsIndex(int sIndex){
+        int i = lhs.length / 2;
+        double stepSize = i;
+        while(true){
+            int cIndex = (Integer) lhs[i].getVal();
+            if(cIndex == sIndex) return true;
+            if(stepSize == 0.5) break;
+            stepSize /= 2;
+            if(cIndex < sIndex){
+                i += (int) Math.ceil(stepSize);
+            }
+            else{
+                i -= (int) Math.ceil(stepSize);
+            }
+        }
+        return false;
+    }*/
+
+    public boolean containsIndex(int sIndex){
+        for(Coefficient i : lhs){
+            if((int)i.getVal() == sIndex){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public Pair<Boolean,Boolean> checkConstraint(Node node, int nextIndex){
         double sum = 0;
         Node curr = node;
         if(indexConstraint){
-            boolean relevant = s_lhs.containsKey(nextIndex);
-            //for(String s:s_lhs){ relevant |= (s.equals(String.valueOf(nextIndex)) || currentSolution.containsKey(Integer.valueOf(s))); }
+            boolean relevant = containsIndex(nextIndex);
 
             while (curr.depth > -1){
-                relevant |= s_lhs.containsKey(curr.index);
+                relevant |= containsIndex(curr.index);
                 curr = curr.getParent();
             }
 
             if(relevant){
-                /*for(String s:s_lhs){
-                    int tmp = Integer.valueOf(s);
-                    if(tmp == nextIndex){
-                        sum += 1;
-                    }
-                    else{
-                        sum += currentSolution.getOrDefault(tmp, 0.0);
-                    }
-                }*/
-
-                if(s_lhs.containsKey(nextIndex)) sum += 1;
+                if(containsIndex(nextIndex)) sum += 1;
 
                 curr = node;
                 while (curr.depth > -1){
-                    if (s_lhs.containsKey(curr.index)) sum += curr.included ? 1:0;
+                    if (containsIndex(curr.index)) sum += curr.included ? 1:0;
                     curr = curr.getParent();
                 }
             }
@@ -49,20 +64,12 @@ public class Constraint {
             }
         }
         else{
-            /*for(int i = 0; i < d_lhs.length; i++){
-                if(currentSolution.containsKey(i)){
-                    sum += currentSolution.get(i) * d_lhs[i];
-                }
-                else if(i == nextIndex){
-                    sum += d_lhs[i];
-                }
-            }*/
             while (curr.depth > -1){
                 int i = curr.included? 1:0;
-                sum +=  i * d_lhs[curr.index];
+                sum +=  i * (Double)lhs[curr.index].getVal();
                 curr = curr.getParent();
             }
-            sum += d_lhs[nextIndex];
+            sum += (Double)lhs[nextIndex].getVal();
         }
 
         switch (cT){
@@ -89,27 +96,36 @@ public class Constraint {
         }
     }
 
-    public Constraint(double[] leftHandSide, double rightHandSide, ConstraintType type, boolean i_constraint){
-        d_lhs = leftHandSide;
+    public Constraint(Value[] leftHandSide, double rightHandSide, ConstraintType type){
+        lhs = leftHandSide;
         rhs = rightHandSide;
         cT = type;
-        indexConstraint = i_constraint;
+        indexConstraint = false;
     }
 
-    public Constraint(String[] leftHandSide, double rightHandSide, ConstraintType type, boolean i_constraint){
-        s_lhs = new HashMap<>();
-        for(String s : leftHandSide) s_lhs.put(Integer.valueOf(s),false);
+    public Constraint(Index[] leftHandSide, double rightHandSide, ConstraintType type){
+        lhs = leftHandSide;
         rhs = rightHandSide;
         cT = type;
-        indexConstraint = i_constraint;
+        indexConstraint = true;
+    }
+
+    //TODO: ONLY TEMPORARY FOR DEBUGGING PURPOSE
+    public Constraint(double[] leftHandSide, double rightHandSide, ConstraintType type){
+        Value[] tmp = new Value[leftHandSide.length];
+        for(int i = 0; i < leftHandSide.length; i++) tmp[i] = new Value(leftHandSide[i]);
+        lhs = tmp;
+        rhs = rightHandSide;
+        cT = type;
+        indexConstraint = false;
     }
 
     public double getRhs() {
         return rhs;
     }
 
-    public double[] getD_lhs() {
-        return d_lhs;
+    public Coefficient[] getLhs() {
+        return lhs;
     }
 
     public ConstraintType getcT() {

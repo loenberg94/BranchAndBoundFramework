@@ -1,8 +1,10 @@
 package bb_framework.test;
 
 import bb_framework.enums.ProblemType;
+import bb_framework.exceptions.IncorrectNrOfIndecesException;
 import bb_framework.interfaces.Dataset;
 import bb_framework.testFiles.Knapsack;
+import bb_framework.types.Value;
 import bb_framework.utils.Constraint;
 import bb_framework.utils.Cplex;
 import bb_framework.utils.DisjointSet;
@@ -56,13 +58,13 @@ public class CplexTest {
     }
 
     private Constraint buildConstraint(int size){
-        double[] lhs = new double[size];
-        for(int i = 0; i < size; i++) lhs[i] = rand.nextInt(MAX_CONSTRAINT_VAL) + 50;
+        Value[] lhs = new Value[size];
+        for(int i = 0; i < size; i++) lhs[i] = new Value((double) (rand.nextInt(MAX_CONSTRAINT_VAL) + 50));
         double rhs = rand.nextInt(MAX_CONSTRAINT_VAL) / 2 * MULTIPLIER;
-        return new Constraint(lhs,rhs,LEQ,false);
+        return new Constraint(lhs,rhs,LEQ);
     }
 
-    private double[] oldLPRmethod(HashMap<Integer,Double> cSolution, Constraint cs, Dataset dataset) throws IloException {
+    private double[] oldLPRmethod(HashMap<Integer,Double> cSolution, Constraint cs, Dataset dataset) throws IloException, IncorrectNrOfIndecesException {
         IloCplex cplex = new IloCplex();
         IloNumVar[] x = cplex.numVarArray(dataset.size(),0.0, 1.0);
         cplex.setOut(null);
@@ -86,8 +88,8 @@ public class CplexTest {
 
         // Constraints
         IloLinearNumExpr exprs = cplex.linearNumExpr();
-        for(int i = 0; i < cs.getD_lhs().length; i++){
-            exprs.addTerm(cs.getD_lhs()[i], x[i]);
+        for(int i = 0; i < cs.getLhs().length; i++){
+            exprs.addTerm((Double) cs.getLhs()[i].getVal(), x[i]);
         }
         switch (cs.getcT()){
             case LEQ:

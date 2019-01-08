@@ -22,14 +22,14 @@ public class Knapsack extends Problem {
     final static Coefficient[] cs = new Coefficient[] {new Value(240.),new Value(229.),new Value(221.),
             new Value(214.),new Value(210.),new Value(201.),new Value(192.),new Value(184.),new Value(173.),
             new Value(163.),new Value(156.),new Value(150.),new Value(149.),new Value(139.),new Value(135.)};
-    public final static Dataset ds = new Vector(cs,15);
+    public final static Dataset ds = new Vector(cs);
 
     private Knapsack(Constraint[] constraints, Bound bound, NodeStrategy strategy, ProblemType type, boolean lp) {
         super("",constraints, bound, strategy, type, lp, 0.5);
     }
 
     public static Knapsack CreateNew(){
-        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,750,ConstraintType.LEQ,false)};
+        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,750,ConstraintType.LEQ)};
         return new Knapsack(constraints, new KnapsackBound(),NodeStrategy.BEST_FIRST, ProblemType.MAXIMIZATION, true);
     }
 

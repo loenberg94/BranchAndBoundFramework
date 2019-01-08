@@ -7,7 +7,7 @@ import bb_framework.utils.Node;
 import bb_framework.utils.Problem;
 import bb_framework.BranchAndBound;
 
-import javax.xml.crypto.Data;
+
 
 public class tspbounds implements Bound {
 

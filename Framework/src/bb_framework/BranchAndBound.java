@@ -31,6 +31,8 @@ public class BranchAndBound {
     double incumbent;
     Node best;
 
+    boolean isRelavant = false;
+
     public BranchAndBound(Problem[] instances, Dataset set){
         this.problems = instances;
         this.dataset = set;
@@ -67,6 +69,9 @@ public class BranchAndBound {
 
             while(!nodepool.isEmpty()) {
                 Node node = nodepool.poll();
+
+                int[] cSol = node.getCurrentSolution(dataset.size());
+                isRelavant = cSol[0] == 0 && cSol[1] == 1 && cSol[2] == 1 &&cSol[3] == 0 && cSol[4] == 1 && cSol[5] == 1;
 
                 boolean pruned = false;
                 switch (problems[i].type){
@@ -168,15 +173,19 @@ public class BranchAndBound {
             }
             final long end_time = System.currentTimeMillis();
 
-
             Result tmp = new Result(total_nodes, (end_time - start_time)/1000.0, dataset.size(), problems[i].strategy,problems[i].getP_name());
             tmp.setObjectiveValue(best.getObjectiveValue(dataset));
 
             Node curr = best;
             while (curr.depth > -1){
-                tmp.setSolution(curr.index, (double) (curr.included?1:0));
+                tmp.setSolution(curr.index, (curr.included?1:0));
                 curr = curr.getParent();
             }
+
+            for(int v: tmp.getSolution()){
+                System.out.format("%d ",v);
+            }
+            System.out.println();
 
             results[i] = tmp;
             total_nodes = 0;
@@ -261,7 +270,7 @@ public class BranchAndBound {
         }
 
         Node not_included = new Node(node,false, nextVal);
-        not_included.feasible = false;
+        not_included.feasible = node.feasible;
         problem.Lowerbound(not_included,dataset);
         problem.Upperbound(not_included,dataset);
         nodepool.add(not_included);

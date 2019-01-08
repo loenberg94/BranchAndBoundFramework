@@ -30,14 +30,14 @@ public class BranchAndBoundTest {
     private Dataset buildKnapsackDataset(int size){
         Coefficient[] tmp = new Coefficient[size];
         for (int i = 0; i < size; i++) tmp[i] = new Value((double) (rand.nextInt(MAX_VAL) + 50));
-        return new Vector(tmp,tmp.length);
+        return new Vector(tmp);
     }
 
     private Constraint buildKnapsackConstraint(int size){
         double[] lhs = new double[size];
         for (int i = 0; i < size; i++) lhs[i] = rand.nextInt(MAX_CONSTRAINT_VAL) + 50;
         double rhs = (rand.nextInt(MAX_CONSTRAINT_VAL) / 2) * MULTIPLIER;
-        return new Constraint(lhs,rhs, ConstraintType.LEQ,false);
+        return new Constraint(lhs,rhs, ConstraintType.LEQ);
     }
 
     @Test

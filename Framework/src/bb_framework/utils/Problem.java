@@ -5,6 +5,7 @@ import bb_framework.enums.NodeStrategy;
 import bb_framework.enums.ProblemType;
 import bb_framework.interfaces.Dataset;
 import bb_framework.testFiles.Knapsack;
+import bb_framework.types.Coefficient;
 
 public class Problem {
     private String p_name;
@@ -69,8 +70,14 @@ public class Problem {
     private float calculateObjValue(double[] solution, Dataset set){
         float sum = 0;
         for(int i = 0; i < set.size(); i++){
-            //TODO: Change to use index as well
-            sum += solution[i] * (Double) set.get(i).getVal();
+            Coefficient tmp = set.get(i);
+            if(tmp.isValue()){
+                sum += solution[i] * (Double) tmp.getVal();
+            }
+            else{
+                sum += solution[i];
+            }
+
         }
         return sum;
     }

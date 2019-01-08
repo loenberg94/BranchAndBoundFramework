@@ -22,4 +22,6 @@ public abstract class Coefficient<T> {
     public Coefficient(T value){
         val = value;
     }
+
+    public abstract String toString();
 }

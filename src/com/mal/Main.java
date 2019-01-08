@@ -116,5 +116,6 @@ public class Main {
         //testCompile();
         //testBnbFile();
         //testFramework();
+        System.out.println("package test.test".matches("(package|import|public)[a-zA-Z .]*"));
     }
 }

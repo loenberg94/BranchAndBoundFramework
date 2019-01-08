@@ -17,9 +17,9 @@ public class Matrix implements Dataset {
         return n * m;
     }
 
-    public Matrix(Coefficient[][] coefficients, int n, int m){
-        this.n = n;
-        this.m = m;
+    public Matrix(Coefficient[][] coefficients){
+        this.n = coefficients.length;
+        this.m = coefficients[0].length;
         this.elements = coefficients;
     }
 }

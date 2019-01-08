@@ -70,7 +70,7 @@ public class Knapsack_24coef extends Problem {
     }
 
     public static Knapsack_24coef CreateNew(){
-        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,6404180,ConstraintType.LEQ, false)};
+        Constraint[] constraints = new Constraint[] {new Constraint(leftHandSide,6404180,ConstraintType.LEQ)};
         return new Knapsack_24coef(constraints, new knapsackBounds(),NodeStrategy.BEST_FIRST, ProblemType.MAXIMIZATION, true);
     }
 

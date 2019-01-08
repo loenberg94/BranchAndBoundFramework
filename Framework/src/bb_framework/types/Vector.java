@@ -17,9 +17,8 @@ public class Vector implements Dataset {
         return n;
     }
 
-
-    public Vector(Coefficient[] coefficients, int n){
-        this.n = n;
+    public Vector(Coefficient[] coefficients){
+        this.n = coefficients.length;
         elements = coefficients;
     }
 }

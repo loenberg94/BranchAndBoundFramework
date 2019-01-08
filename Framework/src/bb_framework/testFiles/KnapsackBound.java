@@ -22,16 +22,16 @@ public class KnapsackBound implements Bound{
                 }
                 prev = curr.index;
                 sum += curr.included?(Double) set.get(curr.index).getVal():0;
-                weight += curr.included?problem.getConstraints()[0].getD_lhs()[curr.index]:0;
+                weight += curr.included? (Double)problem.getConstraints()[0].getLhs()[curr.index].getVal():0;
                 curr = curr.getParent();
             }
 
             int csSet = prev==-1?prev:ds.Find(prev);
             for (int i = 0; i < set.size(); i++){
                 if(csSet == -1 || ds.Find(csSet) != ds.Find(i)){
-                    if(weight + problem.getConstraints()[0].getD_lhs()[i] <= problem.getConstraints()[0].getRhs()){
+                    if(weight + (Double) problem.getConstraints()[0].getLhs()[i].getVal() <= problem.getConstraints()[0].getRhs()){
                         sum += (Double) set.get(i).getVal();
-                        weight += problem.getConstraints()[0].getD_lhs()[i];
+                        weight += (Double) problem.getConstraints()[0].getLhs()[i].getVal();
                     }
                 }
             }

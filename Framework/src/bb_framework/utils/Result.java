@@ -20,8 +20,8 @@ public class Result {
         this.p_name = name;
     }
 
-    public void setSolution(int i, Double included) {
-        this.solution[i] = (included==1.0)?1:0;
+    public void setSolution(int i, int included) {
+        this.solution[i] = included;
     }
     public void setObjectiveValue(double val){ objectiveValue = val; }
     public int[] getSolution(){

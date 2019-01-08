@@ -69,7 +69,7 @@ public class NodeTest {
         for(int i = 0; i < size; i++){
             tmp[i] = new Value(Double.valueOf(rand.nextInt(MAX_VAL_DATASET) + 10));
         }
-        return new Vector(tmp,tmp.length);
+        return new Vector(tmp);
     }
 
     @Test
